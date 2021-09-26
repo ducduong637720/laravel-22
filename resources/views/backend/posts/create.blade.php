@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 @section('title')
-  List user
+  Create Post
 @endsection
 @section('content-header')
 <div class="container-fluid">
@@ -60,11 +60,9 @@
                   <div class="form-group">
                     <label>Trạng thái</label>
                     <select class="form-control">
-                      <option>option 1</option>
-                      <option>option 2</option>
-                      <option>option 3</option>
-                      <option>option 4</option>
-                      <option>option 5</option>
+                      <option>Online</option>
+                      <option>Offline</option>
+                      <option>Cancelled</option>
                     </select>
                   </div>
                 </div>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -14,7 +16,15 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('backend.posts.index');
+        $posts = DB::table('posts')
+        // ->where('status',1)
+        // ->orwhere('view_count','>',60)
+        // ->where([
+        //     'status'=>1,['view_count','>',70]
+        //     ])
+        ->orderBy('created_at','desc')
+        ->get();
+        return view('backend.posts.index')->with(['posts' => $posts]);
     }
 
     /**
@@ -35,9 +45,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-         // dd($request->all());
-        // dd($request->path());
-        // dd($request->except('_token'));
+        $data = $request->only(['title','content']);
+        DB::table('posts')->insert([
+            'title' => $data['title'],
+            'slug' => Str::slug($data['title']),
+            'content' => $data['content'],
+            'user_created_id' => 1,
+            'user_updated_id' => 1,
+            'created_at' => now(),
+            'updated_at' => now(),
+            'category_id' => 1
+        ]);
         return redirect('backend/posts');
     }
 
@@ -49,7 +67,12 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post_query = DB::table('posts')->select(['id','title','slug','user_created_id','user_updated_id']);
+        $post = $post_query->addSelect(['content','status','view_count','created_at','updated_at'])->find($id);
+        return view('backend.posts.show',
+        ['post'=>$post]
+    );
+    
     }
 
     /**

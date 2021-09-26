@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 @section('title')
-  List user
+  List Post
 @endsection
 @section('content-header')
 <div class="container-fluid">
@@ -25,7 +25,7 @@
       <div class="card">
         <div class="card-header">
           @include('backend.components.btn', [
-            'href' => route('backend.posts.add'),
+            'href' => route('backend.posts.create'),
             'type' => 'success',
             'content' => 'Tạo mới bài viết'
           ])
@@ -49,57 +49,31 @@
               <tr>
                 <th>ID</th>
                 <th>Bài viết</th>
+                <th>View_Count</th>
                 <th>Danh mục</th>
                 <th>Người khởi tạo</th>
+                <th>Trạng thái</th>
                 <th>Ngày tạo</th>
                 <th>Hành động</th>
               </tr>
             </thead>
             <tbody>
+              @foreach ( $posts as $post )
               <tr>
-                <td>1</td>
-                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                <td>Thời sự</td>
-                <td>John Doe</td>
-                <td>11-7-2014</td>
+                <td>{{ $post->id }}</td>
+                <td>{{ $post->title }}</td>
+                <td>{{ $post->view_count }}</td>
+                <td>{{ $post->slug }}</td>
+                <td>{{ $post->user_created_id }}</td>
+                <td>{{ $post->status }}</td>
+                <td>{{ $post->created_at }}</td>
                 <td>
-                  <a href="{{ route('backend.posts.edit', ['posts_id'=>'1']) }}" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
+                  <a href="{{ route('backend.posts.edit', 1) }}" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
                   <a href="" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></a>  
+                  <a href="" class="btn btn-outline-warning"><i class="fas fa-info-circle"></i></a>  
                 </td>                
               </tr>
-              <tr>
-                <td>1</td>
-                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                <td>Thời sự</td>
-                <td>John Doe</td>
-                <td>11-7-2014</td>
-                <td>
-                  <a href="" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
-                  <a href="" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></a>  
-                </td>                
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                <td>Thời sự</td>
-                <td>John Doe</td>
-                <td>11-7-2014</td>
-                <td>
-                  <a href="" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
-                  <a href="" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></a>  
-                </td>                
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                <td>Thời sự</td>
-                <td>John Doe</td>
-                <td>11-7-2014</td>
-                <td>
-                  <a href="" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
-                  <a href="" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></a>  
-                </td>                
-              </tr>
+              @endforeach
             </tbody>
           </table>
         </div>

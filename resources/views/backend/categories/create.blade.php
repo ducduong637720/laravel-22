@@ -6,11 +6,10 @@
 <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0">Tạo mới danh mục</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
           <li class="breadcrumb-item active">Danh sách danh mục</li>
         </ol>
       </div><!-- /.col -->
@@ -20,22 +19,18 @@
 @section('content')
 <div class="container-fluid">
     <!-- Small boxes (Stat box) -->
-    <div class="card card-primary">
+    <div class="card card-warning">
         <div class="card-header">
-          <h3 class="card-title">Quick Example</h3>
+          <h3>Tạo mới danh mục</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form method="post" action="{{route('backend.posts.store')}}">
+        <form method="post" action="{{route('backend.categories.store')}}">
             @csrf
             <div class="card-body">
               <div class="form-group">
-                  <label for="exampleInputEmail1">ID</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter ID">
-              </div>
-              <div class="form-group">
-                  <label for="exampleInputEmail1">Tên danh mục</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Name">
+                  <label>Tên danh mục</label>
+                  <input type="text" name="name" class="form-control" placeholder="Nhập tên danh mục ...">
               </div>  
               <div class="form-group">
                 <label for="exampleInputFile">File input</label>
@@ -52,17 +47,10 @@
                   <div class="form-group">
                     <label>Trạng thái</label>
                     <select class="form-control">
-                      <option>option 1</option>
-                      <option>option 2</option>
-                      <option>option 3</option>
-                      <option>option 4</option>
-                      <option>option 5</option>
+                      <option>Hoạt động</option>
+                      <option>Ngoại tuyến</option>
                     </select>
                   </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Date</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Date">
-            </div>
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
@@ -71,7 +59,8 @@
             <!-- /.card-body -->
   
             <div class="card-footer">
-              <button type="submit" class="btn btn-primary">Lưu</button>
+              <button type="submit" class="btn btn-warning">Lưu</button>
+              <button type="submit" class="btn btn-default float-right">Hủy bỏ</button>
             </div>
           </form>
       </div>

@@ -19,17 +19,27 @@ class CategoriesTableSeeder extends Seeder
         [
             [
                 'name' => 'Máy  tính',
+                'status' => 1,
+                'created_at' => now(),
+                'updated_at' => now(),
                 
             ], 
             [
-                'name' => 'Điện thoại'
+                'name' => 'Điện thoại',
+                'status' => 2,
+                'created_at' => now(),
+                'updated_at' => now(),
             ], 
             [
                 'name' => 'Phần cứng',
+                'status' => 3,
+                'created_at' => now(),
+                'updated_at' => now(),
             ]
         ];
-        foreach($categories as $category){
-            DB::table('categories')->insert($category);
-        }
+        // foreach($categories as $category){
+        //     DB::table('categories')->insert($category);
+        // }
+        DB::table('categories')->insert($categories);
     }
 }

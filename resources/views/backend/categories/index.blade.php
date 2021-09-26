@@ -7,12 +7,12 @@
 <div class="container-fluid">
   <div class="row mb-2">
     <div class="col-sm-6">
-      <h1 class="m-0">Danh sách danh muc</h1>
+      <h1 class="m-0">Danh sách danh mục</h1>
     </div><!-- /.col -->
     <div class="col-sm-6">
       <ol class="breadcrumb float-sm-right">
-        <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item active">Danh sách Users</li>
+        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+        <li class="breadcrumb-item active">Dashboard</li>
       </ol>
     </div><!-- /.col -->
   </div><!-- /.row -->
@@ -56,46 +56,19 @@
               </tr>
             </thead>
             <tbody>
+              @foreach ( $categories as $category )
               <tr>
-                <td>1</td>
-                <td>Ngày nắng hạ</td>
-                <td>Hoạt động</td>
-                <td>11-7-2014</td>
+                <td>{{ $category->id }}</td>
+                <td>{{ $category->name }}</td>
+                <td>{{ $category->status }}</td>
+                <td>{{ $category->created_at }}</td>
                 <td>
-                  <a href="" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
+                  <a href="{{ route('backend.categories.edit', 1) }}" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
                   <a href="" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></a>  
+                  <a href="" class="btn btn-outline-warning"><i class="fas fa-info-circle"></i></a>  
                 </td>
               </tr>
-              <tr>
-                <td>1</td>
-                <td>Ngày nắng hạ</td>
-                <td>Hoạt động</td>
-                <td>11-7-2014</td>
-                <td>
-                  <a href="" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
-                  <a href="" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></a>  
-                </td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>Ngày nắng hạ</td>
-                <td>Hoạt động</td>
-                <td>11-7-2014</td>
-                <td>
-                  <a href="" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
-                  <a href="" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></a>  
-                </td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>Ngày nắng hạ</td>
-                <td>Hoạt động</td>
-                <td>11-7-2014</td>
-                <td>
-                  <a href="" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
-                  <a href="" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></a>  
-                </td>
-              </tr>
+              @endforeach
             </tbody>
           </table>
         </div>

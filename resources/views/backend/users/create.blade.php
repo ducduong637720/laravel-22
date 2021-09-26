@@ -6,7 +6,6 @@
 <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1 class="m-0">Tạo mới users</h1>
       </div><!-- /.col -->
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
@@ -20,36 +19,40 @@
 @section('content')
 <div class="container-fluid">
     <!-- Small boxes (Stat box) -->
-    <div class="card card-primary">
+    <div class="card card-info">
         <div class="card-header">
-          <h3 class="card-title">Quick Example</h3>
+          <h3>Tạo mới người dùng</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form>
+        <form method="post" action="{{route('backend.users.store')}}">
             <div class="card-body">
               <div class="form-group">
-                  <label for="exampleInputEmail1">ID</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter ID">
-              </div>
-              <div class="form-group">
-                  <label for="exampleInputEmail1">Name</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Name">
+                  <label >Họ và tên</label>
+                  <input type="text" name="name" class="form-control" placeholder="Nhập tên.....">
               </div>  
               <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                <label for="exampleInputEmail1">Email</label>
+                <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Nhập email...">
               </div>
               <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <label for="exampleInputPassword1">Mật khẩu</label>
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Nhập mật khẩu...">
               </div>
               <div class="form-group">
-                <label for="exampleInputFile">File input</label>
+                <label for="exampleInputphoneNumber">Số điện thoại</label>
+                <input type="number" name="phone" class="form-control" id="exampleInputphoneNumber" placeholder="Nhập số điện thoại...">
+              </div>
+              <div class="form-group">
+                <label >Địa chỉ</label>
+                <input type="text" name="address" class="form-control" placeholder="Nhập địa chỉ.....">
+            </div>  
+              <div class="form-group">
+                <label for="exampleInputFile">Ảnh đại diện</label>
                 <div class="input-group">
                   <div class="custom-file">
                     <input type="file" class="custom-file-input" id="exampleInputFile">
-                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                    <label class="custom-file-label" for="exampleInputFile">Đăng ảnh</label>
                   </div>
                   <div class="input-group-append">
                     <span class="input-group-text">Upload</span>
@@ -57,9 +60,12 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Date</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Date">
-            </div>
+                <label>Trạng thái</label>
+                <select class="form-control">
+                  <option>Hoạt động</option>
+                  <option>Ngoại tuyến</option>
+                </select>
+              </div>
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
@@ -68,7 +74,8 @@
             <!-- /.card-body -->
   
             <div class="card-footer">
-              <button type="submit" class="btn btn-primary">Lưu</button>
+              <button type="submit" class="btn btn-info">Lưu</button>
+              <button type="submit" class="btn btn-default float-right">Hủy bỏ</button>
             </div>
           </form>
       </div>

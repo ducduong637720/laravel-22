@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -14,7 +15,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('backend.categories.index');
+        $categories = DB::table('categories')   
+        ->orderBy('created_at','desc')
+        ->get();
+        return view('backend.categories.index')->with(['categories' => $categories]);
     }
 
     /**
@@ -35,6 +39,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $data = $request->only(['name']);
+        DB::table('categories')->insert([
+            'name' => $data['name'],
+            'created_at' => now(),
+            'updated_at' => now(),
+            
+        ]);
         return redirect('backend/categories');
     }
 
@@ -46,7 +57,11 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $category_query = DB::table('categories')->select(['id','name','status']);
+        $category = $category_query->addSelect(['created_at','updated_at'])->find($id);
+        return view('backend.categories.show',
+        ['category'=>$category]
+    );
     }
 
     /**

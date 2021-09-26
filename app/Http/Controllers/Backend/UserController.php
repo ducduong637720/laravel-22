@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -14,7 +15,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('backend.users.index');
+        $users = DB::table('users')
+        ->orderBy('created_at','desc')
+        ->get();
+        return view('backend.users.index')->with(['users' => $users]);
     }
 
     /**
@@ -35,6 +39,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $data = $request->only(['name','email','phone','address','password']);
+        DB::table('users')->insert([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'phone' => $data['phone'],
+            'address' => $data['address'],
+            'password' =>$data['password'],
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
         return redirect('backend/users');
     }
 
@@ -46,7 +60,11 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user_query = DB::table('users')->select(['id','name','address']);
+        $user = $user_query->addSelect('email','phone','status','created_at','updated_at')->find($id);
+        return view('backend.users.show',
+        ['user'=>$user]
+    );
     }
 
     /**

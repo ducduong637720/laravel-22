@@ -49,42 +49,34 @@
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Tên bài viết</th>
-                <th>Danh mục</th>
-                <th>Người tạo</th>
+                <th>Tên người dùng</th>
+                <th>Email</th>
+                <th>Chức vụ</th>
+                <th>Trạng thái</th>
+                <th>Điện thoại</th>
+                <th>Địa chỉ</th>
                 <th>Ngày tạo</th>
                 <th>Hành động</th>
               </tr>
             </thead>
             <tbody>
+              @foreach ( $users as $user )
               <tr>
-                <td>183</td>
-                <td>John Doe</td>
-                <td>11-7-2014</td>
-                <td><span class="tag tag-success">Approved</span></td>
-                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                <td>{{ $user->id }}</td>
+                <td>{{ $user->name }}</td>
+                <td>{{ $user->email }}</td>
+                <td><span class="tag tag-success">Giám đốc</span></td>
+                <td>{{ $user->status }}</td>
+                <td>{{ $user->phone }}</td>
+                <td>{{ $user->address }}</td>
+                <td>{{ $user->created_at }}</td>
+                <td>
+                  <a href="{{ route('backend.users.edit', 1) }}" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
+                  <a href="" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></a>  
+                  <a href="" class="btn btn-outline-warning"><i class="fas fa-info-circle"></i></a>  
+                </td>  
               </tr>
-              <tr>
-                <td>219</td>
-                <td>Alexander Pierce</td>
-                <td>11-7-2014</td>
-                <td><span class="tag tag-warning">Pending</span></td>
-                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-              </tr>
-              <tr>
-                <td>657</td>
-                <td>Bob Doe</td>
-                <td>11-7-2014</td>
-                <td><span class="tag tag-primary">Approved</span></td>
-                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-              </tr>
-              <tr>
-                <td>175</td>
-                <td>Mike Doe</td>
-                <td>11-7-2014</td>
-                <td><span class="tag tag-danger">Denied</span></td>
-                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-              </tr>
+              @endforeach
             </tbody>
           </table>
         </div>

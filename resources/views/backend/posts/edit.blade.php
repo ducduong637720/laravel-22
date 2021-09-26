@@ -1,12 +1,12 @@
 @extends('backend.layouts.master')
 @section('title')
-  List user
+  List Post
 @endsection
 @section('content-header')
 <div class="container-fluid">
   <div class="row mb-2">
     <div class="col-sm-6">
-      <h1 class="m-0">edit bài viết</h1>
+      <h1 class="m-0">Chỉnh sửa bài viết</h1>
     </div><!-- /.col -->
     <div class="col-sm-6">
       <ol class="breadcrumb float-sm-right">
@@ -23,7 +23,7 @@
   <div class="row">
     <div class="col-12">
         <div class="card card-warning">
-           <form class="form-horizontal" method="POST" action="{{ route('backend.posts.update', ['posts_id'=>'1']) }}">
+           <form class="form-horizontal" method="POST" action="{{ route('backend.posts.update',1) }}">
             @method('PUT')
             @csrf
           <div class="card-body">
@@ -61,18 +61,16 @@
                   <div class="form-group">
                     <label>Trạng thái</label>
                     <select class="form-control">
-                      <option>option 1</option>
-                      <option>option 2</option>
-                      <option>option 3</option>
-                      <option>option 4</option>
-                      <option>option 5</option>
+                      <option>Online</option>
+                      <option>Offline</option>
+                      <option>Cancelled</option>
                     </select>
                   </div>
                 </div>
               </div>
               <div class="card-footer">
-                <button type="submit" class="btn btn-success">Update</button>
-            
+                <button type="submit" class="btn btn-success">Sửa</button>
+                <button type="submit" class="btn btn-default float-right">Hủy bỏ</button>
               </div>
           </div>
         </form>

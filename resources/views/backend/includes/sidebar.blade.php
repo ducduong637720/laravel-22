@@ -48,9 +48,9 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="{{route('backend.posts.add')}}" 
+              <a href="{{route('backend.posts.create')}}" 
               class="nav-link 
-              @if (request()->routeIs('backend.posts.add')) active @endif">
+              @if (request()->routeIs('backend.posts.create')) active @endif">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Tạo mới Blog</p>
               </a>

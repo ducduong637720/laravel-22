@@ -19,9 +19,9 @@ use \App\Http\Controllers\HomeController;
 
 Route::get('/','HomeController@index');
 
-Route::get('/posts/show', function () {
-    return view('frontend.posts.show');
-})->name('frontend.posts.show');
+// Route::get('/posts/show', function () {
+//     return view('frontend.posts.show');
+// })->name('frontend.posts.show');
 
 
 Route::prefix('backend')
@@ -34,14 +34,13 @@ Route::prefix('backend')
 
     //Dashboard
     Route::resource('/dashboard', DashboardController::class);
+    
     //Post
-    Route::resource('posts', PostController::class)->only([
-        'index', 'store', 'create','update','edit'
-    ])->names([
-        'create' => 'posts.add'
-    ])->parameters([
-        'posts' => 'posts_id'
-    ]);
+    Route::resource('posts', PostController::class);
+    // ->only([
+    //     'index', 'store', 'create','update','edit','show'
+    // ]);
+  
     //User
     Route::resource('users', UserController::class);
     //Category
