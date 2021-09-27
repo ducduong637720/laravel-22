@@ -23,23 +23,25 @@
   <div class="row">
     <div class="col-12">
         <div class="card card-warning">
-           <form class="form-horizontal" method="POST" action="{{ route('backend.posts.update',1) }}">
-            @method('PUT')
+           <form class="form-horizontal" method="POST" action="{{ route('backend.posts.update',$post->id) }}">
             @csrf
+            @method('PUT')
           <div class="card-body">
               <div class="row">
                 <div class="col-sm-12">
                   <!-- text input -->
                   <div class="form-group">
                     <label>Tiêu đề</label>
-                    <input type="text" name="title" class="form-control" placeholder="Enter ...">
+                    <input type="text" name="title" value="{{ $post->title }}" class="form-control" placeholder="Enter ...">
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-sm-12">
                   <!-- textarea -->
-                 @include('backend.components.summernote')
+                 @include('backend.components.summernote',
+                    ['content' => $post->content]
+                 )
                 </div>
               </div>
               <div class="row">

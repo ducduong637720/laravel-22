@@ -25,13 +25,13 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form method="POST" action="{{route('backend.posts.update',1)}}">
-            @method('PUT')
+        <form method="POST" action="{{route('backend.categories.update',$category->id)}}">
             @csrf
+            @method('PUT')
             <div class="card-body">
               <div class="form-group">
                   <label>Tên danh mục</label>
-                  <input type="text" class="form-control">
+                  <input type="text" name="name" value="{{ $category->name }}" class="form-control">
               </div>  
               <div class="form-group">
                 <label for="exampleInputFile">File input</label>

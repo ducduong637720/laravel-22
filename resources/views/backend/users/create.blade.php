@@ -26,6 +26,7 @@
         <!-- /.card-header -->
         <!-- form start -->
         <form method="post" action="{{route('backend.users.store')}}">
+          @csrf
             <div class="card-body">
               <div class="form-group">
                   <label >Họ và tên</label>
@@ -51,7 +52,7 @@
                 <label for="exampleInputFile">Ảnh đại diện</label>
                 <div class="input-group">
                   <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="exampleInputFile">
+                    <input type="file" name="avatar" class="custom-file-input" id="exampleInputFile">
                     <label class="custom-file-label" for="exampleInputFile">Đăng ảnh</label>
                   </div>
                   <div class="input-group-append">

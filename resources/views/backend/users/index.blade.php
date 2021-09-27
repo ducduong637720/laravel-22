@@ -71,9 +71,15 @@
                 <td>{{ $user->address }}</td>
                 <td>{{ $user->created_at }}</td>
                 <td>
-                  <a href="{{ route('backend.users.edit', 1) }}" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
-                  <a href="" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></a>  
-                  <a href="" class="btn btn-outline-warning"><i class="fas fa-info-circle"></i></a>  
+                  <a href="{{ route('backend.users.edit', $user->id) }}" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
+                  <form method="POST" action="{{ route('backend.users.destroy', $user->id) }}">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-outline-danger">
+                      <i class="far fa-trash-alt"></i>
+                    </button>
+                </form>  
+                  <a href="{{ route('backend.users.show', $user->id) }}" class="btn btn-outline-warning"><i class="fas fa-info-circle"></i></a>  
                 </td>  
               </tr>
               @endforeach

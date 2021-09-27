@@ -39,13 +39,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->only(['name','email','phone','address','password']);
+        $data = $request->only(['name','email','phone','address','password','avatar']);
         DB::table('users')->insert([
             'name' => $data['name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
             'address' => $data['address'],
             'password' =>$data['password'],
+            'avatar' => $data['avatar'],
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -75,7 +76,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        return view('backend.users.edit');
+        $user = DB::table('users')->find($id);
+        return view('backend.users.edit')->with(['user' => $user]);
     }
 
     /**
@@ -87,7 +89,17 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return redirect('backend/users');
+        $data = $request->only(['name','email','password','phone','address','avatar']);
+        DB::table('users')->where('id',$id)
+        ->update([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => $data['password'],
+            'phone' => $data['phone'],
+            'address' => $data['address'],
+            'avatar' => $data['avatar'],
+        ]);
+        return redirect()->route('backend.users.index');
     }
 
     /**
@@ -98,6 +110,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('categories')->where('id',$id)->delete();
+        return redirect()->route('backend.categories.index');
     }
 }

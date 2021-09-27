@@ -25,33 +25,35 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form>
+        <form method="POST" action="{{ route('backend.users.update',$user->id) }}">
+          @csrf
+          @method('PUT')
           <div class="card-body">
             <div class="form-group">
               <label >Họ và tên</label>
-              <input type="text" name="name" class="form-control" placeholder="Nhập tên.....">
+              <input type="text" name="name" value="{{ $user->name }}" class="form-control" placeholder="Nhập tên.....">
           </div>  
           <div class="form-group">
             <label for="exampleInputEmail1">Email</label>
-            <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Nhập email...">
+            <input type="email" name="email" value="{{ $user->email }}" class="form-control" id="exampleInputEmail1" placeholder="Nhập email...">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Mật khẩu</label>
-            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Nhập mật khẩu...">
+            <input type="password" name="password" value="{{ $user->password }}" class="form-control" id="exampleInputPassword1" placeholder="Nhập mật khẩu...">
           </div>
           <div class="form-group">
             <label for="exampleInputphoneNumber">Số điện thoại</label>
-            <input type="number" name="phone" class="form-control" id="exampleInputphoneNumber" placeholder="Nhập số điện thoại...">
+            <input type="number" name="phone" value="{{ $user->phone }}" class="form-control" id="exampleInputphoneNumber" placeholder="Nhập số điện thoại...">
           </div>
           <div class="form-group">
             <label >Địa chỉ</label>
-            <input type="text" name="address" class="form-control" placeholder="Nhập địa chỉ.....">
+            <input type="text" name="address" value="{{ $user->address }}" class="form-control" placeholder="Nhập địa chỉ.....">
         </div>  
             <div class="form-group">
               <label for="exampleInputFile">Ảnh đại diện</label>
               <div class="input-group">
                 <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="exampleInputFile">
+                  <input type="file" name="avatar" value="{{ $user->avatar }}" class="custom-file-input" id="exampleInputFile">
                   <label class="custom-file-label" for="exampleInputFile">Đăng ảnh</label>
                 </div>
                 <div class="input-group-append">

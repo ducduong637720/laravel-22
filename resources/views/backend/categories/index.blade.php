@@ -63,9 +63,15 @@
                 <td>{{ $category->status }}</td>
                 <td>{{ $category->created_at }}</td>
                 <td>
-                  <a href="{{ route('backend.categories.edit', 1) }}" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
-                  <a href="" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></a>  
-                  <a href="" class="btn btn-outline-warning"><i class="fas fa-info-circle"></i></a>  
+                  <a href="{{ route('backend.categories.edit', $category->id)}}" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
+                  <form method="POST" action="{{ route('backend.categories.destroy', $category->id) }}">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-outline-danger">
+                      <i class="far fa-trash-alt"></i>
+                    </button>
+                </form>   
+                  <a href="{{ route('backend.categories.show', $category->id)}}" class="btn btn-outline-warning"><i class="fas fa-info-circle"></i></a>  
                 </td>
               </tr>
               @endforeach
