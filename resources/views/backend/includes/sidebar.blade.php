@@ -27,7 +27,7 @@
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
           <li class="nav-item">
-          <a href="#1" class="nav-link @if (request()->is('backend/dashboard')) active @endif" >
+          <a href="" class="nav-link @if (request()->is('backend/dashboard')) active @endif" >
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
               Dashboard

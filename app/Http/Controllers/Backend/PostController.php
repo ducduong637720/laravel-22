@@ -14,16 +14,26 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $posts = DB::table('posts')
-        // ->where('status',1)
-        // ->orwhere('view_count','>',60)
-        // ->where([
-        //     'status'=>1,['view_count','>',70]
-        //     ])
-        ->orderBy('created_at','desc')
-        ->get();
+        $posts_query = DB::table('posts');
+        $title = $request->get('title');
+        if(!empty($title)){
+            $posts_query->where('title', 'like', "%" . $title . "%");
+        }
+        $status = $request->get('status');
+        if($status !== null){
+            $posts_query->where('status', $status);
+        }
+        $posts = $posts_query->get();
+        // $posts = DB::table('posts')
+        // // ->where('status',1)
+        // // ->orwhere('view_count','>',60)
+        // // ->where([
+        // //     'status'=>1,['view_count','>',70]
+        // //     ])
+        // // ->orderBy('created_at','desc')
+        // ->get();
         return view('backend.posts.index')->with(['posts' => $posts]);
     }
 

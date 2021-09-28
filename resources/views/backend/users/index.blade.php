@@ -42,6 +42,22 @@
               </div>
             </div>
           </div>
+          <div class="col-6">
+            <form method="GET" action="{{ route('backend.users.index')}}" class="form-inline">
+              <div class="col-4">
+                <input type="text" value="{{request()->get('name')}}" name="name" class="form-group" placeholder="Nhập tên cần tìm...">
+              </div>
+              <div class="col-4">
+                <input type="text" value="{{request()->get('email')}}" name="email" class="form-group" placeholder="Nhập email cần tìm...">
+              </div>
+              {{-- <div class="col-3">
+                <input type="text" class="form-group" placeholder=".col-5">
+              </div> --}}
+              <div class="col-4">
+                <button class="btn btn-info">Lọc</button>
+              </div>
+            </form>
+          </div>
         </div>
         <!-- /.card-header -->
         <div class="card-body table-responsive p-0">

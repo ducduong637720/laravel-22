@@ -42,6 +42,22 @@
             </div>
           </div>
         </div>
+        <div class="col-8">
+          <form method="GET" action="{{ route('backend.posts.index')}}" class="form-inline">
+            <div class="col-4">
+              <input type="text" value="{{request()->get('title')}}" name="title" class="form-group" placeholder=".col-3">
+            </div>
+            <div class="col-4">
+              <input type="text" value="{{request()->get('status')}}" name="status" class="form-group" placeholder=".col-4">
+            </div>
+            {{-- <div class="col-3">
+              <input type="text" class="form-group" placeholder=".col-5">
+            </div> --}}
+            <div class="col-4">
+              <button class="btn btn-info">Lọc</button>
+            </div>
+          </form>
+        </div>
         <!-- /.card-header -->
         <div class="card-body table-responsive p-0">
           <table class="table table-hover text-nowrap">
