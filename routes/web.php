@@ -23,6 +23,10 @@ Route::get('/','HomeController@index');
 //     return view('frontend.posts.show');
 // })->name('frontend.posts.show');
 
+Route::get('backend/users/delete','Backend\UserController@delete')->name('backend.users.delete');
+Route::get('backend/users/restore/{id}','Backend\UserController@restore')->name('backend.users.restore');
+Route::get('backend/categories/delete','Backend\CategoryController@delete')->name('backend.categories.delete');
+Route::get('backend/categories/restore/{id}','Backend\CategoryController@restore')->name('backend.categories.restore');
 
 Route::prefix('backend')
 ->name('backend.')
@@ -31,22 +35,14 @@ Route::prefix('backend')
 ->group(function(){
     // Route::get('dashboard', 'DashboardController@index')
     // ->name('dashboard.index');
-
     //Dashboard
     Route::resource('/dashboard', DashboardController::class);
-    
     //Post
     Route::resource('posts', PostController::class);
-    // ->only([
-    //     'index', 'store', 'create','update','edit','show'
-    // ]);
-  
     //User
     Route::resource('users', UserController::class);
     //Category
     Route::resource('categories', CategoryController::class);
-//    Route::resources([
-//        'posts'=> PostController::class,
-//     //    'users'=> UserController::class,
-//    ]);
 });
+Route::get('backend/categories/softDelete','Backend\CategoryController@softDelete')
+->name('backend.categories.softDelete');

@@ -118,16 +118,17 @@ class CategoryController extends Controller
         return redirect()->route('backend.categories.index');
     }
 
-    public function softDelete()
+    public function delete(Request $request)
     {
         $categories = Category::onlyTrashed()->get();
-        return view('backend.categories.deleteList', [
-            'categories' => $categories,
+        return view('backend.categories.softDelete', [
+            'categories'=> $categories
         ]);
     }
 
-    public function restore($id){
-        $categories = Category::withTrashed()->where('id',$id)->restore();
-        return redirect()->route('backend.categories.index');
+    public function restore($id)
+    {
+        $categories = Category::withTrashed()->where('id', $id)->restore();
+        return redirect()->route('backend.categories.delete');
     }
 }

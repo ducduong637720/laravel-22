@@ -24,16 +24,29 @@ class UserController extends Controller
         // dd($users);
         $users = User::simplePaginate(3);
         $name = $request->get('name');
-        if(!empty($name)){
+        if (!empty($name)) {
             $user = User::where('name', 'like', "%" . $name . "%")->get();
         }
         $email = $request->get('email');
-        if($email !== null){
+        if ($email !== null) {
             $user = User::where('email', $email)->get();
         }
         return view('backend.users.index')->with(['users' => $users]);
     }
 
+    public function delete(Request $request)
+    {
+        $users = User::onlyTrashed()->get();
+        return view('backend.users.softDelete', [
+            'users'=> $users
+        ]);
+    }
+
+    public function restore($id)
+    {
+        $users = User::withTrashed()->where('id', $id)->restore();
+        return redirect()->route('backend.users.delete');
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -52,13 +65,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->only(['name','email','phone','address','password','avatar']);
+        $data = $request->only(['name', 'email', 'phone', 'address', 'password', 'avatar']);
         DB::table('users')->insert([
             'name' => $data['name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
             'address' => $data['address'],
-            'password' =>$data['password'],
+            'password' => $data['password'],
             'avatar' => $data['avatar'],
             'created_at' => now(),
             'updated_at' => now(),
@@ -74,11 +87,12 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user_query = DB::table('users')->select(['id','name','address']);
-        $user = $user_query->addSelect('email','phone','status','created_at','updated_at')->find($id);
-        return view('backend.users.show',
-        ['user'=>$user]
-    );
+        $user_query = DB::table('users')->select(['id', 'name', 'address']);
+        $user = $user_query->addSelect('email', 'phone', 'status', 'created_at', 'updated_at')->find($id);
+        return view(
+            'backend.users.show',
+            ['user' => $user]
+        );
     }
 
     /**
@@ -102,16 +116,16 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->only(['name','email','password','phone','address','avatar']);
-        DB::table('users')->where('id',$id)
-        ->update([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => $data['password'],
-            'phone' => $data['phone'],
-            'address' => $data['address'],
-            'avatar' => $data['avatar'],
-        ]);
+        $data = $request->only(['name', 'email', 'password', 'phone', 'address', 'avatar']);
+        DB::table('users')->where('id', $id)
+            ->update([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => $data['password'],
+                'phone' => $data['phone'],
+                'address' => $data['address'],
+                'avatar' => $data['avatar'],
+            ]);
         return redirect()->route('backend.users.index');
     }
 
