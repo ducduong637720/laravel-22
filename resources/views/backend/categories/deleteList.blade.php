@@ -1,6 +1,6 @@
 @extends('backend.layouts.master')
 @section('title')
-  List categories
+  List categories delete
 @endsection
 
 @section('content-header')

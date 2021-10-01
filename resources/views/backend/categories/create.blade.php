@@ -44,13 +44,14 @@
                   </div>
                 </div>
               </div>
-                  <div class="form-group">
-                    <label>Trạng thái</label>
-                    <select class="form-control">
-                      <option>Hoạt động</option>
-                      <option>Ngoại tuyến</option>
-                    </select>
-                  </div>
+              <div class="form-group">
+                <label>Trạng thái</label>
+                <select class="form-control" name="status">
+                  <option value="1">Public</option>
+                  <option value="0">Draft</option>
+                  <option value="2">Done</option>
+                </select>
+              </div>
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Check me out</label>

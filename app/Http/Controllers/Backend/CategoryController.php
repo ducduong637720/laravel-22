@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -15,9 +16,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = DB::table('categories')   
-        ->orderBy('created_at','desc')
-        ->get();
+        // $categories = DB::table('categories')   
+        // ->orderBy('created_at','desc')
+        // ->get();
+        $categories = Category::simplePaginate(3);
         return view('backend.categories.index')->with(['categories' => $categories]);
     }
 
@@ -39,13 +41,18 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->only(['name']);
-        DB::table('categories')->insert([
-            'name' => $data['name'],
-            'created_at' => now(),
-            'updated_at' => now(),
+        $data = $request->only(['name','status']);
+        // DB::table('categories')->insert([
+        //     'name' => $data['name'],
+        //     'created_at' => now(),
+        //     'updated_at' => now(),
             
-        ]);
+        // ]);
+        $category = new Category();
+        $category->name = $data['name'];
+        $category->status = $data['status'];
+        // $post->slug = $data['title'];
+        $category->save();
         return redirect('backend/categories');
     }
 
@@ -72,7 +79,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = DB::table('categories')->find($id);
+        // $category = DB::table('categories')->find($id);
+        $category = Category::firstwhere('id', $id);
         return view('backend.categories.edit')->with(['category' => $category]);
     }
 
@@ -85,11 +93,15 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->only('name');
-        DB::table('categories')->where('id',$id)
-        ->update([
-            'name' => $data['name'],
-        ]);
+        $data = $request->only('name', 'status');
+        // DB::table('categories')->where('id',$id)
+        // ->update([
+        //     'name' => $data['name'],
+        // ]);
+        $category = Category::find($id);
+        $category->name = $data['name'];
+        $category->status = $data['status'];
+        $category->save();
         return redirect()->route('backend.categories.index');
     }
 
@@ -101,7 +113,21 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('categories')->where('id',$id)->delete();
+        // DB::table('categories')->where('id',$id)->delete();
+        Category::destroy($id);
+        return redirect()->route('backend.categories.index');
+    }
+
+    public function softDelete()
+    {
+        $categories = Category::onlyTrashed()->get();
+        return view('backend.categories.deleteList', [
+            'categories' => $categories,
+        ]);
+    }
+
+    public function restore($id){
+        $categories = Category::withTrashed()->where('id',$id)->restore();
         return redirect()->route('backend.categories.index');
     }
 }

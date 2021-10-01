@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -18,16 +19,18 @@ class UserController extends Controller
         // $users = DB::table('users')
         // ->orderBy('created_at','desc')
         // ->get();
-        $users_query = DB::table('users');
+        // $users = DB::table('users')->paginate(3);
+        // $users = DB::table('users')->simplePaginate(3);
+        // dd($users);
+        $users = User::simplePaginate(3);
         $name = $request->get('name');
         if(!empty($name)){
-            $users_query->where('name', 'like', "%" . $name . "%");
+            $user = User::where('name', 'like', "%" . $name . "%")->get();
         }
         $email = $request->get('email');
         if($email !== null){
-            $users_query->where('email', $email);
+            $user = User::where('email', $email)->get();
         }
-        $users =  $users_query->get();
         return view('backend.users.index')->with(['users' => $users]);
     }
 
@@ -120,7 +123,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('categories')->where('id',$id)->delete();
-        return redirect()->route('backend.categories.index');
+        // DB::table('categories')->where('id',$id)->delete();
+        User::destroy($id);
+        return redirect()->route('backend.users.index');
     }
 }

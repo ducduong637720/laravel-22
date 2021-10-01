@@ -45,16 +45,15 @@
                   </div>
                 </div>
               </div>
-                  <div class="form-group">
-                    <label>Trạng thái</label>
-                    <select class="form-control">
-                      <option>option 1</option>
-                      <option>option 2</option>
-                      <option>option 3</option>
-                      <option>option 4</option>
-                      <option>option 5</option>
-                    </select>
-                  </div>
+              <div class="form-group">
+                <label>Trạng thái</label>
+                <select class="form-control" name="status">
+                  <option value="{{ $category->status }}">{!!$category->status_text !!}</option>
+                  <option value="1">Public</option>
+                  <option value="0">Draft</option>
+                  <option value="2">Done</option>
+                </select>
+              </div>
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Check me out</label>

@@ -23,7 +23,7 @@
     <tbody>
       <tr>
         <td>{{ $post->id }}</td>
-        <td>{{ $post->slug }}</td>
+        <td>Hạ chí</td>
         <td>{{ $post->view_count }}</td>
         <td>{{ $post->user_created_id }}</td>
         <td>{{ $post->user_updated_id }}</td>

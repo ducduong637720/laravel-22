@@ -59,10 +59,10 @@
                   <!-- select -->
                   <div class="form-group">
                     <label>Trạng thái</label>
-                    <select class="form-control">
-                      <option>Online</option>
-                      <option>Offline</option>
-                      <option>Cancelled</option>
+                    <select class="form-control" name="status">
+                      <option value="1">Public</option>
+                      <option value="0">Draft</option>
+                      <option value="2">Done</option>
                     </select>
                   </div>
                 </div>
