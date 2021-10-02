@@ -63,9 +63,10 @@
             </div>
             <div class="form-group">
               <label>Trạng thái</label>
-              <select class="form-control">
-                <option>Hoạt động</option>
-                <option>Ngoại tuyến</option>
+              <select class="form-control" name="status">
+                <option value="{{ $user->status }}">{!!$post->status_text !!}</option>
+                <option value="0">Hoạt động</option>
+                <option value="1">Ngoại tuyến</option>
               </select>
             </div>
             <div class="form-check">

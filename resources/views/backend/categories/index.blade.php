@@ -52,6 +52,7 @@
                 <th>Tên danh mục</th>
                 <th>Trạng thái</th>
                 <th>Ngày tạo</th>
+                <th>Ngày sửa</th>
                 <th>Hành động</th>
               </tr>
             </thead>
@@ -63,6 +64,7 @@
                   Slug: {{ $category->slug }}</td>
                 <td>{!! $category->status_text !!}</td>
                 <td>{{ $category->created_at }}</td>
+                <td>{{ $category->updated_at }}</td>
                 <td style="display: flex">
                   <a href="{{ route('backend.categories.edit', $category->id)}}" class="btn btn-outline-info"><i class="far fa-edit"></i></a>
                   <form method="POST" action="{{ route('backend.categories.destroy', $category->id) }}">

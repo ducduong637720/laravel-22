@@ -18,11 +18,17 @@
     <tbody>
       <tr>
         <td>{{ $category->id }}</td>
-        <td>{{ $category->status }}</td>
+        <td>{!! $category->status_text !!}</td>
         <td>{{ $category->created_at }}</td>
         <td>{{ $category->updated_at }}</td>
      </tr>
     </tbody>
   </table>
+  <div class="card-footer">
+    <a href="{{ route('backend.categories.index') }}">
+      <button type="submit" class="btn btn-default float-right">Quay lại</button>
+    </a>
+  </div>
+  {{ $categories->links() }}
 </div>
 @endsection

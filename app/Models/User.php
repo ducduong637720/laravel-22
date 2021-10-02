@@ -8,12 +8,31 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
     use SoftDeletes;
 
+    const STATUS_Online = 0;
+    const STATUS_Offline = 1;
+
+    protected $statusArr = [
+        self::STATUS_Online => 'Hoạt động',
+        self::STATUS_Offline => 'Ngoại tuyến',
+    ];
+    protected $statusColor = [
+        self::STATUS_Online => 'success',
+        self::STATUS_Offline => 'primary',
+    ];
+
+    public function getStatusTextAttribute()
+    {
+        return '<span class="badge badge-' 
+        . $this->statusColor[$this->status] . '">' 
+        . $this->statusArr[$this->status] . '<span>';
+    }
     /**
      * The attributes that are mass assignable.
      *

@@ -11,10 +11,6 @@ class Post extends Model
 {
     use HasFactory;
 
-    // protected $fillable = [
-    //     'user_updated_id'
-    // ];
-
     const STATUS_DRAFT = 0;
     const STATUS_PUBLIC = 1;
     const STATUS_DONE = 2;
@@ -31,12 +27,10 @@ class Post extends Model
     ];
     public function getStatusTextAttribute()
     {
-        return '<span class="badge badge-' . $this->statusColor[$this->status] . '">' . $this->statusArr[$this->status] . '<span>';
+        return '<span class="badge badge-' 
+        . $this->statusColor[$this->status] . '">' 
+        . $this->statusArr[$this->status] . '<span>';
     }
-
-    // public function setSlugAttribute($title){
-    //     $this->attributes['slug'] = Str::slug($title);
-    // }
 
     public function setTitleAttribute($title)
     {

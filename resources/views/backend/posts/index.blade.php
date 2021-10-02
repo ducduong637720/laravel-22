@@ -53,9 +53,9 @@
                                 <div class="form-group">
                                     <select type="text" value="{{ request()->get('status') }}" class="form-control"
                                         name="status">
-                                        <option value="1">Public</option>
-                                        <option value="0">Draft</option>
-                                        <option value="2">Done</option>
+                                        <option value="STATUS_PUBLIC">Public</option>
+                                        <option value="STATUS_DRAFT">Draft</option>
+                                        <option value="STATUS_Done">Done</option>
                                     </select>
                                 </div>
                             </div>

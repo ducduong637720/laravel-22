@@ -85,10 +85,11 @@
                                         <td>{{ $user->first_name }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td><span class="tag tag-success">Giám đốc</span></td>
-                                        <td>{{ $user->status }}</td>
+                                        <td>{!! $user->status_text !!}</td>
                                         <td>{{ $user->phone }}</td>
                                         <td>{{ $user->address }}</td>
                                         <td>{{ $user->created_at }}</td>
+                                        <td>{{ $user->updated_at }}</td>
                                         <td style="display: flex">
                                             <a href="{{ route('backend.users.edit', $user->id) }}"
                                                 class="btn btn-outline-info"><i class="far fa-edit"></i></a>

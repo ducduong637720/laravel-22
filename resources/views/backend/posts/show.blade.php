@@ -28,11 +28,17 @@
         <td>{{ $post->user_created_id }}</td>
         <td>{{ $post->user_updated_id }}</td>
         <td>{{ $post->content }}</td>
-        <td>{{ $post->status }}</td>
+        <td>{!! $post->status_text !!}</td>
         <td>{{ $post->created_at }}</td>
         <td>{{ $post->updated_at }}</td>
      </tr>
     </tbody>
   </table>
+    <div class="card-footer">
+      <a href="{{ route('backend.posts.index') }}">
+        <button type="submit" class="btn btn-default float-right">Quay lại</button>
+      </a>
+      
+    </div>
 </div>
 @endsection
