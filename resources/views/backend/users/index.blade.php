@@ -86,8 +86,8 @@
                                         <td>{{ $user->email }}</td>
                                         <td><span class="tag tag-success">Giám đốc</span></td>
                                         <td>{!! $user->status_text !!}</td>
-                                        <td>{{ $user->phone }}</td>
-                                        <td>{{ $user->address }}</td>
+                                        <td>{{ $user->userInfo->phone }}</td>
+                                        <td>{{ $user->userInfo->address }}</td>
                                         <td>{{ $user->created_at }}</td>
                                         <td>{{ $user->updated_at }}</td>
                                         <td style="display: flex">

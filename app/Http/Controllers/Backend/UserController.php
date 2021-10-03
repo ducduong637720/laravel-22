@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::simplePaginate(6);
+        // $users = User::simplePaginate(6);
         $name = $request->get('name');
         if (!empty($name)) {
             $user = User::where('name', 'like', "%" . $name . "%")->get();
@@ -25,6 +25,7 @@ class UserController extends Controller
         if ($email !== null) {
             $user = User::where('email', $email)->get();
         }
+        $users = User::orderBy('id','desc')->simplePaginate(5);
         return view('backend.users.index')->with(['users' => $users]);
     }
 
@@ -68,6 +69,7 @@ class UserController extends Controller
     public function show($id)
     {
        $user = User::find($id);
+       $userInfo = $user->userInfo;
         return view(
             'backend.users.show',
             ['user' => $user]
@@ -82,7 +84,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::firstwhere('id', $id);
+        $user = User::find($id);
         return view('backend.users.edit')->with(['user' => $user]);
     }
 

@@ -66,4 +66,12 @@ class User extends Authenticatable
     public function getFirstNameAttribute(){
         return ucfirst($this->name);
     }
+    
+    public function userInfo(){
+        return $this->hasOne(UserInfo::class);
+    }
+
+    public function posts(){
+        return $this->hasMany(Post::class, '');
+    }
 }
