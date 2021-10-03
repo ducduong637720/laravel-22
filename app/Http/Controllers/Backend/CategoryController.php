@@ -54,7 +54,9 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        $category = Category::find($id);
+        // $category = Category::find($id);
+        $posts = Category::find($id)->posts;
+        dd($posts);
         return view('backend.categories.show',
         ['category'=>$category]
     );

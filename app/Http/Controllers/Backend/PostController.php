@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use App\Models\Post;
+use App\Models\Tag;
 use Exception;
 
 class PostController extends Controller
@@ -68,10 +69,14 @@ class PostController extends Controller
      */
     public function show($id)
     {
+        // $post = Post::find($id);
+        // return view('backend.posts.show',[
+        //     'post' => $post
+        // ]);
         $post = Post::find($id);
-        return view('backend.posts.show',[
-            'post' => $post
-        ]);
+        foreach($post->tags as $tag){
+            echo $tag->name;
+        }
     }
 
     /**

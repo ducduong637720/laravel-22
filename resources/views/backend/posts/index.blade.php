@@ -76,7 +76,9 @@
                                     <th>Tên bài viết</th>
                                     <th>Lượt xem</th>
                                     <th>Danh mục</th>
+                                    <th>Tag</th>
                                     <th>Người tạo</th>
+                                    <th>Người sửa</th>
                                     <th>Trạng thái</th>
                                     <th>Ngày tạo</th>
                                     <th>Ngày sửa</th>
@@ -92,8 +94,14 @@
                                             Slug: {{ $post->slug }}
                                         </td>
                                         <td>{{ $post->view_count }}</td>
-                                        <td>Hạ chí</td>
-                                        <td>1</td>
+                                        <td>{{ $post->category->name}}</td>
+                                        <td>
+                                            @foreach ($post->tags as $tag )
+                                                <span class="badge badge-info">{{$tag->name}}</span>
+                                            @endforeach
+                                        </td>
+                                        <td>{{ $post->user->name}}</td>
+                                        <td>{{ $post->userUpdate->name }}</td>
                                         <td>{!! $post->status_text !!}</td>
                                         <td>{{ $post->created_at }}</td>
                                         <td>{{ $post->updated_at }}</td>

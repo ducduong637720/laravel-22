@@ -43,6 +43,8 @@ Route::prefix('backend')
     Route::resource('users', UserController::class);
     //Category
     Route::resource('categories', CategoryController::class);
+     //Tag
+     Route::resource('tags', TagController::class);
 });
-Route::get('backend/categories/softDelete','Backend\CategoryController@softDelete')
-->name('backend.categories.softDelete');
+// Route::get('backend/categories/softDelete','Backend\CategoryController@softDelete')
+// ->name('backend.categories.softDelete');
