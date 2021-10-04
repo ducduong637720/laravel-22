@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use App\Models\Post;
 use App\Models\Tag;
+use App\Models\User;
 use Exception;
 
 class PostController extends Controller
@@ -38,7 +39,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('backend.posts.create');
+        $tags = Tag::get();
+        return view('backend.posts.create')->with(['tags'=> $tags]);
     }
 
     /**
@@ -50,14 +52,19 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $data = $request->only(['title', 'content', 'status']);
+        $tags = $request->get('tags');
         $post = new Post();
         $post->title = $data['title'];
         $post->status = $data['status'];
-        $post->user_created_id = 1;
-        $post->user_updated_id = 1;
         $post->content = $data['content'];
+        $post->user_id = 1;
+        $post->user_updated_id = 1;
         $post->category_id = 1;
         $post->save();
+        $user = User::find(1);
+        $user->posts()->save($post);
+
+        $post->tags()->attach($tags);
         return redirect('backend/posts');
     }
 
@@ -74,9 +81,13 @@ class PostController extends Controller
         //     'post' => $post
         // ]);
         $post = Post::find($id);
-        foreach($post->tags as $tag){
+        foreach ($post->tags as $tag) {
             echo $tag->name;
         }
+        // $tag = Tag::find(1);
+        // foreach($tag->posts as $post){
+        //     echo $post->id . $post->title . "<br>";
+        // }
     }
 
     /**
@@ -87,8 +98,12 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::firstwhere('id', $id);
-        return view('backend.posts.edit')->with(['post' => $post]);
+        $post = Post::find($id);
+        $tags = Tag::get();
+        return view('backend.posts.edit')->with([
+            'post' => $post,
+            'tags' => $tags
+        ]);
     }
 
     /**
@@ -100,12 +115,16 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->only(['title', 'content','status']);
+        $data = $request->only(['title', 'content', 'status']);
+        $tags = $request->get('tags');
         $post = Post::find($id);
         $post->title = $data['title'];
         $post->content = $data['content'];
-        $post->status= $data['status'];
+        $post->status = $data['status'];
+        $post->user_id = 1;
+        $post->user_updated_id = 1;
         $post->save();
+        $post->tags()->sync($tags);
         return redirect()->route('backend.posts.index');
     }
 

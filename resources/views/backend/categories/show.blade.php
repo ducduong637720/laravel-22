@@ -29,6 +29,5 @@
       <button type="submit" class="btn btn-default float-right">Quay lại</button>
     </a>
   </div>
-  {{ $categories->links() }}
 </div>
 @endsection

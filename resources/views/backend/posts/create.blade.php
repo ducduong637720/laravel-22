@@ -40,6 +40,18 @@
                   <!-- textarea -->
                  @include('backend.components.summernote')
                 </div>
+
+                <div class="col-sm-12">
+                  <!-- Select multiple-->
+                  <div class="form-group">
+                    <label>Tags</label>
+                    <select multiple="" class="form-control" name="tags[]">
+                     @foreach ($tags as $item)
+                       <option value="{{ $item->id }}">{{ $item->name }}</option>
+                     @endforeach
+                    </select>
+                  </div>
+                </div>
               </div>
               <div class="row">
                 <div class="col-sm-6">

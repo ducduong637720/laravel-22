@@ -45,6 +45,27 @@
                 </div>
               </div>
               <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label>Tags</label>
+                        <select multiple="" class="form-control" name="tags[]">
+                            @foreach ($tags as $item)
+                                @foreach ($post->tags as $post_tag)
+                                    @php
+                                        $selected = '';
+                                        if ($post_tag->id == $item->id) {
+                                            $selected = 'selected';
+                                            break;
+                                        }
+                                    @endphp
+                                @endforeach
+                                <option value="{{ $item->id }}" {{ $selected }}>{{ $item->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+            </div>
+              <div class="row">
                 <div class="col-sm-6">
                   <!-- select -->
                   <div class="form-group">

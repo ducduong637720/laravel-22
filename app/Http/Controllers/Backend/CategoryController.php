@@ -38,7 +38,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->only(['name','status']);
+        $data = $request->only(['name', 'status']);
         $category = new Category();
         $category->name = $data['name'];
         $category->status = $data['status'];
@@ -57,9 +57,10 @@ class CategoryController extends Controller
         // $category = Category::find($id);
         $posts = Category::find($id)->posts;
         dd($posts);
-        return view('backend.categories.show',
-        ['category'=>$category]
-    );
+        return view(
+            'backend.categories.show',
+            ['category' => $category]
+        );
     }
 
     /**
@@ -107,7 +108,7 @@ class CategoryController extends Controller
     {
         $categories = Category::onlyTrashed()->simplePaginate(6);
         return view('backend.categories.softDelete', [
-            'categories'=> $categories
+            'categories' => $categories
         ]);
     }
 

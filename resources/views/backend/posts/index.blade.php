@@ -94,7 +94,7 @@
                                             Slug: {{ $post->slug }}
                                         </td>
                                         <td>{{ $post->view_count }}</td>
-                                        <td>{{ $post->category->name}}</td>
+                                        <td>{{ $post->category->name }}</td>
                                         <td>
                                             @foreach ($post->tags as $tag )
                                                 <span class="badge badge-info">{{$tag->name}}</span>

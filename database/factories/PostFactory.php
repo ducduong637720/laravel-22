@@ -27,7 +27,7 @@ class PostFactory extends Factory
             'title' => $title,
             'slug' => Str::slug($title),
             'content' => $this->faker->text(),
-            'user_created_id' => rand(1,5),
+            'user_id' => rand(1,5),
             'user_updated_id' => rand(1,5),
             'status' => rand(0,2),
             'view_count' => rand(50,100),

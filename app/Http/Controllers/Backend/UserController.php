@@ -48,15 +48,28 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $data = $request->only(['name', 'email', 'phone', 'address', 'password', 'avatar','status']);
-        $user = new User();
-        $user->name = $data['name'];
-        $user->email = $data['email'];
-        $user->status = $data['status'];
-        $user->phone = $data['phone'];
-        $user->address = $data['address'];
-        $user->password = $data['password'];
-        $user->avatar = $data['avatar'];
-        $user->save();
+        // $user = new User();
+        // $user->name = $data['name'];
+        // $user->email = $data['email'];
+        // $user->status = $data['status'];
+        // $user->phone = $data['phone'];
+        // $user->address = $data['address'];
+        // $user->password = $data['password'];
+        // $user->avatar = $data['avatar'];
+        // $user->save();
+
+        $user_id = DB::table('users')->insertGetId([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'status' => $data['status'],
+            'password' => $data['password'],
+            'avatar' => $data['avatar'],
+        ]);
+        DB::table('user_infos')->insert([
+            'user_id' => $user_id,
+            'phone' => $data['phone'],
+            'address' => $data['address'],
+        ]);
         return redirect('backend/users');
     }
 
@@ -68,7 +81,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-       $posts = User::find($id)->posts;
+       $posts = User::find($id)->posts()->where('status',2)->get();
        dd($posts);
     //    $userInfo = $user->userInfo;
         return view(
@@ -99,12 +112,18 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->only(['name', 'email', 'phone', 'address']);
-        $user = User::find($id);
-        $user->name = $data['name'];
-        $user->email = $data['email'];
-        $user->phone= $data['phone'];
-        $user->address= $data['address'];
-        $user->save();
+        $user_id = DB::table('users')->insertGetId([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'status' => $data['status'],
+            'password' => $data['password'],
+            'avatar' => $data['avatar'],
+        ]);
+        DB::table('user_infos')->insert([
+            'user_id' => $user_id,
+            'phone' => $data['phone'],
+            'address' => $data['address'],
+        ]);
         return redirect()->route('backend.users.index');
     }
 

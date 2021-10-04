@@ -38,7 +38,6 @@
       <a href="{{ route('backend.posts.index') }}">
         <button type="submit" class="btn btn-default float-right">Quay lại</button>
       </a>
-      
     </div>
 </div>
 @endsection
