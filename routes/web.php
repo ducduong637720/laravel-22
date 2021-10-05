@@ -46,5 +46,36 @@ Route::prefix('backend')
      //Tag
      Route::resource('tags', TagController::class);
 });
-// Route::get('backend/categories/softDelete','Backend\CategoryController@softDelete')
-// ->name('backend.categories.softDelete');
+Route::prefix('frontend')
+->name('frontend.')
+->namespace('Frontend')
+->middleware([])
+->group(function(){
+    Route::get('home', function () {
+        return view('frontend.home');
+    })->name('index');
+    Route::get('posts/', function () {
+        return view('frontend.posts.index');
+    })->name('posts.index');
+
+    Route::get('posts/category-posts', function () {
+        return view('frontend.posts.category-posts');
+    })->name('posts.category-posts');
+
+    Route::get('posts/detail', function () {
+        return view('frontend.posts.detail');
+    })->name('posts.detail');
+
+});
+Route::prefix('auth')
+->name('auth.')
+->namespace('Auth')
+->middleware([])
+->group(function(){
+    Route::get('login', function () {
+    return view('auth.login');
+})->name('login');
+    Route::get('register', function () {
+        return view('auth.register');
+})->name('register');
+});
