@@ -54,7 +54,7 @@ Route::prefix('frontend')
     Route::get('home', function () {
         return view('frontend.home');
     })->name('index');
-    Route::get('posts/', function () {
+    Route::get('posts/index', function () {
         return view('frontend.posts.index');
     })->name('posts.index');
 

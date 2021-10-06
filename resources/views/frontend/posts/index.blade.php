@@ -1,5 +1,15 @@
-@include('frontend.layouts.master')
-@section('page-content')
+@extends('frontend.layouts.master')
+@section('header')
+<div class="wt-bnr-inr overlay-wraper" style="background-image:url(/frontend/images/banner/blog-banner.jpg);">
+    <div class="overlay-main bg-black opacity-07"></div>
+    <div class="container">
+        <div class="wt-bnr-inr-entry">
+            <h1 class="text-white">Blog half image with sidebar</h1>
+        </div>
+    </div>
+</div>
+@endsection
+@section('main')
 <div class="section-full p-t80 p-b50">
     <div class="container">
         <div class="row">
@@ -10,7 +20,7 @@
                 <div class="blog-post blog-md date-style-1 clearfix">
                     
                     <div class="wt-post-media wt-img-effect zoom-slow">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/de9Mhw2dU60"></iframe>
+                        <div class="embed-responsive embed-responsive-16by9"><iframe width="560" height="315" src="https://www.youtube.com/embed/de9Mhw2dU60"></iframe></div>
                     </div>
                     <div class="wt-post-info">
                     
@@ -49,7 +59,7 @@
                 <div class="blog-post blog-md date-style-1 clearfix">
                     
                     <div class="wt-post-media wt-img-effect zoom-slow">
-                        <iframe src="https://player.vimeo.com/video/23534361" width="1000" height="563"  allowfullscreen></iframe>
+                        <div class="embed-responsive embed-responsive-16by9"><iframe src="https://player.vimeo.com/video/23534361" width="1000" height="563" allowfullscreen=""></iframe></div>
                     </div>
                     <div class="wt-post-info">
                     
@@ -89,27 +99,43 @@
                     
                     <div class="wt-post-media wt-img-effect zoom-slow">
                         <!--Fade slider-->
-                        <div class="owl-carousel owl-fade-slider-one owl-btn-vertical-center owl-dots-bottom-right">
+                        <div class="owl-carousel owl-fade-slider-one owl-btn-vertical-center owl-dots-bottom-right owl-loaded owl-drag">
                         
-                            <div class="item">
-                                <div class="aon-thum-bx">
-                                    <img src="images/blog/grid/pic1.jpg" alt="">
-                                </div>
-                            </div>
                             
-                            <div class="item">
-                                <div class="aon-thum-bx">
-                                    <img src="images/blog/grid/pic2.jpg" alt="">
-                                </div>
-                            </div>
                             
-                            <div class="item">
-                                <div class="aon-thum-bx">
-                                    <img src="images/blog/grid/pic3.jpg" alt="">
-                                </div>
-                            </div>                                    
+                            
+                            
+                                                                
                         
-                        </div>
+                        <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1520px, 0px, 0px); transition: all 0s ease 0s; width: 2660px;"><div class="owl-item cloned" style="width: 350px; margin-right: 30px;"><div class="item">
+                                <div class="aon-thum-bx">
+                                    <img src="/frontend/images/blog/grid/pic2.jpg" alt="">
+                                </div>
+                            </div></div><div class="owl-item cloned" style="width: 350px; margin-right: 30px;"><div class="item">
+                                <div class="aon-thum-bx">
+                                    <img src="/frontend/images/blog/grid/pic3.jpg" alt="">
+                                </div>
+                            </div></div><div class="owl-item" style="width: 350px; margin-right: 30px;"><div class="item">
+                                <div class="aon-thum-bx">
+                                    <img src="/frontend/images/blog/grid/pic1.jpg" alt="">
+                                </div>
+                            </div></div><div class="owl-item animated owl-animated-out fadeOut" style="width: 350px; margin-right: 30px; left: 380px;"><div class="item">
+                                <div class="aon-thum-bx">
+                                    <img src="/frontend/images/blog/grid/pic2.jpg" alt="">
+                                </div>
+                            </div></div><div class="owl-item active" style="width: 350px; margin-right: 30px;"><div class="item">
+                                <div class="aon-thum-bx">
+                                    <img src="/frontend/images/blog/grid/pic3.jpg" alt="">
+                                </div>
+                            </div></div><div class="owl-item cloned" style="width: 350px; margin-right: 30px;"><div class="item">
+                                <div class="aon-thum-bx">
+                                    <img src="/frontend/images/blog/grid/pic1.jpg" alt="">
+                                </div>
+                            </div></div><div class="owl-item cloned" style="width: 350px; margin-right: 30px;"><div class="item">
+                                <div class="aon-thum-bx">
+                                    <img src="/frontend/images/blog/grid/pic2.jpg" alt="">
+                                </div>
+                            </div></div></div></div><div class="owl-nav"><div class="owl-prev"><i class="fa fa-chevron-left"></i></div><div class="owl-next"><i class="fa fa-chevron-right"></i></div></div><div class="owl-dots"><div class="owl-dot"><span></span></div><div class="owl-dot"><span></span></div><div class="owl-dot active"><span></span></div></div></div>
                         <!--fade slider END-->
                     </div>
                     <div class="wt-post-info">
@@ -150,7 +176,7 @@
                 <div class="blog-post blog-md date-style-1 clearfix">
                     
                     <div class="wt-post-media wt-img-effect zoom-slow">
-                        <a href="javascript:void(0);"><img src="images/blog/grid/pic4.jpg" alt=""></a>
+                        <a href="javascript:void(0);"><img src="/frontend/images/blog/grid/pic4.jpg" alt=""></a>
                     </div>
                     <div class="wt-post-info">
                     
@@ -190,7 +216,7 @@
                 <div class="blog-post blog-md date-style-1 clearfix">
                     
                     <div class="wt-post-media wt-img-effect zoom-slow">
-                        <a href="javascript:void(0);"><img src="images/blog/grid/pic5.jpg" alt=""></a>
+                        <a href="javascript:void(0);"><img src="/frontend/images/blog/grid/pic5.jpg" alt=""></a>
                     </div>
                     <div class="wt-post-info">
                     
@@ -230,7 +256,7 @@
                 <div class="blog-post blog-md date-style-1 clearfix">
                     
                     <div class="wt-post-media wt-img-effect zoom-slow">
-                        <a href="javascript:void(0);"><img src="images/blog/grid/pic6.jpg" alt=""></a>
+                        <a href="javascript:void(0);"><img src="/frontend/images/blog/grid/pic6.jpg" alt=""></a>
                     </div>
                     <div class="wt-post-info">
                     
@@ -270,7 +296,7 @@
                 <div class="blog-post blog-md date-style-1 clearfix">
                     
                     <div class="wt-post-media wt-img-effect zoom-slow">
-                        <a href="javascript:void(0);"><img src="images/blog/grid/pic7.jpg" alt=""></a>
+                        <a href="javascript:void(0);"><img src="/frontend/images/blog/grid/pic7.jpg" alt=""></a>
                     </div>
                     <div class="wt-post-info">
                     
@@ -309,14 +335,14 @@
                 
                 <!-- PAGINATION START -->
                 <div class="pagination-bx clearfix ">
-                    <ul class = "custom-pagination pagination">
-                       <li><a href = "#">&laquo;</a></li>
-                       <li class = "active"><a href = "#">1</a></li>
-                       <li><a href = "#">2</a></li>
-                       <li><a href = "#">3</a></li>
-                       <li><a href = "#">4</a></li>
-                       <li><a href = "#">5</a></li>
-                       <li><a href = "#">&raquo;</a></li>
+                    <ul class="custom-pagination pagination">
+                       <li><a href="#">«</a></li>
+                       <li class="active"><a href="#">1</a></li>
+                       <li><a href="#">2</a></li>
+                       <li><a href="#">3</a></li>
+                       <li><a href="#">4</a></li>
+                       <li><a href="#">5</a></li>
+                       <li><a href="#">»</a></li>
                     </ul>
                 </div>
                 <!-- PAGINATION END -->
@@ -327,7 +353,7 @@
             <!-- SIDE BAR START -->
             <div class="col-md-3">
             
-                <aside  class="side-bar">
+                <aside class="side-bar">
                     
                         <!-- 13. SEARCH -->
                         <div class="widget bg-white ">
@@ -358,7 +384,7 @@
                                             <div class="widget-post-bx">
                                                 <div class="widget-post clearfix bg-gray">
                                                     <div class="wt-post-media">
-                                                        <img src="images/blog/recent-blog/pic1.jpg"  alt="" class="radius-bx">
+                                                        <img src="/frontend/images/blog/recent-blog/pic1.jpg" alt="" class="radius-bx">
                                                     </div>
                                                     <div class="wt-post-info">
                                                         <div class="wt-post-header">
@@ -374,7 +400,7 @@
                                                 </div>
                                                 <div class="widget-post clearfix bg-gray">
                                                     <div class="wt-post-media">
-                                                        <img src="images/blog/recent-blog/pic2.jpg" alt=""  class="radius-bx">
+                                                        <img src="/frontend/images/blog/recent-blog/pic2.jpg" alt="" class="radius-bx">
                                                     </div>
                                                     <div class="wt-post-info">
                                                         <div class="wt-post-header">
@@ -390,7 +416,7 @@
                                                 </div>
                                                 <div class="widget-post clearfix bg-gray">
                                                     <div class="wt-post-media">
-                                                        <img src="images/blog/recent-blog/pic3.jpg" alt=""  class="radius-bx">
+                                                        <img src="/frontend/images/blog/recent-blog/pic3.jpg" alt="" class="radius-bx">
                                                     </div>
                                                     <div class="wt-post-info">
                                                         <div class="wt-post-header">
@@ -411,7 +437,7 @@
                                             <div class="widget-post-bx">
                                                 <div class="widget-post clearfix bg-gray">
                                                     <div class="wt-post-media">
-                                                        <img src="images/blog/recent-blog/pic3.jpg" alt=""  class="radius-bx">
+                                                        <img src="/frontend/images/blog/recent-blog/pic3.jpg" alt="" class="radius-bx">
                                                     </div>
                                                     <div class="wt-post-info">
                                                         <div class="wt-post-header">
@@ -427,7 +453,7 @@
                                                 </div>
                                                 <div class="widget-post clearfix bg-gray">
                                                     <div class="wt-post-media">
-                                                        <img src="images/blog/recent-blog/pic1.jpg"  alt=""  class="radius-bx">
+                                                        <img src="/frontend/images/blog/recent-blog/pic1.jpg" alt="" class="radius-bx">
                                                     </div>
                                                     <div class="wt-post-info">
                                                         <div class="wt-post-header">
@@ -443,7 +469,7 @@
                                                 </div>
                                                 <div class="widget-post clearfix bg-gray">
                                                     <div class="wt-post-media">
-                                                        <img src="images/blog/recent-blog/pic2.jpg" alt=""  class="radius-bx">
+                                                        <img src="/frontend/images/blog/recent-blog/pic2.jpg" alt="" class="radius-bx">
                                                     </div>
                                                     <div class="wt-post-info">
                                                         <div class="wt-post-header">
@@ -470,73 +496,73 @@
                             <ul>
                                 <li>
                                     <div class="wt-post-thum">
-                                        <a href="images/gallery/pic1.jpg" class="mfp-link" ><img src="images/gallery/thumb/pic1.jpg" alt=""></a>
+                                        <a href="/frontend/images/gallery/pic1.jpg" class="mfp-link"><img src="/frontend/images/gallery/thumb/pic1.jpg" alt=""></a>
                                     </div>
                                 </li>
                                 
                                 <li>
                                     <div class="wt-post-thum ">
-                                        <a href="images/gallery/pic2.jpg" class="mfp-link"><img src="images/gallery/thumb/pic2.jpg" alt=""></a>
+                                        <a href="/frontend/images/gallery/pic2.jpg" class="mfp-link"><img src="/frontend/images/gallery/thumb/pic2.jpg" alt=""></a>
                                     </div>
                                 </li>
                                 
                                 <li>
                                     <div class="wt-post-thum  ">
-                                        <a href="images/gallery/pic3.jpg" class="mfp-link"><img src="images/gallery/thumb/pic3.jpg" alt=""></a>
+                                        <a href="/frontend/images/gallery/pic3.jpg" class="mfp-link"><img src="/frontend/images/gallery/thumb/pic3.jpg" alt=""></a>
                                     </div>
                                 </li>
                                 
                                 <li>
                                     <div class="wt-post-thum ">
-                                        <a href="images/gallery/pic4.jpg" class="mfp-link"><img src="images/gallery/thumb/pic4.jpg" alt=""></a>
+                                        <a href="/frontend/images/gallery/pic4.jpg" class="mfp-link"><img src="/frontend/images/gallery/thumb/pic4.jpg" alt=""></a>
                                     </div>
                                 </li>
                                 
                                 <li>
                                     <div class="wt-post-thum ">
-                                        <a href="images/gallery/pic5.jpg" class="mfp-link"><img src="images/gallery/thumb/pic5.jpg" alt=""></a>
+                                        <a href="/frontend/images/gallery/pic5.jpg" class="mfp-link"><img src="/frontend/images/gallery/thumb/pic5.jpg" alt=""></a>
                                     </div>
                                 </li>
                                 
                                 <li>
                                     <div class="wt-post-thum ">
-                                        <a href="images/gallery/pic6.jpg" class="mfp-link"><img src="images/gallery/thumb/pic6.jpg" alt=""></a>
+                                        <a href="/frontend/images/gallery/pic6.jpg" class="mfp-link"><img src="/frontend/images/gallery/thumb/pic6.jpg" alt=""></a>
                                     </div>
                                 </li>
                                 
                                 <li>
                                     <div class="wt-post-thum">
-                                        <a href="images/gallery/pic7.jpg" class="mfp-link" ><img src="images/gallery/thumb/pic7.jpg" alt=""></a>
+                                        <a href="/frontend/images/gallery/pic7.jpg" class="mfp-link"><img src="/frontend/images/gallery/thumb/pic7.jpg" alt=""></a>
                                     </div>
                                 </li>
                                 
                                 <li>
                                     <div class="wt-post-thum ">
-                                        <a href="images/gallery/pic8.jpg" class="mfp-link"><img src="images/gallery/thumb/pic8.jpg" alt=""></a>
+                                        <a href="/frontend/images/gallery/pic8.jpg" class="mfp-link"><img src="/frontend/images/gallery/thumb/pic8.jpg" alt=""></a>
                                     </div>
                                 </li>
                                 
                                 <li>
                                     <div class="wt-post-thum  ">
-                                        <a href="images/gallery/pic7.jpg" class="mfp-link"><img src="images/gallery/thumb/pic7.jpg" alt=""></a>
+                                        <a href="/frontend/images/gallery/pic7.jpg" class="mfp-link"><img src="/frontend/images/gallery/thumb/pic7.jpg" alt=""></a>
                                     </div>
                                 </li>
                                 
                                 <li>
                                     <div class="wt-post-thum ">
-                                        <a href="images/gallery/pic6.jpg" class="mfp-link"><img src="images/gallery/thumb/pic6.jpg" alt=""></a>
+                                        <a href="/frontend/images/gallery/pic6.jpg" class="mfp-link"><img src="/frontend/images/gallery/thumb/pic6.jpg" alt=""></a>
                                     </div>
                                 </li>
                                 
                                 <li>
                                     <div class="wt-post-thum ">
-                                        <a href="images/gallery/pic5.jpg" class="mfp-link"><img src="images/gallery/thumb/pic5.jpg" alt=""></a>
+                                        <a href="/frontend/images/gallery/pic5.jpg" class="mfp-link"><img src="/frontend/images/gallery/thumb/pic5.jpg" alt=""></a>
                                     </div>
                                 </li>
                                 
                                 <li>
                                     <div class="wt-post-thum ">
-                                        <a href="images/gallery/pic4.jpg" class="mfp-link"><img src="images/gallery/thumb/pic4.jpg" alt=""></a>
+                                        <a href="/frontend/images/gallery/pic4.jpg" class="mfp-link"><img src="/frontend/images/gallery/thumb/pic4.jpg" alt=""></a>
                                     </div>
                                 </li>
                             </ul>
@@ -545,34 +571,58 @@
                         <!-- 7. OUR CLIENT -->
                         <div class="widget">
                             <h4 class="widget-title">Our Client</h4>
-                            <div class="owl-carousel widget-client p-t10">
+                            <div class="owl-carousel widget-client p-t10 owl-loaded owl-drag">
                             
                                 <!-- COLUMNS 1 --> 
-                                <div class="item">
-                                    <div class="ow-client-logo">
-                                        <div class="client-logo wt-img-effect on-color">
-                                            <a href="#"><img src="images/client-logo/logo1.png" alt=""></a>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                                 <!-- COLUMNS 2 --> 
-                                <div class="item">
-                                    <div class="ow-client-logo">
-                                        <div class="client-logo wt-img-effect on-color">
-                                            <a href="#"><img src="images/client-logo/logo2.png" alt=""></a>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                                 <!-- COLUMNS 3 --> 
-                                <div class="item">
+                                
+              
+                            <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-526px, 0px, 0px); transition: all 0s ease 0s; width: 1841px;"><div class="owl-item cloned" style="width: 263px;"><div class="item">
                                     <div class="ow-client-logo">
                                         <div class="client-logo wt-img-effect on-color">
-                                            <a href="#"><img src="images/client-logo/logo3.png" alt=""></a>
+                                            <a href="#"><img src="/frontend/images/client-logo/logo2.png" alt=""></a>
                                         </div>
                                     </div>
-                                </div>
-              
-                            </div>
+                                </div></div><div class="owl-item cloned" style="width: 263px;"><div class="item">
+                                    <div class="ow-client-logo">
+                                        <div class="client-logo wt-img-effect on-color">
+                                            <a href="#"><img src="/frontend/images/client-logo/logo3.png" alt=""></a>
+                                        </div>
+                                    </div>
+                                </div></div><div class="owl-item active" style="width: 263px;"><div class="item">
+                                    <div class="ow-client-logo">
+                                        <div class="client-logo wt-img-effect on-color">
+                                            <a href="#"><img src="/frontend/images/client-logo/logo1.png" alt=""></a>
+                                        </div>
+                                    </div>
+                                </div></div><div class="owl-item" style="width: 263px;"><div class="item">
+                                    <div class="ow-client-logo">
+                                        <div class="client-logo wt-img-effect on-color">
+                                            <a href="#"><img src="/frontend/images/client-logo/logo2.png" alt=""></a>
+                                        </div>
+                                    </div>
+                                </div></div><div class="owl-item" style="width: 263px;"><div class="item">
+                                    <div class="ow-client-logo">
+                                        <div class="client-logo wt-img-effect on-color">
+                                            <a href="#"><img src="/frontend/images/client-logo/logo3.png" alt=""></a>
+                                        </div>
+                                    </div>
+                                </div></div><div class="owl-item cloned" style="width: 263px;"><div class="item">
+                                    <div class="ow-client-logo">
+                                        <div class="client-logo wt-img-effect on-color">
+                                            <a href="#"><img src="/frontend/images/client-logo/logo1.png" alt=""></a>
+                                        </div>
+                                    </div>
+                                </div></div><div class="owl-item cloned" style="width: 263px;"><div class="item">
+                                    <div class="ow-client-logo">
+                                        <div class="client-logo wt-img-effect on-color">
+                                            <a href="#"><img src="/frontend/images/client-logo/logo2.png" alt=""></a>
+                                        </div>
+                                    </div>
+                                </div></div></div></div><div class="owl-nav disabled"><div class="owl-prev"><i class="fa fa-chevron-left"></i></div><div class="owl-next"><i class="fa fa-chevron-right"></i></div></div><div class="owl-dots"><div class="owl-dot active"><span></span></div><div class="owl-dot"><span></span></div><div class="owl-dot"><span></span></div></div></div>
                         </div> 
                          <!-- 6. NEWSLETTER -->
                         <div class="widget widget_newsletter-2 bg-white  ">
@@ -624,7 +674,4 @@
         </div>
     </div>
 </div>
-<!-- SECTION CONTENT END -->
-
-</div
 @endsection
