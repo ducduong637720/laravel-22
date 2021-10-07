@@ -6,6 +6,6 @@
     </a>
 
     <!-- Sidebar -->
-    @include('backend.includes.sidebar',['name'=>'Dương Trọng Đức'])
+    @include('backend.includes.sidebar')
     <!-- /.sidebar -->
   </aside>

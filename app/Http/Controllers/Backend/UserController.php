@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
@@ -16,7 +17,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        // $users = User::simplePaginate(6);
+       
         $name = $request->get('name');
         if (!empty($name)) {
             $user = User::where('name', 'like', "%" . $name . "%")->get();
@@ -25,7 +26,7 @@ class UserController extends Controller
         if ($email !== null) {
             $user = User::where('email', $email)->get();
         }
-        $users = User::orderBy('id','desc')->simplePaginate(5);
+        $users = User::simplePaginate(5);
         return view('backend.users.index')->with(['users' => $users]);
     }
 
@@ -81,9 +82,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-       $posts = User::find($id)->posts()->where('status',2)->get();
-       dd($posts);
-    //    $userInfo = $user->userInfo;
+    //    $posts = User::find($id)->posts()->where('status',2)->get();
+    //    dd($posts);
+        $user = User::find($id);
         return view(
             'backend.users.show',
             ['user' => $user]

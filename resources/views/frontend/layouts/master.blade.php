@@ -1,6 +1,10 @@
+
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
 	<!-- META -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,11 +12,11 @@
     <meta name="author" content="" />
     <meta name="robots" content="" />    
     <meta name="description" content="" />
-     <!-- MOBILE SPECIFIC -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Spa Template | Home Page 1  @yield('title')</title>
+    <title>Spa Template | Home Page 1 @yield('title')</title>
     @include('frontend.includes.style-base')
-    @yield('css')
+   @yield('css')
+
 </head>
 
 <body>
@@ -20,32 +24,30 @@
 	<div class="page-wraper"> 
        	
         <!-- HEADER START -->
-        @include('frontend.includes.header')
+      @include('frontend.includes.header')
         <!-- HEADER END -->
-        @yield('header')
+      @yield('header')
         <!-- CONTENT START -->
         <div class="page-content">
-            @yield('page-content')
-        
+        @yield('page-content')
+             
         </div>
-
         @yield('main')
-        <!-- CONTENT END -->
-        
         <!-- FOOTER START -->
-        @include('frontend.includes.footer')
+     @include('frontend.includes.footer')
+
         <!-- FOOTER END -->
+
+        
         <!-- BUTTON TOP START -->
-      @include('frontend.components.scroltop')
+       @include('frontend.components.scroltop')
+        
     </div>
-<!-- LOADING AREA START ===== -->
+
 @include('frontend.components.loading')
-<!-- LOADING AREA  END ====== -->
-<!-- JAVASCRIPT  FILES ========================================= --> 
+
 @include('frontend.includes.script-base')
 @yield('script')
 @stack('stack-scripts')
-
 </body>
-
 </html>

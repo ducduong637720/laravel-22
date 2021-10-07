@@ -9,15 +9,15 @@
                         <li><i class="fa fa-phone"></i>(888) 123-4567</li>
                     </ul>
                 </div>
-                <div class="wt-topbar-right clearfix">
-                    <ul class="social-bx list-inline pull-right">
-                        <li><a href="javascript:void(0);" class="fa fa-facebook"></a></li>
-                        <li><a href="javascript:void(0);" class="fa fa-twitter"></a></li>
-                        <li><a href="javascript:void(0);" class="fa fa-linkedin"></a></li>
-                        <li><a href="javascript:void(0);" class="fa fa-rss"></a></li>
-                        <li><a href="javascript:void(0);" class="fa fa-youtube"></a></li>
-                        <li><a href="javascript:void(0);" class="fa fa-instagram"></a></li>
-                    </ul>
+                <div class="wt-topbar-right clearfix " style="color:white; display:flex">
+                    @if (auth()->check())
+                        <div style="width:7%"><img src="/frontend/images/icon-login.png" alt=""></div>
+                        {{auth()->user()->name }}
+                    @else
+                    <div style="margin-right:20px"><a href="{{ route('auth.register')}}"  style="color: white">Đăng ký</a></div>
+                    <div><a href="{{ route('auth.login')}}"  style="color: white">Đăng nhập</a></div>
+                    @endif
+                    
                     
                 </div>
             </div>
