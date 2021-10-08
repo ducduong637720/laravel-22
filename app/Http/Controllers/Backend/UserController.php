@@ -17,7 +17,6 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-       
         $name = $request->get('name');
         if (!empty($name)) {
             $user = User::where('name', 'like', "%" . $name . "%")->get();

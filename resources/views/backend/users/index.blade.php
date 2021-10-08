@@ -93,6 +93,12 @@
                                         <td style="display: flex">
                                             <a href="{{ route('backend.users.edit', $user->id) }}"
                                                 class="btn btn-outline-info"><i class="far fa-edit"></i></a>
+                                                <form method="POST" action="{{ route('backend.users.login', $user->id )}}">
+                                                    @csrf
+                                                    <button class="btn btn-outline-danger">
+                                                      <i class="fas fa-user"></i>
+                                                    </button>
+                                                  </form>
                                             <form method="POST" action="{{ route('backend.users.destroy', $user->id) }}">
                                                 @csrf
                                                 @method('DELETE')

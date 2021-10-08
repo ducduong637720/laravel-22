@@ -13,6 +13,14 @@
                     @if (auth()->check())
                         <div style="width:7%"><img src="/frontend/images/icon-login.png" alt=""></div>
                         {{auth()->user()->name }}
+                        <div class="nav-item d-none d-sm-inline-block">
+                            <form action="{{ route('auth.logout') }}" method="post">
+                              @csrf
+                              <a href="#" class="nav-link" style="color: white" onclick="this.closest('form').submit();return false;">
+                                Logout
+                              </a>
+                            </form>
+                        </div>
                     @else
                     <div style="margin-right:20px"><a href="{{ route('auth.register')}}"  style="color: white">Đăng ký</a></div>
                     <div><a href="{{ route('auth.login')}}"  style="color: white">Đăng nhập</a></div>

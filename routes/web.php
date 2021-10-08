@@ -17,7 +17,7 @@ use \App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->middleware(['auth']);
 
 // Route::get('/posts/show', function () {
 //     return view('frontend.posts.show');
@@ -45,11 +45,13 @@ Route::prefix('backend')
         Route::resource('categories', CategoryController::class);
         //Tag
         Route::resource('tags', TagController::class);
+        Route::post('/login/user/{id}', 'UserController@loginWithUser')
+        ->name('users.login');
     });
 Route::prefix('frontend')
     ->name('frontend.')
     ->namespace('Frontend')
-    ->middleware([])
+    ->middleware(['auth'])
     ->group(function () {
         // Route::get('home', function () {
         //     return view('frontend.home');

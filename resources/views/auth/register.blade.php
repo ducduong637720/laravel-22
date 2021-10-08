@@ -23,14 +23,14 @@
                     <label for="exampleInputEmail1">Email</label>
                     <input type="email" name="email" class="form-control" placeholder="Nhập email">
                 </div>
-                <div class="form-group">
+                {{-- <div class="form-group">
                     <label for="exampleInputEmail1">Số điện thoại</label>
                     <input type="email" name="email" class="form-control" placeholder="Nhập số điện thoại">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Địa chỉ</label>
                     <input type="email" name="email" class="form-control" placeholder="Nhập địa chỉ">
-                </div>
+                </div> --}}
                 <div class="form-group">
                     <label for="exampleInputPassword1">Mật khẩu</label>
                     <input type="password" name="password" class="form-control" placeholder="Mật khẩu">
