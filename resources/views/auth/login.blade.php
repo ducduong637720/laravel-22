@@ -46,7 +46,7 @@
                                 <a class="small" href="forgot-password.html">Quên mật khẩu</a>
                             </div>
                             <div class="text-center">
-                                <a class="small" href="">Đăng ký</a>
+                                <a class="small" href="{{ route('auth.register') }}">Đăng ký</a>
                             </div>
                         </div>
                     </div>
