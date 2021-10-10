@@ -26,7 +26,7 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'status' => 1,
+            // 'status' => 1,
         ]);
         return redirect()->route('auth.login');
     }

@@ -21,7 +21,7 @@ class AddColumnUsersTable extends Migration
             $table->string('phone')
             ->after('email');
             $table->integer('status')->default(0)
-            ->after('phone');
+            ->after('phone')->nullable();
         });
     }
 
