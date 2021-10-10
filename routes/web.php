@@ -31,7 +31,7 @@ Route::get('backend/categories/restore/{id}', 'Backend\CategoryController@restor
 Route::prefix('backend')
     ->name('backend.')
     ->namespace('Backend')
-    ->middleware(['auth'])
+    ->middleware(['auth','role:admin,admod'])
     ->group(function () {
         Route::get('dashboard', 'DashboardController@index')
         ->name('dashboard.index');
