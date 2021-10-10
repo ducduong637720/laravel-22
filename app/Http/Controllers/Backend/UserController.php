@@ -63,7 +63,7 @@ class UserController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'status' => $data['status'],
-            'password' => $data['password'],
+            'password' => bcrypt($data['password']),
             'avatar' => $data['avatar'],
         ]);
         DB::table('user_infos')->insert([
