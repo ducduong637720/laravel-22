@@ -31,14 +31,18 @@ Route::get('backend/categories/restore/{id}', 'Backend\CategoryController@restor
 Route::prefix('backend')
     ->name('backend.')
     ->namespace('Backend')
-    ->middleware(['auth','role:admin,admod'])
+    ->middleware(['auth','role:admin,user'])
     ->group(function () {
         Route::get('dashboard', 'DashboardController@index')
         ->name('dashboard.index');
         // //Dashboard
         // Route::resource('/dashboard', DashboardController::class);
         //Post
+        // Route::put('posts/{post}', 'PostController@update')
+        // // ->middleware('can:update,post')
+        // ->name('posts.update');
         Route::resource('posts', PostController::class);
+        // ->except(['update']);
         //User
         Route::resource('users', UserController::class);
         //Category

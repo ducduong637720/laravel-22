@@ -24,11 +24,14 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        @include('backend.components.btn', [
+                        @can('create', App\Models\Post::class)
+                            @include('backend.components.btn', [
                         'href' => route('backend.posts.create'),
                         'type' => 'success',
-                        'content' => 'Tạo mới bài viết'
-                        ])
+                        'content' => 'Tạo bài viết'
+                        ])  
+                        @endcan
+                      
 
                         <div class="card-tools">
                             <div class="input-group input-group-sm" style="width: 150px;">
@@ -106,15 +109,20 @@
                                         <td>{{ $post->created_at }}</td>
                                         <td>{{ $post->updated_at }}</td>
                                         <td style="display: flex;">
+                                            @can('update', $post)
                                             <a href="{{ route('backend.posts.edit', $post->id) }}"
-                                                class="btn btn-outline-info"><i class="far fa-edit"></i></a>
+                                                class="btn btn-outline-info"><i class="far fa-edit"></i>
+                                            </a> 
+                                            @endcan
+                                            @can('delete', $post)
                                             <form method="POST" action="{{ route('backend.posts.destroy', $post->id) }}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-outline-danger">
                                                     <i class="far fa-trash-alt"></i>
                                                 </button>
-                                            </form>
+                                            </form> 
+                                            @endcan
                                             <a href="{{ route('backend.posts.show', $post->id) }}"
                                                 class="btn btn-outline-warning"><i class="fas fa-info-circle"></i></a>
                                         </td>

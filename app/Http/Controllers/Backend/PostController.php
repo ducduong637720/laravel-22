@@ -15,6 +15,15 @@ use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
+     /**
+     * Create a new policy instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->authorizeResource(Post::class, 'post');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -53,6 +62,9 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        if($request->user()->cannot('create', Post::class)){
+            abort(403);
+        }
         $data = $request->only(['title', 'content', 'status']);
         $tags = $request->get('tags');
         $post = new Post();
@@ -65,7 +77,6 @@ class PostController extends Controller
         $post->save();
         // $user = User::find(17);
         // $user->posts()->save($post);
-
         $post->tags()->attach($tags);
         return redirect('backend/posts');
     }
@@ -86,10 +97,6 @@ class PostController extends Controller
         foreach ($post->tags as $tag) {
             echo $tag->name;
         }
-        // $tag = Tag::find(1);
-        // foreach($tag->posts as $post){
-        //     echo $post->id . $post->title . "<br>";
-        // }
     }
 
     /**
@@ -115,12 +122,16 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        $post = Post::find($id);
-        if(! Gate::allows('update-post',$post)){
-            abort(403);
-        }
+        // $post = Post::find($id);
+        // if(! Gate::allows('update-post',$post)){
+        //     abort(403);
+        // }
+        // if($request->user()->cannot('update', $post)){
+        //     abort(403);
+        // }
+        $this->authorize('update', $post);
         $data = $request->only(['title', 'content', 'status']);
         $tags = $request->get('tags');
         $post->title = $data['title'];
