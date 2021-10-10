@@ -31,7 +31,7 @@ Route::get('backend/categories/restore/{id}', 'Backend\CategoryController@restor
 Route::prefix('backend')
     ->name('backend.')
     ->namespace('Backend')
-    ->middleware(['auth','role:admin,user'])
+    ->middleware(['auth','role:admin'])
     ->group(function () {
         Route::get('dashboard', 'DashboardController@index')
         ->name('dashboard.index');
@@ -55,7 +55,7 @@ Route::prefix('backend')
 Route::prefix('frontend')
     ->name('frontend.')
     ->namespace('Frontend')
-    ->middleware(['auth'])
+    ->middleware(['auth','role:user'])
     ->group(function () {
         // Route::get('home', function () {
         //     return view('frontend.home');
