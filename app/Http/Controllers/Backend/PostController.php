@@ -10,6 +10,8 @@ use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
 use Exception;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -57,12 +59,12 @@ class PostController extends Controller
         $post->title = $data['title'];
         $post->status = $data['status'];
         $post->content = $data['content'];
-        $post->user_id = 1;
-        $post->user_updated_id = 1;
+        $post->user_id = Auth::user()->id;
+        $post->user_updated_id = Auth::user()->id;
         $post->category_id = 1;
         $post->save();
-        $user = User::find(1);
-        $user->posts()->save($post);
+        // $user = User::find(17);
+        // $user->posts()->save($post);
 
         $post->tags()->attach($tags);
         return redirect('backend/posts');
@@ -115,14 +117,17 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $post = Post::find($id);
+        if(! Gate::allows('update-post',$post)){
+            abort(403);
+        }
         $data = $request->only(['title', 'content', 'status']);
         $tags = $request->get('tags');
-        $post = Post::find($id);
         $post->title = $data['title'];
         $post->content = $data['content'];
         $post->status = $data['status'];
-        $post->user_id = 1;
-        $post->user_updated_id = 1;
+        $post->user_id = Auth::user()->id;
+        $post->user_updated_id = Auth::user()->id;
         $post->save();
         $post->tags()->sync($tags);
         return redirect()->route('backend.posts.index');
@@ -137,6 +142,9 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+        if(! Gate::allows('delete-post',$post)){
+            abort(403);
+        }
         $post->delete();
         return redirect()->route('backend.posts.index');
     }
