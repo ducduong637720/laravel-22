@@ -16,7 +16,6 @@ class CheckRole
      */
     public function handle(Request $request, Closure $next, ... $roles)
     {
-        // dd($roles);
         foreach($roles as $role){
             if($request->user()->role == $role){
                 return $next($request);

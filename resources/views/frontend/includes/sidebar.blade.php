@@ -228,10 +228,10 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="javascript:;">list</a>
+                                <a href="javascript:;">Danh sách</a>
                                 <ul class="sub-menu">
                                     <li><a href="blog-half-img.html">Half image</a></li>
-                                    <li><a href="blog-half-img-sidebar.html">Half image sidebar</a></li>
+                                    <li><a href="{{ route('frontend.posts.index') }}">Half image sidebar</a></li>
                                     <li><a href="blog-half-img-left-sidebar.html">Half image sidebar left</a></li>
                                     <li><a href="blog-large-img.html">Large image</a></li>
                                     <li><a href="blog-large-img-sidebar.html">Large image sidebar</a></li>
@@ -242,7 +242,7 @@
                                 <a href="javascript:;">Grid</a>
                                 <ul class="sub-menu">
                                     <li><a href="blog-grid-2.html">Grid 2</a></li>
-                                    <li><a href="blog-grid-2-sidebar.html">Grid 2 sidebar</a></li>
+                                    <li><a href="{{ route('frontend.posts.category-posts') }}">Grid 2 sidebar</a></li>
                                     <li><a href="blog-grid-2-sidebar-left.html">Grid 2 sidebar left</a></li>
                                     <li><a href="blog-grid-3.html">Grid 3</a></li>
                                     <li><a href="blog-grid-3-sidebar.html">Grid 3 sidebar</a></li>

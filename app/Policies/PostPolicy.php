@@ -41,7 +41,7 @@ class PostPolicy
      */
     public function create(User $user)
     {
-        return $user->role == 'writer' | $user->role == 'admin';
+        return $user->role == 'writer' | $user->role == 'admin' | $user->role == 'admod';
     }
 
     /**
@@ -53,7 +53,7 @@ class PostPolicy
      */
     public function update(User $user, Post $post)
     {
-        return $user->id === $post->user_id;
+        return $user->id === $post->user_id || $user->role == 'admin';
     }
 
     /**
@@ -65,7 +65,7 @@ class PostPolicy
      */
     public function delete(User $user, Post $post)
     {
-        return $user->id === $post->user_id;
+        return $user->id === $post->user_id || $user->role == 'admin';
     }
 
     /**

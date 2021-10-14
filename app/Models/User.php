@@ -73,6 +73,34 @@ class User extends Authenticatable
     }
 
     public function posts(){
-        return $this->hasMany(Post::class, '');
+        return $this->hasMany(Post::class);
     }
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'users_roles');
+    }
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class, 'users_permissions');
+    }
+    protected function hasPermission($permission) {
+
+        return (bool) $this->permissions->where('slug', $permission->slug)->count();
+      }
+
+    public function hasPermissionTo($permission)
+    {
+        return $this->hasPermissionThroughRole($permission) || $this->hasPermission($permission);
+    }
+
+    public function hasPermissionThroughRole($permission)
+    {
+        foreach ($permission->roles as $role) {
+            if ($this->roles->contains($role)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
 }

@@ -23,7 +23,7 @@
   <div class="row">
     <div class="col-12">
         <div class="card card-warning">
-           <form class="form-horizontal" method="POST" action="{{ route('backend.posts.update',$post->id) }}">
+           <form class="form-horizontal" method="POST" action="{{ route('backend.posts.update', $post->id) }}">
             @csrf
             @method('PUT')
           <div class="card-body">

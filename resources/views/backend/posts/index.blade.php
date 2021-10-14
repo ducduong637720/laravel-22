@@ -24,7 +24,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        @can('create', App\Models\Post::class)
+                        @can('create-post', App\Models\Post::class)
                             @include('backend.components.btn', [
                         'href' => route('backend.posts.create'),
                         'type' => 'success',
@@ -97,24 +97,28 @@
                                             Slug: {{ $post->slug }}
                                         </td>
                                         <td>{{ $post->view_count }}</td>
-                                        <td>{{ $post->category->name }}</td>
+                                        <td>
+                                            {{ $post->category->name }}
+                                        </td>
                                         <td>
                                             @foreach ($post->tags as $tag )
                                                 <span class="badge badge-info">{{$tag->name}}</span>
                                             @endforeach
                                         </td>
-                                        <td>{{ $post->user->name}}</td>
+                                        <td>
+                                            {{ $post->user->name}}
+                                        </td>
                                         <td>{{ $post->userUpdate->name }}</td>
                                         <td>{!! $post->status_text !!}</td>
                                         <td>{{ $post->created_at }}</td>
                                         <td>{{ $post->updated_at }}</td>
                                         <td style="display: flex;">
-                                            @can('update', $post)
+                                            @can('update-post', $post)
                                             <a href="{{ route('backend.posts.edit', $post->id) }}"
                                                 class="btn btn-outline-info"><i class="far fa-edit"></i>
                                             </a> 
                                             @endcan
-                                            @can('delete', $post)
+                                            @can('delete-post', $post)
                                             <form method="POST" action="{{ route('backend.posts.destroy', $post->id) }}">
                                                 @csrf
                                                 @method('DELETE')

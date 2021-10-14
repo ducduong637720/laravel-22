@@ -22,7 +22,7 @@ class PostController extends Controller
      */
     public function __construct()
     {
-        $this->authorizeResource(Post::class, 'post');
+        // $this->authorizeResource(Post::class, 'post');
     }
     /**
      * Display a listing of the resource.
@@ -62,9 +62,6 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->user()->cannot('create', Post::class)){
-            abort(403);
-        }
         $data = $request->only(['title', 'content', 'status']);
         $tags = $request->get('tags');
         $post = new Post();
@@ -75,8 +72,6 @@ class PostController extends Controller
         $post->user_updated_id = Auth::user()->id;
         $post->category_id = 1;
         $post->save();
-        // $user = User::find(17);
-        // $user->posts()->save($post);
         $post->tags()->attach($tags);
         return redirect('backend/posts');
     }
@@ -89,14 +84,12 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        // $post = Post::find($id);
-        // return view('backend.posts.show',[
-        //     'post' => $post
-        // ]);
         $post = Post::find($id);
-        foreach ($post->tags as $tag) {
-            echo $tag->name;
-        }
+        $user = User::get();
+        return view('backend.posts.show', [
+            'post' => $post,
+            'user' => $user
+        ]);
     }
 
     /**
@@ -152,11 +145,17 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::find($id);
-        if(! Gate::allows('delete-post',$post)){
-            abort(403);
+        if (Auth::user()->cannot('delete-post')){
+            return abort(403);
         }
-        $post->delete();
+        $post = Post::find($id);
+        // if (!Gate::allows('delete-post', $post)) {
+        //     abort(403);
+        // }
+
+        // $post->delete();
+
+        Post::destroy($id);
         return redirect()->route('backend.posts.index');
     }
 }

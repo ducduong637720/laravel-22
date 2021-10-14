@@ -157,4 +157,11 @@ class UserController extends Controller
         return redirect()->route('backend.users.delete');
     }
 
+    public function loginWithUser($id)
+    {
+        Auth::loginUsingId($id);
+
+        return redirect('backend/dashboard');
+    }
+
 }

@@ -6,9 +6,9 @@
     <div id="rev_slider_1050_1" class="slider-dots rev_slider fullscreenbanner" style="display:none;" data-version="5.4.1">
         <ul>	
             <!-- SLIDE  -->
-            <li data-index="rs-2938" data-transition="slideleft" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="default"   data-thumb="/frontend/images/main-slider/slider2/slide1.jpg"  data-rotate="0"  data-fsslotamount="7" data-saveperformance="off"  data-title="" data-param1="Additional Text" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+            <li data-index="rs-2938" data-transition="slideleft" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="default"   data-thumb="/frontend/images/main-slider/slider2/1.jpg"  data-rotate="0"  data-fsslotamount="7" data-saveperformance="off"  data-title="" data-param1="Additional Text" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                 <!-- MAIN IMAGE -->
-                <img src="/frontend/images/main-slider/slider2/slide1.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                <img src="/frontend/images/main-slider/slider2/1.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                 <!-- LAYERS -->
                
         
@@ -151,9 +151,9 @@
                                                
             </li>
             <!-- SLIDE  -->
-            <li data-index="rs-2939" data-transition="slideleft" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="/frontend/images/main-slider/slider2/slide2.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+            <li data-index="rs-2939" data-transition="slideleft" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="/frontend/images/main-slider/slider2/2.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                 <!-- MAIN IMAGE -->
-                <img src="/frontend/images/main-slider/slider2/slide2.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                <img src="/frontend/images/main-slider/slider2/2.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                 <!-- LAYERS -->
                
         
@@ -296,9 +296,9 @@
                                                
             </li>
             <!-- SLIDE  -->
-            <li data-index="rs-2940" data-transition="slideleft" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="default"   data-thumb="/frontend/images/main-slider/slider2/slide3.jpg"  data-rotate="0"   data-fsslotamount="7" data-saveperformance="off"  data-title="" data-param1="Additional Text" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+            <li data-index="rs-2940" data-transition="slideleft" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="default"   data-thumb="/frontend/images/main-slider/slider2/3.jpg"  data-rotate="0"   data-fsslotamount="7" data-saveperformance="off"  data-title="" data-param1="Additional Text" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                 <!-- MAIN IMAGE -->
-                <img src="/frontend/images/main-slider/slider2/slide3.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                <img src="/frontend/images/main-slider/slider2/3.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                 <!-- LAYERS -->
                
         
@@ -473,7 +473,7 @@
                 <div class="col-md-4 col-sm-4 m-b30">
                     <div class="wt-icon-box-wraper p-a30 center">
                         <div class="icon-xl radius m-b20 circle-line-effect">
-                          <span class="icon-cell text-white"><img src="/frontend/images/circle-block/1.jpg" alt=""  class="radius-bx overflow-hide img-full"></span>
+                          <span class="icon-cell text-white"><img src="/frontend/images/circle-block/lieuphap.jpg" alt=""  class="radius-bx overflow-hide img-full"></span>
                         </div>
                         <div class="icon-content">
                             <h4 class="wt-tilte font-weight-500">Massage Therapy</h4>
@@ -535,7 +535,7 @@
                     <div class="wt-box p-t50">
                         <div class="wt-media text-primary m-b20 radius-bx circle-effect-1 wt-img-overlay11">
                             
-                                <img src="/frontend/images/our-services/large/s1.jpg" class="radius-bx "  alt="">
+                                <img src="/frontend/images/our-services/large/s01.jpg" class="radius-bx "  alt="">
                                 <div class="text-center p-a30 wt-img-overlay11-content text-white">
                                      <div class="overlay-11-detail">
                                          <div class="overlay-11-info">
@@ -563,7 +563,7 @@
                     <div class="wt-box p-t50">
                         <div class="wt-media text-primary m-b20 radius-bx circle-effect-1 wt-img-overlay11">
                             
-                                <img src="/frontend/images/our-services/large/s2.jpg" class="radius-bx"  alt="">
+                                <img src="/frontend/images/our-services/large/s02.jpg" class="radius-bx"  alt="">
                                 <div class="text-center p-a30 wt-img-overlay11-content text-white">
                                      <div class="overlay-11-detail">
                                          <div class="overlay-11-info">
@@ -591,7 +591,7 @@
                     <div class="wt-box p-t50">
                         <div class="wt-media text-primary m-b20 radius-bx circle-effect-1 wt-img-overlay11">
                             
-                                <img src="/frontend/images/our-services/large/s3.jpg" class="radius-bx"  alt="">
+                                <img src="/frontend/images/our-services/large/s03.jpg" class="radius-bx"  alt="">
                                 <div class="text-center p-a30 wt-img-overlay11-content text-white">
                                      <div class="overlay-11-detail">
                                          <div class="overlay-11-info">
@@ -619,7 +619,7 @@
                     <div class="wt-box p-t50">
                         <div class="wt-media text-primary m-b20 radius-bx circle-effect-1 wt-img-overlay11">
                             
-                                <img src="/frontend/images/our-services/large/s4.jpg" class="radius-bx"  alt="">
+                                <img src="/frontend/images/our-services/large/s04.jpg" class="radius-bx"  alt="">
                                 <div class="text-center p-a30 wt-img-overlay11-content text-white">
                                      <div class="overlay-11-detail">
                                           <div class="overlay-11-info">	
@@ -647,7 +647,7 @@
                     <div class="wt-box p-t50">
                         <div class="wt-media text-primary m-b20 radius-bx circle-effect-1 wt-img-overlay11">
                             
-                                <img src="/frontend/images/our-services/large/s1.jpg" class="radius-bx"  alt="">
+                                <img src="/frontend/images/our-services/large/s01.jpg" class="radius-bx"  alt="">
                                 <div class="text-center p-a30 wt-img-overlay11-content text-white">
                                      <div class="overlay-11-detail">
                                          <div class="overlay-11-info">
@@ -675,7 +675,7 @@
                     <div class="wt-box p-t50">
                         <div class="wt-media text-primary m-b20 radius-bx circle-effect-1 wt-img-overlay11">
                             
-                                <img src="/frontend/images/our-services/large/s2.jpg" class="radius-bx"  alt="">
+                                <img src="/frontend/images/our-services/large/s06.jpg" class="radius-bx"  alt="">
                                 <div class="text-center p-a30 wt-img-overlay11-content text-white">
                                      <div class="overlay-11-detail">
                                           <div class="overlay-11-info">
@@ -703,7 +703,7 @@
                     <div class="wt-box p-t50">
                         <div class="wt-media text-primary m-b20 radius-bx circle-effect-1 wt-img-overlay11">
                             
-                                <img src="/frontend/images/our-services/large/s3.jpg" class="radius-bx"  alt="">
+                                <img src="/frontend/images/our-services/large/s05.jpg" class="radius-bx"  alt="">
                                 <div class="text-center p-a30 wt-img-overlay11-content text-white">
                                      <div class="overlay-11-detail">
                                           <div class="overlay-11-info">
@@ -731,7 +731,7 @@
                     <div class="wt-box p-t50">
                         <div class="wt-media text-primary m-b20 radius-bx circle-effect-1 wt-img-overlay11">
                             
-                                <img src="/frontend/images/our-services/large/s4.jpg" class="radius-bx"  alt="">
+                                <img src="/frontend/images/our-services/large/s04.jpg" class="radius-bx"  alt="">
                                 <div class="text-center p-a30 wt-img-overlay11-content text-white">
                                      <div class="overlay-11-detail">
                                           <div class="overlay-11-info">
@@ -911,7 +911,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="wt-media">
-                                                    <img src="/frontend/images/our-services/large/s1.jpg" alt="">
+                                                    <img src="/frontend/images/our-services/large/s07.jpg" alt="">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -938,7 +938,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="wt-media">
-                                                    <img src="/frontend/images/our-services/large/s2.jpg" alt="">
+                                                    <img src="/frontend/images/our-services/large/s01.jpg" alt="">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -965,7 +965,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="wt-media">
-                                                    <img src="/frontend/images/our-services/large/s3.jpg" alt="">
+                                                    <img src="/frontend/images/our-services/large/s08.jpg" alt="">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -992,7 +992,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="wt-media">
-                                                    <img src="/frontend/images/our-services/large/s4.jpg" alt="">
+                                                    <img src="/frontend/images/our-services/large/s09.jpg" alt="">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -1019,7 +1019,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="wt-media">
-                                                    <img src="/frontend/images/our-services/large/s5.jpg" alt="">
+                                                    <img src="/frontend/images/our-services/large/s10.jpg" alt="">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -1046,7 +1046,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="wt-media">
-                                                    <img src="/frontend/images/our-services/large/s6.jpg" alt="">
+                                                    <img src="/frontend/images/our-services/large/s11.jpg" alt="">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -1092,7 +1092,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="wt-media">
-                                                    <img src="/frontend/images/our-services/large/s2.jpg" alt="">
+                                                    <img src="/frontend/images/our-services/large/s12.jpg" alt="">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -1119,7 +1119,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="wt-media">
-                                                    <img src="/frontend/images/our-services/large/s3.jpg" alt="">
+                                                    <img src="/frontend/images/our-services/large/s13.jpg" alt="">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -1146,7 +1146,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="wt-media">
-                                                    <img src="/frontend/images/our-services/large/s4.jpg" alt="">
+                                                    <img src="/frontend/images/our-services/large/s14.jpg" alt="">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -1173,7 +1173,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="wt-media">
-                                                    <img src="/frontend/images/our-services/large/s5.jpg" alt="">
+                                                    <img src="/frontend/images/our-services/large/s15.jpg" alt="">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -1200,7 +1200,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="wt-media">
-                                                    <img src="/frontend/images/our-services/large/s6.jpg" alt="">
+                                                    <img src="/frontend/images/our-services/large/s16.png" alt="">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -1273,7 +1273,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="wt-media">
-                                                    <img src="/frontend/images/our-services/large/s3.jpg"  alt="">
+                                                    <img src="/frontend/images/our-services/large/s16.jpg"  alt="">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -1300,7 +1300,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="wt-media">
-                                                    <img src="/frontend/images/our-services/large/s4.jpg"  alt="">
+                                                    <img src="/frontend/images/our-services/large/s17.jfif"  alt="">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -1327,7 +1327,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="wt-media">
-                                                    <img src="/frontend/images/our-services/large/s5.jpg"  alt="">
+                                                    <img src="/frontend/images/our-services/large/s17.jpg"  alt="">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -1354,7 +1354,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="wt-media">
-                                                    <img src="/frontend/images/our-services/large/s6.jpg"  alt="">
+                                                    <img src="/frontend/images/our-services/large/s18.jpg"  alt="">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -1381,7 +1381,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="wt-media">
-                                                    <img src="/frontend/images/our-services/large/s1.jpg"  alt="">
+                                                    <img src="/frontend/images/our-services/large/s19.jpg"  alt="">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -1408,7 +1408,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="wt-media">
-                                                    <img src="/frontend/images/our-services/large/s2.jpg"  alt="">
+                                                    <img src="/frontend/images/our-services/large/s20.jpg"  alt="">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -1454,7 +1454,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="wt-media">
-                                                    <img src="/frontend/images/our-services/large/s4.jpg"  alt="">
+                                                    <img src="/frontend/images/our-services/large/s21.jpg"  alt="">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -1481,7 +1481,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="wt-media">
-                                                    <img src="/frontend/images/our-services/large/s5.jpg"  alt="">
+                                                    <img src="/frontend/images/our-services/large/s22.jpg"  alt="">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -1508,7 +1508,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="wt-media">
-                                                    <img src="/frontend/images/our-services/large/s6.jpg"  alt="">
+                                                    <img src="/frontend/images/our-services/large/s17.png"  alt="">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -2247,10 +2247,10 @@
                 <div class="col-md-4 col-sm-4 p-tb15">
                     <div class="wt-box">
                         <div class="wt-media text-primary m-b20 radius-bx circle-effect-1">
-                            <img src="/frontend/images/our-experts/ex1.jpg" class="radius-bx"  alt="">
+                            <img src="/frontend/images/our-experts/ex01.jpg" class="radius-bx"  alt="">
                         </div>
                         <div class="wt-info p-t30 text-center">
-                            <h2>Camila</h2>
+                            <h2>Dr Hoàng Hà</h2>
                             <p>Founder,  Beauty Spa</p>
                         </div>
                     </div>
@@ -2259,7 +2259,7 @@
                 <div class="col-md-4 col-sm-4 p-tb15">
                     <div class="wt-box">
                         <div class="wt-media text-primary m-b20 radius-bx circle-effect-1">
-                            <img src="/frontend/images/our-experts/ex2.jpg" class="radius-bx"  alt="">
+                            <img src="/frontend/images/our-experts/ex02.jpg" class="radius-bx"  alt="">
                         </div>
                         <div class="wt-info p-t30 text-center">
                             <h2>Milagros</h2>
@@ -2271,7 +2271,7 @@
                 <div class="col-md-4 col-sm-4 p-tb15">
                     <div class="wt-box">
                         <div class="wt-media text-primary m-b20 radius-bx circle-effect-1">
-                            <img src="/frontend/images/our-experts/ex3.jpg" class="radius-bx"  alt="">
+                            <img src="/frontend/images/our-experts/ex03.jpg" class="radius-bx"  alt="">
                         </div>
                         <div class="wt-info p-t30 text-center">
                             <h2>Agustina.</h2>
@@ -2290,7 +2290,7 @@
 
 <!-- OUR SPECIAL OFFER SECTION END  -->         
 <div class="section-full bg-primary">
-    <div class="container-fluid bg-top-right bg-no-repeat bg-full-height special-offer-block no-col-gap" style="background-image:url(/frontend/images/special-offer.jpg);">
+    <div class="container-fluid bg-top-right bg-no-repeat bg-full-height special-offer-block no-col-gap" style="background-image:url(/frontend/images/quangcao.png);">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="section-content special-offer-outer bg-primary radius  p-tb60">
@@ -2681,7 +2681,7 @@
                 <div class="col-md-4 col-sm-4 p-tb15">
                     <div class="wt-box">
                         <div class="wt-media text-primary m-b20 radius-bx circle-effect-1">
-                            <img src="/frontend/images/products/pic-8.jpg" class="radius-bx"  alt="">
+                            <img src="/frontend/images/products/pic8.jpg" class="radius-bx"  alt="">
                         </div>
                         <div class="wt-info p-t30 text-center">
                             <h2>Massage Soap</h2>

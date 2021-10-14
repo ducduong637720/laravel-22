@@ -15,7 +15,7 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        // Post::truncate();
+        Post::truncate();
         Post::factory()->count(5)->create();
     }
 }

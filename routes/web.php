@@ -31,31 +31,29 @@ Route::get('backend/categories/restore/{id}', 'Backend\CategoryController@restor
 Route::prefix('backend')
     ->name('backend.')
     ->namespace('Backend')
-    ->middleware(['auth','role:admin'])
+    ->middleware(['auth'])
     ->group(function () {
+        //Dashboard
         Route::get('dashboard', 'DashboardController@index')
         ->name('dashboard.index');
-        // //Dashboard
-        // Route::resource('/dashboard', DashboardController::class);
-        //Post
-        // Route::put('posts/{post}', 'PostController@update')
-        // // ->middleware('can:update,post')
-        // ->name('posts.update');
         Route::resource('posts', PostController::class);
-        // ->except(['update']);
         //User
         Route::resource('users', UserController::class);
         //Category
         Route::resource('categories', CategoryController::class);
         //Tag
         Route::resource('tags', TagController::class);
+        // Permission
+        Route::resource('permissions', PermissionController::class);
+        //Role
+        Route::resource('roles', RoleController::class);
         Route::post('/login/user/{id}', 'UserController@loginWithUser')
         ->name('users.login');
     });
 Route::prefix('frontend')
     ->name('frontend.')
     ->namespace('Frontend')
-    ->middleware(['auth','role:user'])
+    ->middleware(['auth'])
     ->group(function () {
         // Route::get('home', function () {
         //     return view('frontend.home');

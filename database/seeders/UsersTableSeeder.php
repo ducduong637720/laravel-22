@@ -37,7 +37,7 @@ class UsersTableSeeder extends Seeder
             ],
             [
                 'user' => [
-                    'name' => 'admin1',
+                    'name' => 'admod',
                     'address' => 'lao cai',
                     'phone' => '0129525667',
                     'avatar' => 'anh duc',
