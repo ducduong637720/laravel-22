@@ -50,6 +50,7 @@ class UsersTableSeeder extends Seeder
                     'phone' => '0129525667'
                 ]
             ]
+            
         ];
         foreach($users as $user){
             

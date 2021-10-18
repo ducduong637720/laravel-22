@@ -3,7 +3,7 @@
         <div class="container">
             <div class="logo-header">
                 <a href="index.html">
-                    <img src="images/logo.png" width="216" height="37" alt="" />
+                    <img src="/frontend/images/logo.png" width="216" height="37" alt="" />
                 </a>
             </div>
             <!-- NAV Toggle Button -->
@@ -100,15 +100,8 @@
             <!-- MAIN Vav -->
             <div class="header-nav navbar-collapse collapse ">
                 <ul class=" nav navbar-nav">
-                    <li class="active">
-                        <a href="javascript:;">Home<i class="fa fa-chevron-down"></i></a>
-                        <ul class="sub-menu">
-                            <li><a href="index.html">Home 1</a></li>
-                            <li><a href="index-2.html">Home 2</a></li>
-                            <li><a href="index-3.html">Home 3</a></li>
-                            <li><a href="index-4.html">Home 4</a></li>
-                            <li><a href="index-5.html">Home 5</a></li>
-                        </ul>
+                    <li class="">
+                        <a href="/">Trang chủ</a>
                     </li>
                 
                     <li>
@@ -207,7 +200,7 @@
                     </li>
                 
                     <li>
-                        <a href="javascript:;">Product<i class="fa fa-chevron-down"></i></a>
+                        <a href="javascript:;">Sản phẩm<i class="fa fa-chevron-down"></i></a>
                         <ul class="sub-menu">
                             <li><a href="product.html">Product</a></li>
                             <li><a href="product-detail.html">Product Detail</a></li>
@@ -218,44 +211,28 @@
                     </li>
                     
                     <li class="submenu-direction">
-                        <a href="javascript:;">Blog<i class="fa fa-chevron-down"></i></a>
+                        <a href="javascript:;">Bài viết<i class="fa fa-chevron-down"></i></a>
                         <ul class="sub-menu">
                             <li>
-                                <a href="javascript:;">Media</a>
+                                <a href="javascript:;">Video</a>
                                 <ul class="sub-menu">
                                     <li><a href="blog-media-list.html">Media list</a></li>
                                     <li><a href="blog-media-grid.html">Media grid</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="javascript:;">Danh sách</a>
-                                <ul class="sub-menu">
-                                    <li><a href="blog-half-img.html">Half image</a></li>
-                                    <li><a href="{{ route('frontend.posts.index') }}">Half image sidebar</a></li>
-                                    <li><a href="blog-half-img-left-sidebar.html">Half image sidebar left</a></li>
-                                    <li><a href="blog-large-img.html">Large image</a></li>
-                                    <li><a href="blog-large-img-sidebar.html">Large image sidebar</a></li>
-                                    <li><a href="blog-large-img-left-sidebar.html">Large image sidebar left</a></li>                                                    
-                                </ul>
+                                <a href="{{ route('frontend.posts.index') }}">Danh sách</a>
                             </li>
                             <li>
-                                <a href="javascript:;">Grid</a>
+                                <a href="javascript:;">Danh mục</a>
                                 <ul class="sub-menu">
                                     <li><a href="blog-grid-2.html">Grid 2</a></li>
-                                    <li><a href="{{ route('frontend.posts.category-posts') }}">Grid 2 sidebar</a></li>
+                                    <li><a href="{{ route('frontend.posts.list') }}">Grid 2 sidebar</a></li>
                                     <li><a href="blog-grid-2-sidebar-left.html">Grid 2 sidebar left</a></li>
                                     <li><a href="blog-grid-3.html">Grid 3</a></li>
                                     <li><a href="blog-grid-3-sidebar.html">Grid 3 sidebar</a></li>
                                     <li><a href="blog-grid-3-sidebar-left.html">Grid 3 sidebar left</a></li>
                                     <li><a href="blog-grid-4.html">Grid 4</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript:;">Single</a>
-                                <ul class="sub-menu">
-                                    <li><a href="blog-single.html">Single full</a></li>
-                                    <li><a href="blog-single-left-sidebar.html">Single sidebar</a></li>
-                                    <li><a href="blog-single-sidebar.html">Single sidebar right</a></li>
                                 </ul>
                             </li>
                         </ul>

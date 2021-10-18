@@ -88,8 +88,7 @@
                                             <a href='{{ route('backend.roles.edit', $role->id) }}'>
                                                 <i class="far fa-edit btn btn-outline-primary"></i>
                                             </a>
-                                            <form method="POST"
-                                                action="{{ route('backend.roles.destroy', $role->id) }}">
+                                            <form method="POST" action="{{ route('backend.roles.destroy', $role->id) }}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-outline-danger">

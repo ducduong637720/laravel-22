@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
-     /**
+    /**
      * Create a new policy instance.
      *
      * @return void
@@ -51,7 +51,7 @@ class PostController extends Controller
     public function create()
     {
         $tags = Tag::get();
-        return view('backend.posts.create')->with(['tags'=> $tags]);
+        return view('backend.posts.create')->with(['tags' => $tags]);
     }
 
     /**
@@ -115,16 +115,15 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $id)
     {
-        // $post = Post::find($id);
+        $post = Post::find($id);
         // if(! Gate::allows('update-post',$post)){
         //     abort(403);
         // }
         // if($request->user()->cannot('update', $post)){
         //     abort(403);
         // }
-        $this->authorize('update', $post);
         $data = $request->only(['title', 'content', 'status']);
         $tags = $request->get('tags');
         $post->title = $data['title'];
@@ -145,7 +144,7 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        if (Auth::user()->cannot('delete-post')){
+        if (Auth::user()->cannot('delete-post')) {
             return abort(403);
         }
         $post = Post::find($id);

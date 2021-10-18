@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
@@ -37,7 +38,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('backend.users.create');
+        $roles = Role::get();
+        return view('backend.users.create')->with(['roles' => $roles]);
     }
 
     /**
@@ -48,29 +50,23 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->only(['name', 'email', 'phone', 'address', 'password', 'avatar','status']);
-        // $user = new User();
-        // $user->name = $data['name'];
-        // $user->email = $data['email'];
-        // $user->status = $data['status'];
-        // $user->phone = $data['phone'];
-        // $user->address = $data['address'];
-        // $user->password = $data['password'];
-        // $user->avatar = $data['avatar'];
-        // $user->save();
+        $data = $request->only(['name', 'email', 'phone', 'address', 'password', 'avatar', 'status']);
+        $roles = $request->get('roles');
+        $user = new User();
+        $user->name = $data['name'];
+        $user->email = $data['email'];
+        $user->status = $data['status'];
+        $user->password = bcrypt($data['password']);
+        $user->avatar = $data['avatar'];
+        $user->save();
 
-        $user_id = DB::table('users')->insertGetId([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'status' => $data['status'],
-            'password' => bcrypt($data['password']),
-            'avatar' => $data['avatar'],
-        ]);
         DB::table('user_infos')->insert([
-            'user_id' => $user_id,
-            'phone' => $data['phone'],
+            'user_id' => $user->id,
             'address' => $data['address'],
+            'phone' => $data['phone']
         ]);
+        $user->roles()->attach($roles);
+
         return redirect('backend/users');
     }
 
@@ -82,8 +78,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-    //    $posts = User::find($id)->posts()->where('status',2)->get();
-    //    dd($posts);
+        //    $posts = User::find($id)->posts()->where('status',2)->get();
+        //    dd($posts);
         $user = User::find($id);
         return view(
             'backend.users.show',
@@ -100,7 +96,11 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('backend.users.edit')->with(['user' => $user]);
+        $roles = Role::get();
+        return view('backend.users.edit')->with([
+            'user' => $user,
+            'roles' => $roles
+        ]);
     }
 
     /**
@@ -113,18 +113,16 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->only(['name', 'email', 'phone', 'address']);
-        $user_id = DB::table('users')->insertGetId([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'status' => $data['status'],
-            'password' => $data['password'],
-            'avatar' => $data['avatar'],
-        ]);
-        DB::table('user_infos')->insert([
-            'user_id' => $user_id,
-            'phone' => $data['phone'],
+        $roles = $request->get('roles');
+        $user = User::find($id);
+        $user->name = $data['name'];
+        $user->email = $data['email'];
+        $user->save();
+        DB::table('user_infos')->where('user_id', $id)->update([
             'address' => $data['address'],
+            'phone' => $data['phone']
         ]);
+        $user->roles()->sync($roles);
         return redirect()->route('backend.users.index');
     }
 
@@ -137,7 +135,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
-        if(! Gate::allows('delete-user',$user)){
+        if (!Gate::allows('delete-user', $user)) {
             abort(403);
         }
         User::destroy($id);
@@ -147,7 +145,7 @@ class UserController extends Controller
     {
         $users = User::onlyTrashed()->simplePaginate(6);
         return view('backend.users.softDelete', [
-            'users'=> $users
+            'users' => $users
         ]);
     }
 
@@ -163,5 +161,4 @@ class UserController extends Controller
 
         return redirect('backend/dashboard');
     }
-
 }

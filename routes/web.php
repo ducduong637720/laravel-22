@@ -55,20 +55,10 @@ Route::prefix('frontend')
     ->namespace('Frontend')
     ->middleware(['auth'])
     ->group(function () {
-        // Route::get('home', function () {
-        //     return view('frontend.home');
-        // })->name('index');
-        Route::get('posts/index', function () {
-            return view('frontend.posts.index');
-        })->name('posts.index');
-
-        Route::get('posts/category-posts', function () {
-            return view('frontend.posts.category-posts');
-        })->name('posts.category-posts');
-
-        Route::get('posts/detail', function () {
-            return view('frontend.posts.detail');
-        })->name('posts.detail');
+        Route::get('posts/list', 'PostController@list')
+        ->name('posts.list');
+        Route::resource('posts', PostController::class);
+     
     });
 Route::prefix('/')->namespace('Auth')->name('auth.')->group(function () {
     Route::get('/login', 'LoginController@create')

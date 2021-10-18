@@ -84,7 +84,11 @@
                                         <td>{{ $user->id }}</td>
                                         <td>{{ $user->first_name }}</td>
                                         <td>{{ $user->email }}</td>
-                                        <td><span class="tag tag-success">Giám đốc</span></td>
+                                        <td>
+                                            @foreach ( $user->roles as $role )
+                                                {{ $role->name }}  
+                                            @endforeach
+                                        </td>
                                         <td>{!! $user->status_text !!}</td>
                                         <td>{{ $user->userInfo->phone }}</td>
                                         <td>{{ $user->userInfo->address }}</td>
@@ -93,12 +97,12 @@
                                         <td style="display: flex">
                                             <a href="{{ route('backend.users.edit', $user->id) }}"
                                                 class="btn btn-outline-info"><i class="far fa-edit"></i></a>
-                                                <form method="POST" action="{{ route('backend.users.login', $user->id )}}">
-                                                    @csrf
-                                                    <button class="btn btn-outline-danger">
-                                                      <i class="fas fa-user"></i>
-                                                    </button>
-                                                  </form>
+                                            <form method="POST" action="{{ route('backend.users.login', $user->id) }}">
+                                                @csrf
+                                                <button class="btn btn-outline-danger">
+                                                    <i class="fas fa-user"></i>
+                                                </button>
+                                            </form>
                                             <form method="POST" action="{{ route('backend.users.destroy', $user->id) }}">
                                                 @csrf
                                                 @method('DELETE')

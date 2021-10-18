@@ -94,9 +94,9 @@
                         </table>
                         <div class="card-footer">
                             <a href="{{ route('backend.users.index') }}">
-                              <button type="submit" class="btn btn-default float-right">Quay lại</button>
+                                <button type="submit" class="btn btn-default float-right">Quay lại</button>
                             </a>
-                          </div>
+                        </div>
                         {{ $users->links() }}
                     </div>
                     <!-- /.card-body -->
