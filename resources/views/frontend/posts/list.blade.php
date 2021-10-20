@@ -53,7 +53,6 @@
                                                 overflow: hidden;
                                                 text-overflow: ellipsis;
                                                 word-break: break-word;
-                                                
                                                 ">{!! $post->content !!}</p>
                                             </div><br>
                                             <div class="clearfix">
@@ -110,9 +109,8 @@
                             <div class="tagcloud">
                                 @foreach ($categories as $category)
                                     <a
-                                        href="{{ route('frontend.posts.list', $category->id) }}">{{ $category->name }}</a>
+                                        href="{{ route('frontend.posts.category_posts', $category->id) }}">{{ $category->name }}</a>
                                 @endforeach
-
                             </div>
                         </div>
                         <!-- 2. RECENT POSTS -->

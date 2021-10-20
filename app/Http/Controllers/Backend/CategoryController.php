@@ -38,6 +38,9 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'name' => 'required|unique:posts|max:255',
+        ]);
         $data = $request->only(['name', 'status']);
         $category = new Category();
         $category->name = $data['name'];
@@ -54,9 +57,8 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        // $category = Category::find($id);
+        $category = Category::find($id);
         $posts = Category::find($id)->posts;
-        dd($posts);
         return view(
             'backend.categories.show',
             ['category' => $category]
@@ -71,7 +73,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::firstwhere('id', $id);
+        $category = Category::find($id);
         return view('backend.categories.edit')->with(['category' => $category]);
     }
 
@@ -84,6 +86,9 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validated = $request->validate([
+            'name' => 'required|unique:categories|max:255',
+        ]);
         $data = $request->only('name', 'status');
         $category = Category::find($id);
         $category->name = $data['name'];

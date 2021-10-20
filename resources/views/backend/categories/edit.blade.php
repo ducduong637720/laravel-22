@@ -25,13 +25,25 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form method="POST" action="{{ route('backend.categories.update', $category->id) }}">
                 @csrf
                 @method('PUT')
                 <div class="card-body">
                     <div class="form-group">
                         <label>Tên danh mục</label>
-                        <input type="text" name="name" value="{{ $category->name }}" class="form-control">
+                        <input type="text" name="name" value="{{ $category->name, old('title') }}" class="form-control @error('name') is-invalid @enderror">
+                        @error('name')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                     </div>
                     <div class="form-group">
                         <label for="exampleInputFile">File input</label>

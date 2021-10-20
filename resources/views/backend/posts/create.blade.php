@@ -23,6 +23,15 @@
         <div class="row">
             <div class="col-12">
                 <div class="card card-warning">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <form action="{{ route('backend.posts.store') }}" method="post">
                         @csrf
                         <div class="card-body">
@@ -31,7 +40,10 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Tiêu đề</label>
-                                        <input type="text" name="title" class="form-control" placeholder="Enter ...">
+                                        <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title') }}" placeholder="Enter ...">
+                                        @error('title')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>

@@ -1,10 +1,13 @@
 <div class="card-body">
-    <textarea id="summernote" rows="10" name="content">
-        {{-- Place <em>some</em> <u>text</u> <strong>here</strong> --}}
+    <textarea id="summernote" rows="10" name="content" class="@error('content') is-invalid @enderror"
+        value="{{ old('content') }}">
         @isset($content)
-          {{ $content }}
+              {{ $content }}
         @endisset
     </textarea>
+    @error('content')
+        <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
 </div>
 
 @push('stack-scripts')

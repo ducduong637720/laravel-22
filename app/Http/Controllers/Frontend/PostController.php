@@ -19,9 +19,11 @@ class PostController extends Controller
     {
         $posts = Post::all();
         $tags = Tag::get();
+        $categories = Category::all();
         return view('frontend.posts.index')->with([
             'posts' => $posts,
-            'tags' =>$tags
+            'tags' =>$tags,
+            'categories' =>$categories
         ]);
     }
 
@@ -97,11 +99,22 @@ class PostController extends Controller
     {
         //
     }
-
      public function list(){
         $posts = Post::get();
         $categories = Category::get();
         $tags = Tag::get();
+        return view('frontend.posts.list')->with([
+            'posts' => $posts,
+            'categories' => $categories,
+            'tags' =>$tags
+        ]);
+    }
+
+    public function category_posts($id){
+        $categories = Category::get();
+        $tags = Tag::get();
+        $posts = Post::where('category_id', $id)->get();
+
         return view('frontend.posts.list')->with([
             'posts' => $posts,
             'categories' => $categories,

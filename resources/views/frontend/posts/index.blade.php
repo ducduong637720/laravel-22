@@ -89,6 +89,15 @@
                             </div>
                         </div> --}}
                         <!-- 2. RECENT POSTS -->
+                        <div class="widget bg-white  widget_tag_cloud">
+                            <h4 class="widget-title">Categories</h4>
+                            <div class="tagcloud">
+                                @foreach ($categories as $category)
+                                    <a
+                                        href="{{ route('frontend.posts.category_posts', $category->id) }}">{{ $category->name }}</a>
+                                @endforeach
+                            </div>
+                        </div>
                         <div class="widget bg-white  recent-posts-entry">
                             <h4 class="widget-title">Posts</h4>
                             <div class="section-content">

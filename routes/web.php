@@ -58,7 +58,8 @@ Route::prefix('frontend')
         Route::get('posts/list', 'PostController@list')
         ->name('posts.list');
         Route::resource('posts', PostController::class);
-     
+        Route::get('posts/list/{id}', 'PostController@category_posts')
+        ->name('posts.category_posts');
     });
 Route::prefix('/')->namespace('Auth')->name('auth.')->group(function () {
     Route::get('/login', 'LoginController@create')

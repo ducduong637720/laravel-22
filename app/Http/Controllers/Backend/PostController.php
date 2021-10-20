@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -60,7 +62,7 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
         $data = $request->only(['title', 'content', 'status']);
         $tags = $request->get('tags');
@@ -70,7 +72,7 @@ class PostController extends Controller
         $post->content = $data['content'];
         $post->user_id = Auth::user()->id;
         $post->user_updated_id = Auth::user()->id;
-        $post->category_id = 1;
+        $post->category_id = 2;
         $post->save();
         $post->tags()->attach($tags);
         return redirect('backend/posts');
@@ -115,15 +117,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdatePostRequest $request, $id)
     {
         $post = Post::find($id);
-        // if(! Gate::allows('update-post',$post)){
-        //     abort(403);
-        // }
-        // if($request->user()->cannot('update', $post)){
-        //     abort(403);
-        // }
         $data = $request->only(['title', 'content', 'status']);
         $tags = $request->get('tags');
         $post->title = $data['title'];
@@ -133,6 +129,7 @@ class PostController extends Controller
         $post->user_updated_id = Auth::user()->id;
         $post->save();
         $post->tags()->sync($tags);
+     
         return redirect()->route('backend.posts.index');
     }
 
@@ -144,16 +141,10 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        if (Auth::user()->cannot('delete-post')) {
-            return abort(403);
-        }
-        $post = Post::find($id);
-        // if (!Gate::allows('delete-post', $post)) {
-        //     abort(403);
+        // if (Auth::user()->cannot('delete-post')) {
+        //     return abort(403);
         // }
-
-        // $post->delete();
-
+        $post = Post::find($id);
         Post::destroy($id);
         return redirect()->route('backend.posts.index');
     }
