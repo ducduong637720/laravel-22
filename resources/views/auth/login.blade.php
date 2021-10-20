@@ -18,12 +18,18 @@
                                 <form method="POST" action="{{ route('auth.login') }}">
                                     @csrf
                                     <div class="form-group">
-                                        <input type="email" class="form-control" name="email"
-                                            placeholder="name@example.com">
+                                        <input type="email" class="form-control @error('email') is-invalid @enderror"
+                                            value="{{ old('email') }}" name="email" placeholder="name@example.com">
+                                        @error('email')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Mật khẩu"
-                                            name="password">
+                                        <input type="password" class="form-control @error('password') is-invalid @enderror"
+                                            value="{{ old('password') }}" placeholder="Mật khẩu" name="password">
+                                        @error('password')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox small">

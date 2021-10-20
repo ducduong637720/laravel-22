@@ -17,11 +17,19 @@
                 @csrf
                 <div class="form-group">
                     <label>Tên</label>
-                    <input type="text" name="name" class="form-control" placeholder="Họ và tên">
+                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
+                    value="{{ old('name') }}" placeholder="Họ và tên">
+                    @error('name')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email</label>
-                    <input type="email" name="email" class="form-control" placeholder="Nhập email">
+                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
+                    value="{{ old('email') }}" placeholder="Nhập email">
+                    @error('email')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 {{-- <div class="form-group">
                     <label for="exampleInputEmail1">Số điện thoại</label>
@@ -33,12 +41,20 @@
                 </div> --}}
                 <div class="form-group">
                     <label for="exampleInputPassword1">Mật khẩu</label>
-                    <input type="password" name="password" class="form-control" placeholder="Mật khẩu">
+                    <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"
+                    value="{{ old('password') }}" placeholder="Mật khẩu">
+                    @error('password')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Nhập lại mật khẩu</label>
-                    <input type="password" name="password_confirmation" class="form-control"
+                    <input type="password" name="password_confirmation"
+                        class="form-control @error('password_confirmation') is-invalid @enderror"
                         placeholder="Nhập lại mật khẩu mới">
+                    @error('password_confirmation')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
