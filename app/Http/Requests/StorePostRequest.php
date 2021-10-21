@@ -32,7 +32,7 @@ class StorePostRequest extends FormRequest
     {
         return [
             'title.required' => ':attribute bắt buộc phải có',
-            'content.required' => ':attribute phải nhập nội dung',
+            'content.required' => ':attribute phải nhập ',
         ];
     }
     public function attributes()

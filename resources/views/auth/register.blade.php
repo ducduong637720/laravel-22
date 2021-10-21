@@ -18,7 +18,7 @@
                 <div class="form-group">
                     <label>Tên</label>
                     <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
-                    value="{{ old('name') }}" placeholder="Họ và tên">
+                        value="{{ old('name') }}" placeholder="Họ và tên">
                     @error('name')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -26,7 +26,7 @@
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email</label>
                     <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
-                    value="{{ old('email') }}" placeholder="Nhập email">
+                        value="{{ old('email') }}" placeholder="Nhập email">
                     @error('email')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -41,18 +41,15 @@
                 </div> --}}
                 <div class="form-group">
                     <label for="exampleInputPassword1">Mật khẩu</label>
-                    <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"
-                    value="{{ old('password') }}" placeholder="Mật khẩu">
-                    @error('password')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
+                    <input type="password" name="password" class="form-control"
+                         placeholder="Mật khẩu">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Nhập lại mật khẩu</label>
                     <input type="password" name="password_confirmation"
-                        class="form-control @error('password_confirmation') is-invalid @enderror"
+                        class="form-control @error('password') is-invalid @enderror"
                         placeholder="Nhập lại mật khẩu mới">
-                    @error('password_confirmation')
+                    @error('password')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
