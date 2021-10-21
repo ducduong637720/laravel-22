@@ -14,6 +14,7 @@ use App\Models\User;
 use Exception;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
@@ -64,12 +65,11 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make(
-            $request->all(),
+        $validator = Validator::make($request->all(),
             [
                 'title' => 'required|unique:posts|max:255',
                 'content' => 'required',
-                'status' => 'required|in:0,1,2',
+         
             ],
             [
                 'required' => 'Thuộc tính :attribute là bắt buộc',
