@@ -23,15 +23,6 @@
         <div class="row">
             <div class="col-12">
                 <div class="card card-warning">
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
                     <form class="form-horizontal" method="POST" action="{{ route('backend.posts.update', $post->id) }}">
                         @csrf
                         @method('PUT')

@@ -12,7 +12,7 @@
     <meta name="robots" content="" />    
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Spa Template | Home Page 1 @yield('title')</title>
+    <title>Spa Template  @yield('title')</title>
     @include('frontend.includes.style-base')
    @yield('css')
 

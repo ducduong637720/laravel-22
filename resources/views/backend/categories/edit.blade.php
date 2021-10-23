@@ -25,15 +25,6 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
             <form method="POST" action="{{ route('backend.categories.update', $category->id) }}">
                 @csrf
                 @method('PUT')

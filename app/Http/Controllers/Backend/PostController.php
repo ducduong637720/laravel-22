@@ -72,7 +72,7 @@ class PostController extends Controller
                 'status' => 'required|in:0,1,2',
             ],
             [
-                'required' => 'Thuộc tính :attribute là bắt buộc',
+                'required' => 'Trường :attribute phải nhập',
                 'content.required' => 'Nội dung không được trống',
 
             ],

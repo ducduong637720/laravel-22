@@ -290,7 +290,7 @@
         style="background-image:url(/frontend/images/background/bg-1.png);">
         <div class="container ">
             <div class="section-head text-center">
-                <h1><span class="text-primary"> Welcome to </span> Spa center</h1>
+                <h1><span class="text-primary"> Chào mừng bạn đến với </span>trung tâm Spa</h1>
                 <div class="wt-separator-outer ">
                     <div class="wt-separator style-icon">
                         <i class="fa fa-leaf text-black"></i>

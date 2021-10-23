@@ -25,24 +25,16 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
             <form method="post" action="{{ route('backend.categories.store') }}">
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
                         <label>Tên danh mục</label>
-                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" placeholder="Nhập tên danh mục ...">
+                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
+                            value="{{ old('name') }}" placeholder="Nhập tên danh mục ...">
                         @error('name')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="exampleInputFile">File input</label>

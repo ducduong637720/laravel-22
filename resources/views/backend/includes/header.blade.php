@@ -5,7 +5,7 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="/" class="nav-link">Home</a>
+            <a href="/" class="nav-link">Trang chủ</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
             <a href="#" class="nav-link">Contact</a>
@@ -14,7 +14,7 @@
             <form action="{{ route('auth.logout') }}" method="post">
                 @csrf
                 <a href="#" class="nav-link" onclick="this.closest('form').submit();return false;">
-                    Logout
+                    Đăng xuất
                 </a>
             </form>
         </li>
