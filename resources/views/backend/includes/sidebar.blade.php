@@ -98,6 +98,36 @@
                     </li>
                 </ul>
             </li>
+            <li class="nav-item @if (request()->routeIs('backend.storages.*')) menu-open @endif">
+                <a href="#2" class="nav-link  @if (request()->routeIs('backend.storages.*')) active @endif">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                        Quản lý ảnh
+                        <i class="fas fa-angle-left right"></i>
+
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    {{-- <li class="nav-item">
+                        <a href="{{ route('backend.categories.create') }}" class="nav-link  @if (request()->routeIs('backend.categories.create')) active @endif">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Tạo mới danh mục</p>
+                        </a>
+                    </li> --}}
+                    <li class="nav-item">
+                        <a href="{{ route('backend.storages.index') }}" class="nav-link @if (request()->routeIs('backend.storages.index')) active @endif">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Danh sách ảnh</p>
+                        </a>
+                    </li>
+                    {{-- <li class="nav-item">
+                        <a href="{{ route('backend.categories.delete') }}" class="nav-link @if (request()->routeIs('backend.categories.delete')) active @endif">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Lịch sử xóa</p>
+                        </a>
+                    </li> --}}
+                </ul>
+            </li>
             <li class="nav-header">Hệ thống</li>
             <li class="nav-item @if (request()->routeIs('backend.users.*')) menu-open @endif">
                 <a href="#2" class="nav-link  @if (request()->routeIs('backend.users.*')) active @endif">

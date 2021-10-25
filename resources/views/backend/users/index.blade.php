@@ -93,7 +93,7 @@
                                         <td>{{ $user->userInfo->phone }}</td>
                                         <td>{{ $user->userInfo->address }}</td>
                                         <td>{{ $user->created_at }}</td>
-                                        <td>{{ $user->updated_at }}</td>
+                                        {{-- <td>{{ $user->updated_at }}</td> --}}
                                         <td style="display: flex">
                                             <a href="{{ route('backend.users.edit', $user->id) }}"
                                                 class="btn btn-outline-info"><i class="far fa-edit"></i></a>

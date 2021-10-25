@@ -23,7 +23,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="card card-warning">
-                    <form action="{{ route('backend.posts.store') }}" method="post">
+                    <form action="{{ route('backend.posts.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
                             <div class="row">
@@ -31,19 +31,38 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Tiêu đề</label>
-                                        <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title') }}" placeholder="Enter ...">
+                                        <input type="text" name="title"
+                                            class="form-control @error('title') is-invalid @enderror"
+                                            value="{{ old('title') }}" placeholder="Nhập ...">
                                         @error('title')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-sm-12">
-                                    <!-- textarea -->
-                                    @include('backend.components.summernote')
+                                    <div class="form-group">
+                                        @include('backend.components.summernote')
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="exampleInputFile">Ảnh bài viết</label>
+                                        <div class="input-group">
+                                            <div class="custom-file">
+                                                <input type="file" name="img_url" class="custom-file-input"
+                                                    id="exampleInputFile">
+                                                <label class="custom-file-label" for="exampleInputFile">Đăng ảnh</label>
+                                            </div>
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">Upload</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
+                            </div>
+
+                            <div class="row">
                                 <div class="col-sm-12">
                                     <!-- Select multiple-->
                                     <div class="form-group">

@@ -49,6 +49,8 @@ Route::prefix('backend')
         Route::resource('roles', RoleController::class);
         Route::post('/login/user/{id}', 'UserController@loginWithUser')
         ->name('users.login');
+        //Storage
+        Route::resource('storages',StorageController ::class);
     });
 Route::prefix('frontend')
     ->name('frontend.')

@@ -60,6 +60,7 @@
                             </div>
                         </div>
                     @endforeach
+                    {{  $posts->links() }}
                 </div>
                 <div class="col-md-3">
                     <aside class="side-bar">

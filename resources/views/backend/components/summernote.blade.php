@@ -1,5 +1,5 @@
-<div class="card-body">
-    <textarea id="summernote" rows="10" name="content" class="@error('content') is-invalid @enderror"
+<div class="form-group">
+    <textarea id="summernote" rows="10" name="content" class="form-control @error('content') is-invalid @enderror"
         value="{{ old('content') }}">
         @isset($content)
               {{ $content }}

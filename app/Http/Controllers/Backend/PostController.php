@@ -65,7 +65,8 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(),
+        $validator = Validator::make(
+            $request->all(),
             [
                 'title' => 'required|unique:posts|max:255',
                 'content' => 'required',
@@ -96,6 +97,12 @@ class PostController extends Controller
         $post->user_id = Auth::user()->id;
         $post->user_updated_id = Auth::user()->id;
         $post->category_id = 2;
+        if ($request->hasFile('img_url')) {
+            $disk = 'public';
+            $path = $request->file('img_url')->store('blogs', $disk);
+            $post->disk = $disk;
+            $post->img_url = $path;
+        } 
         $post->save();
         $post->tags()->attach($tags);
         return redirect('backend/posts');
@@ -152,7 +159,7 @@ class PostController extends Controller
         $post->user_updated_id = Auth::user()->id;
         $post->save();
         $post->tags()->sync($tags);
-     
+
         return redirect()->route('backend.posts.index');
     }
 

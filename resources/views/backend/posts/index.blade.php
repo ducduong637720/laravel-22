@@ -26,12 +26,12 @@
                     <div class="card-header">
                         @can('create-post', App\Models\Post::class)
                             @include('backend.components.btn', [
-                        'href' => route('backend.posts.create'),
-                        'type' => 'success',
-                        'content' => 'Tạo bài viết'
-                        ])  
+                            'href' => route('backend.posts.create'),
+                            'type' => 'success',
+                            'content' => 'Tạo bài viết'
+                            ])
                         @endcan
-                      
+
 
                         <div class="card-tools">
                             <div class="input-group input-group-sm" style="width: 150px;">
@@ -49,8 +49,8 @@
                     <div class="col-8">
                         <form method="GET" action="{{ route('backend.posts.index') }}" class="form-inline">
                             <div class="col-4">
-                                <input type="text" value="{{ request()->get('title') }}" name="title" class="form-group"
-                                    placeholder="">
+                                <input type="text" value="{{ request()->get('title') }}" name="title"
+                                    class="form-group" placeholder="">
                             </div>
                             <div class="col-4">
                                 <div class="form-group">
@@ -77,14 +77,15 @@
                                 <tr>
                                     <th>STT</th>
                                     <th>Tên bài viết</th>
+                                    <th>Ảnh bài viết</th>
                                     <th>Lượt xem</th>
                                     <th>Danh mục</th>
                                     <th>Tag</th>
                                     <th>Người tạo</th>
-                                    <th>Người sửa</th>
+                                    {{-- <th>Người sửa</th> --}}
                                     <th>Trạng thái</th>
                                     <th>Ngày tạo</th>
-                                    <th>Ngày sửa</th>
+                                    {{-- <th>Ngày sửa</th> --}}
                                     <th>Hành động</th>
                                 </tr>
                             </thead>
@@ -92,40 +93,41 @@
                                 @foreach ($posts as $post)
                                     <tr>
                                         <td>{{ $post->id }}</td>
+                                        <td>{{ $post->title }}</td>
                                         <td>
-                                            Title: {{ $post->title }} <br>
-                                            Slug: {{ $post->slug }}
+                                            @if (!empty($post->img_url))
+                                                <img src="{{ Illuminate\Support\Facades\Storage::disk($post->disk)->url($post->img_url) }}"
+                                                    width="100px">
+                                            @endif
                                         </td>
                                         <td>{{ $post->view_count }}</td>
+                                        <td>{{ $post->category->name }}</td>
                                         <td>
-                                            {{ $post->category->name }}
-                                        </td>
-                                        <td>
-                                            @foreach ($post->tags as $tag )
-                                                <span class="badge badge-info">{{$tag->name}}</span>
+                                            @foreach ($post->tags as $tag)
+                                                <span class="badge badge-info">{{ $tag->name }}</span>
                                             @endforeach
                                         </td>
                                         <td>
-                                            {{ $post->user->name}}
+                                            {{ $post->user->name }}
                                         </td>
-                                        <td>{{ $post->userUpdate->name }}</td>
+                                        {{-- <td>{{ $post->userUpdate->name }}</td> --}}
                                         <td>{!! $post->status_text !!}</td>
                                         <td>{{ $post->created_at }}</td>
-                                        <td>{{ $post->updated_at }}</td>
+                                        {{-- <td>{{ $post->updated_at }}</td> --}}
                                         <td style="display: flex;">
                                             @can('update-post', $post)
-                                            <a href="{{ route('backend.posts.edit', $post->id) }}"
-                                                class="btn btn-outline-info"><i class="far fa-edit"></i>
-                                            </a> 
+                                                <a href="{{ route('backend.posts.edit', $post->id) }}"
+                                                    class="btn btn-outline-info"><i class="far fa-edit"></i>
+                                                </a>
                                             @endcan
                                             @can('delete-post', $post)
-                                            <form method="POST" action="{{ route('backend.posts.destroy', $post->id) }}">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-outline-danger">
-                                                    <i class="far fa-trash-alt"></i>
-                                                </button>
-                                            </form> 
+                                                <form method="POST" action="{{ route('backend.posts.destroy', $post->id) }}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn btn-outline-danger">
+                                                        <i class="far fa-trash-alt"></i>
+                                                    </button>
+                                                </form>
                                             @endcan
                                             <a href="{{ route('backend.posts.show', $post->id) }}"
                                                 class="btn btn-outline-warning"><i class="fas fa-info-circle"></i></a>

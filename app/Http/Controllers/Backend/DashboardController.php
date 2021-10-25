@@ -10,8 +10,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $save = Storage::disk('public')->put('file.txt', 'Contents');
-        dd($save);
         return view('backend.dashboard');
     }
 }

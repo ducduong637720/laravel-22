@@ -141,6 +141,7 @@ class UserController extends Controller
         User::destroy($id);
         return redirect()->route('backend.users.index');
     }
+
     public function delete(Request $request)
     {
         $users = User::onlyTrashed()->simplePaginate(6);

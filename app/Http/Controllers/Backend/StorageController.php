@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Frontend;
+namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
-use App\Models\Post;
-use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
-class PostController extends Controller
+
+class StorageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,14 +16,17 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::Paginate(1);
-        $tags = Tag::get();
-        $categories = Category::all();
-        return view('frontend.posts.index')->with([
-            'posts' => $posts,
-            'tags' =>$tags,
-            'categories' =>$categories
-        ]);
+        $files = Storage::allFiles('public');
+        $paths[] = '';
+        foreach($files as $key => $file){
+            $file = str_replace("public/","",$file);
+            $paths[$key] = asset('storage/'.$file);
+        }
+        // $storages = Storage::disk('public')->get('anhdep.jpg');
+        // dd($storages);
+        return view('backend.storages.index',
+        ['paths' => $paths]
+    );
     }
 
     /**
@@ -56,14 +58,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $post = Post::find($id);
-        $categories = Category::get();
-        $tags = Tag::get();
-        return view('frontend.posts.show')->with([
-            'post' => $post,
-            'categories' => $categories,
-            'tags' =>$tags
-        ]);
+        //
     }
 
     /**
@@ -99,28 +94,8 @@ class PostController extends Controller
     {
         //
     }
-     public function list(){
-        $posts = Post::get();
-        $categories = Category::get();
-        $tags = Tag::get();
-        return view('frontend.posts.list')->with([
-            'posts' => $posts,
-            'categories' => $categories,
-            'tags' =>$tags
-        ]);
+    public function download($id)
+    {
+      //
     }
-
-    public function category_posts($id){
-        $categories = Category::get();
-        $tags = Tag::get();
-        $posts = Post::where('category_id', $id)->get();
-
-        return view('frontend.posts.list')->with([
-            'posts' => $posts,
-            'categories' => $categories,
-            'tags' =>$tags
-        ]);
-    }
-
-   
 }
