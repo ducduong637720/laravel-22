@@ -96,8 +96,8 @@
                                         <td>{{ $post->title }}</td>
                                         <td>
                                             @if (!empty($post->img_url))
-                                                <img src="{{ Illuminate\Support\Facades\Storage::disk($post->disk)->url($post->img_url) }}"
-                                                    width="100px">
+                                                <img src="{{ $post->image_url_full }}"
+                                                    width="100px"; height="60px">
                                             @endif
                                         </td>
                                         <td>{{ $post->view_count }}</td>

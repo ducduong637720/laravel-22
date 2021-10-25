@@ -17,7 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::Paginate(1);
+        $posts = Post::Paginate(9);
         $tags = Tag::get();
         $categories = Category::all();
         return view('frontend.posts.index')->with([

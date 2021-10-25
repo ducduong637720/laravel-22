@@ -69,6 +69,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Tên người dùng</th>
+                                    <th>Ảnh đại diện</th>
                                     <th>Email</th>
                                     <th>Chức vụ</th>
                                     <th>Trạng thái</th>
@@ -83,6 +84,12 @@
                                     <tr>
                                         <td>{{ $user->id }}</td>
                                         <td>{{ $user->first_name }}</td>
+                                        <td>
+                                            @if (!empty($post->avatar))
+                                            <img src="{{ Illuminate\Support\Facades\Storage::disk($user->disk)->url($user->avatar) }}"
+                                                width="100px">
+                                        @endif
+                                        </td>
                                         <td>{{ $user->email }}</td>
                                         <td>
                                             @foreach ( $user->roles as $role )

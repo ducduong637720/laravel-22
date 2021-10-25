@@ -20,7 +20,9 @@
                         <div class="blog-post blog-md date-style-1 clearfix">
 
                             <div class="wt-post-media wt-img-effect zoom-slow">
-                                <a href="javascript:void(0);"><img src="images/blog/grid/pic04.png" alt=""></a>
+                                <a href="javascript:void(0);">
+                                    <img src="{{ $post->img_url }}" alt="">
+                                </a>
                             </div>
                             <div class="wt-post-info">
 

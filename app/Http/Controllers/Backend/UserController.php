@@ -117,6 +117,12 @@ class UserController extends Controller
         $user = User::find($id);
         $user->name = $data['name'];
         $user->email = $data['email'];
+        if ($request->hasFile('avatar')) {
+            $disk = 'public';
+            $path = $request->file('avatar')->store('blogs', $disk);
+            $user->disk = $disk;
+            $user->img_url = $path;
+        } 
         $user->save();
         DB::table('user_infos')->where('user_id', $id)->update([
             'address' => $data['address'],

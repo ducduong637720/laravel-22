@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 
 class Post extends Model
@@ -30,6 +31,10 @@ class Post extends Model
         return '<span class="badge badge-' 
         . $this->statusColor[$this->status] . '">' 
         . $this->statusArr[$this->status] . '<span>';
+    }
+
+    public function getImageUrlFullAttribute(){
+        return Storage::disk($this->disk)->url($this->img_url);
     }
 
     public function setTitleAttribute($title)

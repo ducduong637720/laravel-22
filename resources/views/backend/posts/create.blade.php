@@ -52,6 +52,9 @@
                                                 <input type="file" name="img_url" class="custom-file-input"
                                                     id="exampleInputFile">
                                                 <label class="custom-file-label" for="exampleInputFile">Đăng ảnh</label>
+                                                @error('img_url')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                             </div>
                                             <div class="input-group-append">
                                                 <span class="input-group-text">Upload</span>

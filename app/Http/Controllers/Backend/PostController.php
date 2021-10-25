@@ -71,6 +71,7 @@ class PostController extends Controller
                 'title' => 'required|unique:posts|max:255',
                 'content' => 'required',
                 'status' => 'required|in:0,1,2',
+                'img_url' => 'required|file|mimes:jpg,png|max:3072|min:10'
             ],
             [
                 'required' => 'Trường :attribute phải nhập',
