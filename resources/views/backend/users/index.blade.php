@@ -85,9 +85,9 @@
                                         <td>{{ $user->id }}</td>
                                         <td>{{ $user->first_name }}</td>
                                         <td>
-                                            @if (!empty($post->avatar))
-                                            <img src="{{ Illuminate\Support\Facades\Storage::disk($user->disk)->url($user->avatar) }}"
-                                                width="100px">
+                                            @if (!empty($user->avatar))
+                                            <img src="{{ $user->avatar_full }}"
+                                                width="100px"; height="60px">
                                         @endif
                                         </td>
                                         <td>{{ $user->email }}</td>

@@ -22,13 +22,10 @@ class StorageController extends Controller
             $file = str_replace("public/","",$file);
             $paths[$key] = asset('storage/'.$file);
         }
-        // $storages = Storage::disk('public')->get('anhdep.jpg');
-        // dd($storages);
         return view('backend.storages.index',
         ['paths' => $paths]
     );
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -92,10 +89,12 @@ class StorageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Storage::disk('public')->delete($id);
+        return redirect()->route('backend.storages.index');
     }
     public function download($id)
     {
-      //
+        dd(Storage::disk('public')->download($id));
+        return redirect()->route('backend.storages.index');
     }
 }

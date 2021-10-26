@@ -50,7 +50,8 @@ Route::prefix('backend')
         Route::post('/login/user/{id}', 'UserController@loginWithUser')
         ->name('users.login');
         //Storage
-        Route::resource('storages',StorageController ::class);
+        Route::resource('storages',StorageController ::class)->parameters(['storages' => 'id']);
+        Route::get('storages/download','StorageController@download')->name('storages.download');
     });
 Route::prefix('frontend')
     ->name('frontend.')

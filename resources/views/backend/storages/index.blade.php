@@ -61,18 +61,24 @@
                                             <img src="{{ $path }}" alt="" width="100px" height="100px">
                                         </td>
                                         <td>{{ $path }}</td>
-
-                                        {{-- <td style="display: flex">
-                                            <a href="{{ route('backend.categories.edit', $category->id) }}"
-                                                class="btn btn-outline-info"><i class="far fa-edit"></i></a>
-                                            <form method="POST"
-                                                action="{{ route('backend.categories.destroy', $category->id) }}">
+                                        <td style="display: flex">
+                                            <form method="GET" action="{{ route('backend.storages.index') }}">
+                                                <input type="text" value="{{ $path }}" name="name"
+                                                    class="form-control" hidden>
+                                                <button class="btn btn-info"><i class="fas fa-download"></i></button>
+                                            </form>
+                                            <form method="POST" action="{{ route('backend.storages.destroy', ['id'=> $path]) }}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-outline-danger">
                                                     <i class="far fa-trash-alt"></i>
                                                 </button>
                                             </form>
+                                        </td>
+                                        {{-- <td style="display: flex">
+                                            <a href="{{ route('backend.categories.edit', $category->id) }}"
+                                                class="btn btn-outline-info"><i class="far fa-edit"></i></a>
+                                           
                                             <a href="{{ route('backend.categories.show', $category->id) }}"
                                                 class="btn btn-outline-warning"><i class="fas fa-info-circle"></i></a>
                                         </td> --}}

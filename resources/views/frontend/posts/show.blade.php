@@ -19,7 +19,7 @@
                     <!-- BLOG START -->
                     <div class="blog-post date-style-1 blog-detail">
                         <div class="wt-post-media wt-img-effect">
-                            <a href="javascript:void(0);"><img src="/frontend/images/blog/default/thum01.jpg" alt=""></a>
+                            <a href="javascript:void(0);"><img src="{{ $post->image_url_full }}" alt=""></a>
                         </div>
                         <div class="wt-post-title ">
                             <h3 class="post-title"><a href="javascript:void(0);">{{ $post->title }}</a></h3>

@@ -21,7 +21,7 @@
 
                             <div class="wt-post-media wt-img-effect zoom-slow">
                                 <a href="javascript:void(0);">
-                                    <img src="{{ $post->img_url }}" alt="">
+                                    <img src="{{ $post->image_url_full }}" alt="">
                                 </a>
                             </div>
                             <div class="wt-post-info">

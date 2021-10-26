@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -50,14 +51,40 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->only(['name', 'email', 'phone', 'address', 'password', 'avatar', 'status']);
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'avatar' => 'required|file|mimes:jpg,png|max:24|min:20'
+            ],
+            [
+                'required' => 'Trường :attribute phải nhập',
+                'content.required' => 'Nội dung không được trống',
+
+            ],
+            [
+                'title' => 'Tiêu đề',
+                'content' => 'Nội dung'
+            ]
+        );
+
+        if ($validator->fails()) {
+            return redirect('backend/users/create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+        $data = $request->only(['name', 'email', 'phone', 'address', 'password', 'status']);
         $roles = $request->get('roles');
         $user = new User();
         $user->name = $data['name'];
         $user->email = $data['email'];
         $user->status = $data['status'];
         $user->password = bcrypt($data['password']);
-        $user->avatar = $data['avatar'];
+        if ($request->hasFile('avatar')) {
+            $disk = 'public';
+            $path = $request->file('avatar')->store('blogs', $disk);
+            $user->disk = $disk;
+            $user->avatar = $path;
+        } 
         $user->save();
 
         DB::table('user_infos')->insert([

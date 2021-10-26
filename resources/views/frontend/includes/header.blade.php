@@ -11,7 +11,7 @@
                 </div>
                 <div class="wt-topbar-right clearfix " style="color:white; display:flex">
                     @if (auth()->check())
-                        <div style="width:7%"><img src="/frontend/images/icon-login.png" alt=""></div>
+                        <div style="width:7%"><img src="{{ auth()->user()->avatar_full }}" alt=""></div>
                         {{auth()->user()->name }}
                         <div class="nav-item d-none d-sm-inline-block">
                             <form action="{{ route('auth.logout') }}" method="post">

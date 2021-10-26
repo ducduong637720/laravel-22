@@ -25,8 +25,7 @@
 
                                     <div class="blog-post blog-grid date-style-1">
                                         <div class="wt-post-media wt-img-effect zoom-slow">
-                                            <a href="javascript:void(0);"><img src="/frontend/images/blog/grid/pic01.jpg"
-                                                    alt=""></a>
+                                            <a href="javascript:void(0);"><img src="{{ $post->image_url_full }}"></a>
                                         </div>
                                         <div class="wt-post-info p-tb30 p-m30 bg-white">
                                             <div class="wt-post-title ">

@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class User extends Authenticatable
 {
@@ -68,6 +69,9 @@ class User extends Authenticatable
         return ucfirst($this->name);
     }
     
+    public function getAvatarFullAttribute(){
+        return Storage::disk($this->disk)->url($this->avatar);
+    }
     public function userInfo(){
         return $this->hasOne(UserInfo::class);
     }
