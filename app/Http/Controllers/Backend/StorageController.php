@@ -89,12 +89,21 @@ class StorageController extends Controller
      */
     public function destroy($id)
     {
-        Storage::disk('public')->delete($id);
+        $files = Storage::files('public');
+        foreach($files as $key=>$file){
+            if($key == $id){
+                 Storage::delete($file);
+            }
+        }
         return redirect()->route('backend.storages.index');
     }
     public function download($id)
     {
-        dd(Storage::disk('public')->download($id));
-        return redirect()->route('backend.storages.index');
+        $files = Storage::files('public');
+        foreach($files as $key=>$file){
+            if($key == $id){
+                return Storage::download($file);
+            }
+        }
     }
 }

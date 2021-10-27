@@ -34,6 +34,15 @@ class Post extends Model
     }
 
     public function getImageUrlFullAttribute(){
+        if(!empty($this->img_url)){
+            if(Storage::disk($this->disk)->url($this->img_url)){
+                return Storage::disk($this->disk)->url($this->img_url);
+            }else{
+                return Storage::disk('public')->url('default.png');
+            }
+        }else{
+            return Storage::disk('public')->url('default.png');
+        }
         return Storage::disk($this->disk)->url($this->img_url);
     }
 

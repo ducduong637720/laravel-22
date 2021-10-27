@@ -55,19 +55,19 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($paths as $path)
+                                @foreach ($paths as $key=>$path)
                                     <tr>
                                         <td>
                                             <img src="{{ $path }}" alt="" width="100px" height="100px">
                                         </td>
                                         <td>{{ $path }}</td>
                                         <td style="display: flex">
-                                            <form method="GET" action="{{ route('backend.storages.index') }}">
+                                            <form method="GET" action="{{ route('backend.storages.download', $key) }}">
                                                 <input type="text" value="{{ $path }}" name="name"
                                                     class="form-control" hidden>
                                                 <button class="btn btn-info"><i class="fas fa-download"></i></button>
                                             </form>
-                                            <form method="POST" action="{{ route('backend.storages.destroy', ['id'=> $path]) }}">
+                                            <form method="POST" action="{{ route('backend.storages.destroy', ['id'=> $key]) }}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-outline-danger">

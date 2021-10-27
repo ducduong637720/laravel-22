@@ -2,7 +2,7 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-            <img src="{{ $user->avatar_full }}" class="img-circle elevation-2" style="width: 2.5rem;height: 2.5rem" alt="User Image">
+            <img src=" {{ auth()->user()->avatar_full }}" class="img-circle elevation-2" style="width: 2.5rem;height: 2.5rem" alt="User Image">
         </div>
         <div class="info">
             <a href="#" class="d-block">

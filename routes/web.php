@@ -51,7 +51,7 @@ Route::prefix('backend')
         ->name('users.login');
         //Storage
         Route::resource('storages',StorageController ::class)->parameters(['storages' => 'id']);
-        Route::get('storages/download','StorageController@download')->name('storages.download');
+        Route::get('storages/download/{id}','StorageController@download')->name('storages.download');
     });
 Route::prefix('frontend')
     ->name('frontend.')
