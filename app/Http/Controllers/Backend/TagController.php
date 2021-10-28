@@ -49,7 +49,7 @@ class TagController extends Controller
             'created_at' => now(),
             'updated_at' => now()
         ]);
-
+        $request->session()->flash('success', 'Tạo tag thành công!');
         return redirect()->route('backend.tags.index');
 
     }

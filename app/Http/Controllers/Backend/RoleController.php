@@ -47,6 +47,7 @@ class RoleController extends Controller
         $role->name = $data['name'];
         $role->save();
         $role->permissions()->attach($permissions);
+        $request->session()->flash('success', 'Tạo role thành công!');
         return redirect()->route('backend.roles.index');
     }
 
@@ -96,7 +97,7 @@ class RoleController extends Controller
         $role->name = $data['name'];
         $role->save();
         $role->permissions()->sync($permissions);
-
+        $request->session()->flash('success', 'Chỉnh sửa role thành công!');
         return redirect()->route('backend.roles.index');
     }
 

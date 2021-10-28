@@ -20,6 +20,16 @@
 @endsection
 @section('content')
     <div class="container-fluid">
+        @if (session('error'))
+            <div class="alert alert-danger" role="alert">
+                {{ session('error') }}
+            </div>
+        @endif
+        @if (session('success'))
+            <div class="alert alert-success" role="alert">
+                {{ session('success') }}
+            </div>
+        @endif
         <!-- Small boxes (Stat box) -->
         <div class="row">
             <div class="col-12">
@@ -85,7 +95,7 @@
                                         <td style="display: flex">
 
                                             <a href="{{ route('backend.roles.show', $permission->id) }}"
-                                            class="btn btn-outline-warning"><i class="fas fa-info-circle"></i></a>
+                                                class="btn btn-outline-warning"><i class="fas fa-info-circle"></i></a>
                                             <a href='{{ route('backend.permissions.edit', $permission->id) }}'>
                                                 <i class="far fa-edit btn btn-outline-primary"></i>
                                             </a>

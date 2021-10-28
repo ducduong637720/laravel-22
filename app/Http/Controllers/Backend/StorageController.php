@@ -18,13 +18,14 @@ class StorageController extends Controller
     {
         $files = Storage::allFiles('public');
         $paths[] = '';
-        foreach($files as $key => $file){
-            $file = str_replace("public/","",$file);
-            $paths[$key] = asset('storage/'.$file);
+        foreach ($files as $key => $file) {
+            $file = str_replace("public/", "", $file);
+            $paths[$key] = asset('storage/' . $file);
         }
-        return view('backend.storages.index',
-        ['paths' => $paths]
-    );
+        return view(
+            'backend.storages.index',
+            ['paths' => $paths]
+        );
     }
     /**
      * Show the form for creating a new resource.
@@ -90,9 +91,9 @@ class StorageController extends Controller
     public function destroy($id)
     {
         $files = Storage::files('public');
-        foreach($files as $key=>$file){
-            if($key == $id){
-                 Storage::delete($file);
+        foreach ($files as $key => $file) {
+            if ($key == $id) {
+                Storage::delete($file);
             }
         }
         return redirect()->route('backend.storages.index');
@@ -100,8 +101,8 @@ class StorageController extends Controller
     public function download($id)
     {
         $files = Storage::files('public');
-        foreach($files as $key=>$file){
-            if($key == $id){
+        foreach ($files as $key => $file) {
+            if ($key == $id) {
                 return Storage::download($file);
             }
         }

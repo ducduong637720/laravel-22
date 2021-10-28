@@ -43,7 +43,7 @@ class PermissionController extends Controller
         $permission = new Permission();
         $permission->name = $data['name'];
         $permission->save();
-
+        $request->session()->flash('success', 'Thêm permission thành công!');
         return redirect()->route('backend.permissions.index');
     }
 
@@ -86,6 +86,7 @@ class PermissionController extends Controller
         $permission = Permission::find($id);
         $permission->name = $data['name'];
         $permission->save();
+        $request->session()->flash('success', 'Chỉnh sửa permission thành công!');
         return redirect('backend/permissions');
     }
 
@@ -95,9 +96,10 @@ class PermissionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         Permission::destroy($id);
+        $request->session()->flash('success', 'Xóa permission thành công!');
         return redirect('backend/permissions');
     }
 }

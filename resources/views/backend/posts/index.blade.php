@@ -19,6 +19,17 @@
 @endsection
 @section('content')
     <div class="container-fluid">
+        @if (session('error'))
+            <div class="alert alert-danger" role="alert">
+                {{ session('error') }}
+            </div>
+        @endif
+        @if (session('success'))
+            <div class="alert alert-success" role="alert">
+                {{ session('success') }}
+            </div>
+        @endif
+
         <!-- Small boxes (Stat box) -->
         <div class="row">
             <div class="col-12">
@@ -96,8 +107,7 @@
                                         <td>{{ $post->title }}</td>
                                         <td>
                                             @if (!empty($post->img_url))
-                                                <img src="{{ $post->image_url_full }}"
-                                                    width="100px"; height="60px">
+                                                <img src="{{ $post->image_url_full }}" width="100px" ; height="60px">
                                             @endif
                                         </td>
                                         <td>{{ $post->view_count }}</td>

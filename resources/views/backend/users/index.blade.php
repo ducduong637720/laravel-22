@@ -20,6 +20,16 @@
 @endsection
 @section('content')
     <div class="container-fluid">
+        @if (session('error'))
+            <div class="alert alert-danger" role="alert">
+                {{ session('error') }}
+            </div>
+        @endif
+        @if (session('success'))
+            <div class="alert alert-success" role="alert">
+                {{ session('success') }}
+            </div>
+        @endif
         <!-- Small boxes (Stat box) -->
         <div class="row">
             <div class="col-12">
@@ -86,14 +96,13 @@
                                         <td>{{ $user->first_name }}</td>
                                         <td>
                                             @if (!empty($user->avatar))
-                                            <img src="{{ $user->avatar_full }}"
-                                                width="100px"; height="60px">
-                                        @endif
+                                                <img src="{{ $user->avatar_full }}" width="100px" ; height="60px">
+                                            @endif
                                         </td>
                                         <td>{{ $user->email }}</td>
                                         <td>
-                                            @foreach ( $user->roles as $role )
-                                                {{ $role->name }}  
+                                            @foreach ($user->roles as $role)
+                                                {{ $role->name }}
                                             @endforeach
                                         </td>
                                         <td>{!! $user->status_text !!}</td>

@@ -93,7 +93,7 @@ class UserController extends Controller
             'phone' => $data['phone']
         ]);
         $user->roles()->attach($roles);
-
+        $request->session()->flash('success', 'Tạo mới người dùng thành công!');
         return redirect('backend/users');
     }
 
@@ -156,6 +156,7 @@ class UserController extends Controller
             'phone' => $data['phone']
         ]);
         $user->roles()->sync($roles);
+        $request->session()->flash('success', 'Chỉnh sửa người dùng thành công!');
         return redirect()->route('backend.users.index');
     }
 
@@ -165,13 +166,14 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $user = User::find($id);
         if (!Gate::allows('delete-user', $user)) {
             abort(403);
         }
         User::destroy($id);
+        $request->session()->flash('success', 'Xóa người dùng thành công!');
         return redirect()->route('backend.users.index');
     }
 

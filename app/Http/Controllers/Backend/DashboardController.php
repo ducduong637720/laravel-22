@@ -8,8 +8,9 @@ use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $request->session()->put('name', 'duc');
         return view('backend.dashboard');
     }
 }

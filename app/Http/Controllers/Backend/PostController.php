@@ -106,6 +106,7 @@ class PostController extends Controller
         } 
         $post->save();
         $post->tags()->attach($tags);
+        $request->session()->flash('success', 'Tạo bài viết thành công!');
         return redirect('backend/posts');
     }
 
@@ -151,6 +152,30 @@ class PostController extends Controller
     public function update(UpdatePostRequest $request, $id)
     {
         $post = Post::find($id);
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'title' => 'required|unique:posts|max:255',
+                'content' => 'required',
+                'status' => 'required|in:0,1,2',
+                'img_url' => 'required|file|mimes:jpg,png|max:24|min:20'
+            ],
+            [
+                'required' => 'Trường :attribute phải nhập',
+                'content.required' => 'Nội dung không được trống',
+
+            ],
+            [
+                'title' => 'Tiêu đề',
+                'content' => 'Nội dung'
+            ]
+        );
+
+        if ($validator->fails()) {
+            return redirect('backend/posts/edit')
+                ->withErrors($validator)
+                ->withInput();
+        }
         $data = $request->only(['title', 'content', 'status']);
         $tags = $request->get('tags');
         $post->title = $data['title'];
@@ -160,7 +185,7 @@ class PostController extends Controller
         $post->user_updated_id = Auth::user()->id;
         $post->save();
         $post->tags()->sync($tags);
-
+        $request->session()->flash('success', 'Chỉnh sửa bài viết thành công!');
         return redirect()->route('backend.posts.index');
     }
 
@@ -170,13 +195,14 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         // if (Auth::user()->cannot('delete-post')) {
         //     return abort(403);
         // }
         $post = Post::find($id);
         Post::destroy($id);
+        $request->session()->flash('success', 'Xóa bài viết thành công!');
         return redirect()->route('backend.posts.index');
     }
 }
