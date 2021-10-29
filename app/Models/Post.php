@@ -28,19 +28,20 @@ class Post extends Model
     ];
     public function getStatusTextAttribute()
     {
-        return '<span class="badge badge-' 
-        . $this->statusColor[$this->status] . '">' 
-        . $this->statusArr[$this->status] . '<span>';
+        return '<span class="badge badge-'
+            . $this->statusColor[$this->status] . '">'
+            . $this->statusArr[$this->status] . '<span>';
     }
 
-    public function getImageUrlFullAttribute(){
-        if(!empty($this->img_url)){
-            if(Storage::disk($this->disk)->url($this->img_url)){
+    public function getImageUrlFullAttribute()
+    {
+        if (!empty($this->img_url)) {
+            if (Storage::disk($this->disk)->url($this->img_url)) {
                 return Storage::disk($this->disk)->url($this->img_url);
-            }else{
+            } else {
                 return Storage::disk('public')->url('default.png');
             }
-        }else{
+        } else {
             return Storage::disk('public')->url('default.png');
         }
         return Storage::disk($this->disk)->url($this->img_url);
@@ -52,20 +53,23 @@ class Post extends Model
         $this->attributes['slug'] = Str::slug($title);
     }
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function userUpdate(){
+    public function userUpdate()
+    {
         return $this->belongsTo(User::class, 'user_updated_id');
     }
 
-    public function category(){
+    public function category()
+    {
         return $this->belongsTo(Category::class);
     }
 
-    public function tags(){
+    public function tags()
+    {
         return $this->belongsToMany(Tag::class);
     }
-
 }

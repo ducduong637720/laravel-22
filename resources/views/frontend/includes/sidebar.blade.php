@@ -27,10 +27,10 @@
                             </span>
                         </span>
                     </a>
-                    
-                      <div class="cart-dropdown-item-wraper clearfix">
+
+                    <div class="cart-dropdown-item-wraper clearfix">
                         <div class="nav-cart-content">
-                            
+
                             <div class="nav-cart-items p-a15">
                                 <div class="nav-cart-item clearfix">
                                     <div class="nav-cart-item-image">
@@ -74,7 +74,7 @@
                                 </div>
                             </div>
                             <div class="nav-cart-title p-tb10 p-lr15 clearfix">
-                                <h4  class="pull-left m-a0">Subtotal:</h4>
+                                <h4 class="pull-left m-a0">Subtotal:</h4>
                                 <h5 class="pull-right m-a0">$114.95</h5>
                             </div>
                             <div class="nav-cart-action p-a15 clearfix">
@@ -82,29 +82,32 @@
                                 <button class="site-button  btn-block" type="button">Checkout </button>
                             </div>
                         </div>
-                      </div>
-                    
+                    </div>
+
                 </div>
-             </div>
+            </div>
             <!-- SITE Search -->
-            <div id="search"> 
+            <div id="search">
                 <span class="close"></span>
                 <form role="search" id="searchform" action="/search" method="get" class="radius-xl">
                     <div class="input-group">
-                        <input value="" name="q" type="search" placeholder="Type to search"/>
-                        <span class="input-group-btn"><button type="button" class="search-btn"><i class="fa fa-search"></i></button></span>
-                    </div>   
+                        <input value="" name="q" type="search" placeholder="Type to search" />
+                        <span class="input-group-btn"><button type="button" class="search-btn"><i
+                                    class="fa fa-search"></i></button></span>
+                    </div>
                 </form>
             </div>
-            
+
             <!-- MAIN Vav -->
             <div class="header-nav navbar-collapse collapse ">
                 <ul class=" nav navbar-nav">
                     <li class="">
-                        <a href="/">Trang chủ</a>
+                        @foreach ($menus as $item)
+                    <li><a href="#">{{ $item->name }}</a></li>
+                    @endforeach
                     </li>
-                
-                    <li>
+
+                    {{-- <li>
                         <a href="javascript:;">Pages<i class="fa fa-chevron-down"></i></a>
                         <ul class="sub-menu">
                             <li>
@@ -293,7 +296,7 @@
                                 </ul>
                             </li>
                         </ul>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </div>
