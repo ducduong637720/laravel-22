@@ -41,6 +41,7 @@
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-group">
+                                        <label>Nội dung</label>
                                         @include('backend.components.summernote')
                                     </div>
                                 </div>

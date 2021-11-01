@@ -43,43 +43,25 @@
                             ])
                         @endcan
 
-
                         <div class="card-tools">
-                            <div class="input-group input-group-sm" style="width: 150px;">
-                                <input type="text" name="table_search" class="form-control float-right"
-                                    placeholder="Search">
-
+                            <form method="GET" action="{{ route('backend.posts.index') }}">
+                                <div class="input-group input-group-sm">
+                                <input type="text" name="title" value="{{ request()->get('title') }}" class="form-control float-right"
+                                    placeholder="Tìm kiếm">
+                                    {{-- <select type="text" value="{{ request()->get('status') }}" class="form-control"
+                                        name="status">
+                                        <option value="1">Public</option>
+                                        <option value="0">Draft</option>
+                                        <option value="2">Done</option>
+                                    </select> --}}
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-default">
                                         <i class="fas fa-search"></i>
                                     </button>
                                 </div>
                             </div>
+                            </form>
                         </div>
-                    </div>
-                    <div class="col-8">
-                        <form method="GET" action="{{ route('backend.posts.index') }}" class="form-inline">
-                            <div class="col-4">
-                                <input type="text" value="{{ request()->get('title') }}" name="title"
-                                    class="form-group" placeholder="">
-                            </div>
-                            <div class="col-4">
-                                <div class="form-group">
-                                    <select type="text" value="{{ request()->get('status') }}" class="form-control"
-                                        name="status">
-                                        <option value="STATUS_PUBLIC">Public</option>
-                                        <option value="STATUS_DRAFT">Draft</option>
-                                        <option value="STATUS_Done">Done</option>
-                                    </select>
-                                </div>
-                            </div>
-                            {{-- <div class="col-3">
-              <input type="text" class="form-group" placeholder=".col-5">
-            </div> --}}
-                            <div class="col-4">
-                                <button class="btn btn-info">Lọc</button>
-                            </div>
-                        </form>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">
@@ -91,12 +73,10 @@
                                     <th>Ảnh bài viết</th>
                                     <th>Lượt xem</th>
                                     <th>Danh mục</th>
-                                    <th>Tag</th>
+                                    <th>Thẻ</th>
                                     <th>Người tạo</th>
-                                    {{-- <th>Người sửa</th> --}}
                                     <th>Trạng thái</th>
                                     <th>Ngày tạo</th>
-                                    {{-- <th>Ngày sửa</th> --}}
                                     <th>Hành động</th>
                                 </tr>
                             </thead>
@@ -124,7 +104,7 @@
                                         <td>{!! $post->status_text !!}</td>
                                         <td>{{ $post->created_at }}</td>
                                         {{-- <td>{{ $post->updated_at }}</td> --}}
-                                        <td style="display: flex;">
+                                        <td style="display: flex; margin-right: 10px">
                                             @can('update-post', $post)
                                                 <a href="{{ route('backend.posts.edit', $post->id) }}"
                                                     class="btn btn-outline-info"><i class="far fa-edit"></i>

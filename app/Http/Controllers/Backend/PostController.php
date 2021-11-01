@@ -34,15 +34,15 @@ class PostController extends Controller
      */
     public function index(Request $request)
     {
-        $posts = Post::simplePaginate(6);
+        $posts = Post::Paginate(6);
         $title = $request->get('title');
         if (!empty($title)) {
-            $posts = Post::where('title', 'like', "%" . $title . "%")->get();
+            $posts = Post::where('title', 'like', "%" . $title . "%")->Paginate(6);
         }
-        $status = $request->get('status');
-        if ($status !== null) {
-            $posts = Post::where('status', $status)->get();
-        }
+        // $status = $request->get('status');
+        // if ($status !== null) {
+        //     $posts = Post::where('status', $status)->Paginate(6);
+        // }
         return view('backend.posts.index')->with(['posts' => $posts]);
     }
 

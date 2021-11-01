@@ -70,6 +70,15 @@ class User extends Authenticatable
     }
     
     public function getAvatarFullAttribute(){
+        if (!empty($this->avatar)) {
+            if (Storage::disk($this->disk)->url($this->avatar)) {
+                return Storage::disk($this->disk)->url($this->avatar);
+            } else {
+                return Storage::disk('public')->url('avatar-default.png');
+            }
+        } else {
+            return Storage::disk('public')->url('avatar-default.png');
+        }
         return Storage::disk($this->disk)->url($this->avatar);
     }
     public function userInfo(){
