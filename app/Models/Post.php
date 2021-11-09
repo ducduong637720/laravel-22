@@ -17,9 +17,9 @@ class Post extends Model
     const STATUS_DONE = 2;
 
     protected $statusArr = [
-        self::STATUS_DRAFT => 'Draft',
-        self::STATUS_PUBLIC => 'Public',
-        self::STATUS_DONE => 'Done'
+        self::STATUS_DRAFT => 'Bản nháp',
+        self::STATUS_PUBLIC => 'Công khai',
+        self::STATUS_DONE => 'Hoàn thiện'
     ];
     protected $statusColor = [
         self::STATUS_DRAFT => 'danger',

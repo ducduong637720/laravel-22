@@ -5,12 +5,14 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
+use Doctrine\Common\Cache\Cache;
 use Exception;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Auth;
@@ -53,8 +55,12 @@ class PostController extends Controller
      */
     public function create()
     {
+        $categories = Category::all();
         $tags = Tag::get();
-        return view('backend.posts.create')->with(['tags' => $tags]);
+        return view('backend.posts.create')->with([
+            'tags' => $tags, 
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -89,7 +95,7 @@ class PostController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
-        $data = $request->only(['title', 'content', 'status']);
+        $data = $request->all();
         $tags = $request->get('tags');
         $post = new Post();
         $post->title = $data['title'];
@@ -97,7 +103,7 @@ class PostController extends Controller
         $post->content = $data['content'];
         $post->user_id = Auth::user()->id;
         $post->user_updated_id = Auth::user()->id;
-        $post->category_id = 2;
+        $post->category_id = $data['category'];
         if ($request->hasFile('img_url')) {
             $disk = 'public';
             $path = $request->file('img_url')->store('blogs', $disk);
@@ -134,11 +140,13 @@ class PostController extends Controller
      */
     public function edit($id)
     {
+        $categories = Category::all();
         $post = Post::find($id);
         $tags = Tag::get();
         return view('backend.posts.edit')->with([
             'post' => $post,
-            'tags' => $tags
+            'tags' => $tags,
+            'categories' => $categories
         ]);
     }
 
@@ -151,38 +159,22 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, $id)
     {
+        // dd($request->all());
         $post = Post::find($id);
-        $validator = Validator::make(
-            $request->all(),
-            [
-                'title' => 'required|unique:posts|max:255',
-                'content' => 'required',
-                'status' => 'required|in:0,1,2',
-                'img_url' => 'required|file|mimes:jpg,png|max:24|min:20'
-            ],
-            [
-                'required' => 'Trường :attribute phải nhập',
-                'content.required' => 'Nội dung không được trống',
-
-            ],
-            [
-                'title' => 'Tiêu đề',
-                'content' => 'Nội dung'
-            ]
-        );
-
-        if ($validator->fails()) {
-            return redirect('backend/posts/edit')
-                ->withErrors($validator)
-                ->withInput();
-        }
-        $data = $request->only(['title', 'content', 'status']);
+        $data = $request->all();
         $tags = $request->get('tags');
         $post->title = $data['title'];
         $post->content = $data['content'];
         $post->status = $data['status'];
         $post->user_id = Auth::user()->id;
         $post->user_updated_id = Auth::user()->id;
+        $post->category_id = $data['category'];
+        if ($request->hasFile('img_url')) {
+            $disk = 'public';
+            $path = $request->file('img_url')->store('blogs', $disk);
+            $post->disk = $disk;
+            $post->img_url = $path;
+        } 
         $post->save();
         $post->tags()->sync($tags);
         $request->session()->flash('success', 'Chỉnh sửa bài viết thành công!');

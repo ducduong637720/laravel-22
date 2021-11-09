@@ -766,7 +766,7 @@ address {
 
 table {
     background-color: transparent;
-    width: 100%;
+    /* width: 100%; */
 }
 table thead th {
 	color:#333;

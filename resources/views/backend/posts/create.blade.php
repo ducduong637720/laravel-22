@@ -56,7 +56,7 @@
 
                                             </div>
                                             <div class="input-group-append">
-                                                <span class="input-group-text">Upload</span>
+                                                <span class="input-group-text">Đăng tải</span>
                                             </div>
                                         </div>
                                         @error('img_url')
@@ -71,8 +71,9 @@
                                 <div class="col-sm-12">
                                     <!-- Select multiple-->
                                     <div class="form-group">
-                                        <label>Tags</label>
-                                        <select multiple="" class="form-control" name="tags[]">
+                                        <label>Thẻ</label>
+                                        <select class="select2" name="tags[]" multiple="multiple"
+                                            data-placeholder="Nhập thẻ" style="width: 100%;">
                                             @foreach ($tags as $item)
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                                             @endforeach
@@ -85,12 +86,10 @@
                                     <!-- select -->
                                     <div class="form-group">
                                         <label>Danh mục</label>
-                                        <select class="form-control">
-                                            <option>option 1</option>
-                                            <option>option 2</option>
-                                            <option>option 3</option>
-                                            <option>option 4</option>
-                                            <option>option 5</option>
+                                        <select class="form-control" name="category">
+                                           @foreach ($categories as $category)
+                                           <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                           @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -99,9 +98,9 @@
                                     <div class="form-group">
                                         <label>Trạng thái</label>
                                         <select class="form-control" name="status">
-                                            <option value="1">Public</option>
-                                            <option value="0">Draft</option>
-                                            <option value="2">Done</option>
+                                            <option value="1">Công khai</option>
+                                            <option value="0">Bản nháp</option>
+                                            <option value="2">Hoàn thiện</option>
                                         </select>
                                     </div>
                                 </div>

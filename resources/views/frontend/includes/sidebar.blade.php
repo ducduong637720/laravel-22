@@ -101,13 +101,13 @@
             <!-- MAIN Vav -->
             <div class="header-nav navbar-collapse collapse ">
                 <ul class=" nav navbar-nav">
-                    <li class="">
+                    {{-- <li class="">
                         @foreach ($menus as $item)
                     <li><a href="#">{{ $item->name }}</a></li>
                     @endforeach
-                    </li>
+                    </li> --}}
 
-                    {{-- <li>
+                    <li>
                         <a href="javascript:;">Pages<i class="fa fa-chevron-down"></i></a>
                         <ul class="sub-menu">
                             <li>
@@ -177,7 +177,7 @@
                             </li>
                         </ul>
                     </li>
-                    
+
                     <li>
                         <a href="javascript:;">Features<i class="fa fa-chevron-down"></i></a>
                         <ul class="sub-menu">
@@ -201,18 +201,100 @@
                             <li><a href="footer-dark.html">Footer Dark</a></li>
                         </ul>
                     </li>
-                
-                    <li>
+
+                    {{-- <li>
                         <a href="javascript:;">Sản phẩm<i class="fa fa-chevron-down"></i></a>
                         <ul class="sub-menu">
                             <li><a href="product.html">Product</a></li>
                             <li><a href="product-detail.html">Product Detail</a></li>
                             <li><a href="shopping-cart.html">Shopping cart</a></li>
-                            <li><a href="wish-list.html">Wishlist</a></li>
+                            <li class="has-mega-menu ">
+                                <a href="javascript:;">Elements<i class="fa fa-chevron-down"></i></a>
+                                <ul class="mega-menu">
+                                    <li>
+                                        <ul>
+                                            <li><a href="shortcode-animations.html"><i class="fa fa-ravelry"></i>
+                                                    Animations</a></li>
+                                            <li><a href="shortcode-accordians.html"> <i
+                                                        class="fa fa-bars"></i>Accordians</a></li>
+                                            <li><a href="shortcode-alert-box.html"> <i class="fa fa-bell-o"></i>Alert
+                                                    box</a></li>
+                                            <li><a href="shortcode-buttons.html"> <i
+                                                        class="fa fa-toggle-on"></i>Buttons</a></li>
+                                            <li><a href="shortcode-client.html"> <i
+                                                        class="fa fa-group"></i>Clients</a></li>
+                                            <li><a href="shortcode-client-slider.html"> <i
+                                                        class="fa fa-drivers-license-o"></i>Clients slider</a></li>
+                                            <li><a href="shortcode-carousel-sliders.html"> <i
+                                                        class="fa fa-sliders"></i>Carousel sliders</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+
+                                        <ul>
+                                            <li><a href="shortcode-counters.html"> <i
+                                                        class="fa fa-calculator"></i>Counters</a></li>
+                                            <li><a href="shortcode-dividers.html"> <i
+                                                        class="fa fa-ellipsis-h"></i>Dividers</a></li>
+                                            <li><a href="shortcode-google-map.html"> <i
+                                                        class="fa fa-map-o"></i>Google map</a></li>
+                                            <li><a href="shortcode-icons.html"> <i class="fa fa-ellipsis-h"></i>Icons
+                                                    Shortcodes</a></li>
+                                            <li><a href="shortcode-icon-box.html"> <i
+                                                        class="fa fa-square-o"></i>Icon-box</a></li>
+                                            <li><a href="shortcode-icon-box-styles.html"> <i
+                                                        class="fa fa-square-o"></i>Icon box styles</a></li>
+                                            <li><a href="shortcode-image-box-content.html"> <i
+                                                        class="fa fa-address-card-o"></i>Image box content</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+
+                                        <ul>
+                                            <li><a href="shortcode-images-effects.html"> <i
+                                                        class="fa fa-photo"></i>Images effects</a></li>
+                                            <li><a href="shortcode-list-group.html"> <i class="fa fa-list-ol"></i>List
+                                                    group</a></li>
+                                            <li><a href="shortcode-modal-popup.html"> <i
+                                                        class="fa fa-window-maximize"></i>Modal popup</a></li>
+                                            <li><a href="shortcode-pagination.html"> <i
+                                                        class="fa fa-terminal"></i>Pagination</a></li>
+                                            <li><a href="shortcode-pricing-table.html"> <i
+                                                        class="fa fa-dollar"></i>Pricing table</a></li>
+                                            <li><a href="shortcode-toggles.html"> <i
+                                                        class="fa fa-plus-square-o"></i>Toggles</a></li>
+                                            <li><a href="shortcode-tooltips.html"> <i
+                                                        class="fa fa-window-maximize"></i>Tooltips</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+
+                                        <ul>
+                                            <li><a href="shortcode-tabs.html"> <i class="fa fa-th-list"></i>Tabs</a>
+                                            </li>
+                                            <li><a href="shortcode-table.html"> <i class="fa fa-table"></i>Table</a>
+                                            </li>
+                                            <li><a href="shortcode-testimonials.html"> <i
+                                                        class="fa fa-twitch"></i>Testimonials</a></li>
+                                            <li><a href="shortcode-testimonials-grid.html"> <i
+                                                        class="fa fa-twitch"></i>Testimonials grid</a></li>
+                                            <li><a href="shortcode-title-separators.html"> <i
+                                                        class="fa fa-ellipsis-h"></i>Title-separators</a></li>
+                                            <li><a href="shortcode-video.html"> <i
+                                                        class="fa fa-video-camera"></i>Video</a></li>
+                                            <li><a href="shortcode-all-widgets.html"> <i
+                                                        class="fa fa-retweet"></i>Widgets</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
                             <li><a href="checkout.html">Checkout</a></li>
                         </ul>
-                    </li>
-                    
+                    </li> --}}
+
                     <li class="submenu-direction">
                         <a href="javascript:;">Bài viết<i class="fa fa-chevron-down"></i></a>
                         <ul class="sub-menu">
@@ -240,9 +322,9 @@
                             </li>
                         </ul>
                     </li>
-                    
+
                     <li class="has-mega-menu ">
-                        <a href="javascript:;">Elements<i class="fa fa-chevron-down"></i></a>
+                        <a href="javascript:;">Sản phẩm<i class="fa fa-chevron-down"></i></a>
                         <ul class="mega-menu">
                             <li>
                                 
@@ -296,7 +378,7 @@
                                 </ul>
                             </li>
                         </ul>
-                    </li> --}}
+                    </li>
                 </ul>
             </div>
         </div>

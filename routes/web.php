@@ -35,7 +35,7 @@ Route::prefix('backend')
     ->group(function () {
         //Dashboard
         Route::get('dashboard', 'DashboardController@index')
-        ->name('dashboard.index');
+            ->name('dashboard.index');
         Route::resource('posts', PostController::class);
         //User
         Route::resource('users', UserController::class);
@@ -48,22 +48,36 @@ Route::prefix('backend')
         //Role
         Route::resource('roles', RoleController::class);
         Route::post('/login/user/{id}', 'UserController@loginWithUser')
-        ->name('users.login');
+            ->name('users.login');
         //Storage
-        Route::resource('storages',StorageController ::class)->parameters(['storages' => 'id']);
-        Route::get('storages/download/{id}','StorageController@download')->name('storages.download');
+        Route::resource('storages', StorageController::class)->parameters(['storages' => 'id']);
+        Route::get('storages/download/{id}', 'StorageController@download')->name('storages.download');
+        //Product
+        Route::resource('products', ProductController::class);
     });
 Route::prefix('frontend')
     ->name('frontend.')
     ->namespace('Frontend')
     ->middleware(['auth'])
     ->group(function () {
+        //Post
         Route::get('posts/list', 'PostController@list')
-        ->name('posts.list');
+            ->name('posts.list');
         Route::resource('posts', PostController::class);
         Route::get('posts/list/{id}', 'PostController@category_posts')
-        ->name('posts.category_posts');
+            ->name('posts.category_posts');
+        //Product
+        Route::resource('products', ProductController::class);
+        Route::get('cart', 'ProductController@cart')
+            ->name('products.cart');
+        Route::get('pay', 'ProductController@pay')
+            ->name('products.pay');
+        Route::get('products/list', 'ProductController@list')
+            ->name('products.list');
+        Route::get('products/list/{id}', 'ProductController@category_products')
+            ->name('products.category_products');
     });
+
 Route::prefix('/')->namespace('Auth')->name('auth.')->group(function () {
     Route::get('/login', 'LoginController@create')
         ->middleware('guest')
@@ -82,5 +96,5 @@ Route::prefix('/')->namespace('Auth')->name('auth.')->group(function () {
         ->name('register');
 
     Route::post('/logout', 'LoginController@logout')
-    ->name('logout');
+        ->name('logout');
 });

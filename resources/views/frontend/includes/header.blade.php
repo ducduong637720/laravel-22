@@ -17,7 +17,7 @@
                             <form action="{{ route('auth.logout') }}" method="post">
                               @csrf
                               <a href="#" class="nav-link" style="color: white" onclick="this.closest('form').submit();return false;">
-                                Logout
+                                Đăng xuất
                               </a>
                             </form>
                         </div>

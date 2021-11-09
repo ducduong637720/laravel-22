@@ -3,12 +3,9 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
-use App\Models\Post;
-use App\Models\Tag;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,15 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::Paginate(9);
-        $tags = Tag::get();
-        $categories = Category::all();
-        return view('frontend.posts.index')->with([
-            'posts' => $posts,
-            'tags' =>$tags,
-            'categories' =>$categories
-        ]);
-        
+        return view('frontend.products.index');
     }
 
     /**
@@ -57,14 +46,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $post = Post::find($id);
-        $categories = Category::get();
-        $tags = Tag::get();
-        return view('frontend.posts.show')->with([
-            'post' => $post,
-            'categories' => $categories,
-            'tags' =>$tags
-        ]);
+        return view('frontend.products.show');
     }
 
     /**
@@ -100,28 +82,12 @@ class PostController extends Controller
     {
         //
     }
-     public function list(){
-        $posts = Post::get();
-        $categories = Category::get();
-        $tags = Tag::get();
-        return view('frontend.posts.list')->with([
-            'posts' => $posts,
-            'categories' => $categories,
-            'tags' =>$tags
-        ]);
+    public function cart()
+    {
+        return view('frontend.products.cart');
     }
-
-    public function category_posts($id){
-        $categories = Category::get();
-        $tags = Tag::get();
-        $posts = Post::where('category_id', $id)->get();
-
-        return view('frontend.posts.list')->with([
-            'posts' => $posts,
-            'categories' => $categories,
-            'tags' =>$tags
-        ]);
+    public function pay()
+    {
+        return view('frontend.products.pay');
     }
-
-   
 }

@@ -6,13 +6,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Danh sách bài viết</h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Danh sách bài viết</li>
-                </ol>
+               <h1>Danh sách bài viết</h1>
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -102,7 +96,7 @@
                                         </td>
                                         {{-- <td>{{ $post->userUpdate->name }}</td> --}}
                                         <td>{!! $post->status_text !!}</td>
-                                        <td>{{ $post->created_at }}</td>
+                                        <td>{{ $post->created_at->format('d/m/Y') }}</td>
                                         {{-- <td>{{ $post->updated_at }}</td> --}}
                                         <td style="display: flex; margin-right: 10px">
                                             @can('update-post', $post)
@@ -121,6 +115,7 @@
                                             @endcan
                                             <a href="{{ route('backend.posts.show', $post->id) }}"
                                                 class="btn btn-outline-warning"><i class="fas fa-info-circle"></i></a>
+                                                
                                         </td>
                                     </tr>
                                 @endforeach
