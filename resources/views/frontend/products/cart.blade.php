@@ -52,67 +52,31 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td data-title="Code"><img src="/frontend/images/cart/thumb/pic-2.jpg" alt=""></td>
-                                    <td data-title="Company" style="width:40%">Prduct Item 1</td>
-                                    <td data-title="Price" class="numeric">$35.00</td>
-                                    <td data-title="Change" class="numeric" style="width:8%">
-                                        <input id="demo_vertical2" type="text" value="1" name="demo_vertical2" />
-                                    </td>
-                                    <td data-title="Price" class="numeric">$35.00</td>
-                                    <td data-title="Open" class="numeric" style="width:7%"><a href="#"><i
-                                                class="fa fa-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td data-title="Code"><img src="/frontend/images/cart/thumb/pic-3.jpg" alt=""></td>
-                                    <td data-title="Company" style="width:40%">Prduct Item 2</td>
-                                    <td data-title="Price" class="numeric">$15.00</td>
-                                    <td data-title="Change" class="numeric" style="width:8%">
-                                        <input id="demo_vertical2" type="text" value="1" name="demo_vertical2" />
-                                    </td>
-                                    <td data-title="Price" class="numeric">$35.00</td>
-                                    <td data-title="Open" class="numeric" style="width:7%"><a href="#"><i
-                                                class="fa fa-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td data-title="Code"><img src="/frontend/images/cart/thumb/pic-4.jpg" alt=""></td>
-                                    <td data-title="Company" style="width:40%">Prduct Item 3</td>
-                                    <td data-title="Price" class="numeric">$28.00</td>
-                                    <td data-title="Change" class="numeric" style="width:8%">
-                                        <input id="demo_vertical2" type="text" value="1" name="demo_vertical2" />
-                                    </td>
-                                    <td data-title="Price" class="numeric">$35.00</td>
-                                    <td data-title="Open" class="numeric" style="width:7%"><a href="#"><i
-                                                class="fa fa-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td data-title="Code"><img src="/frontend/images/cart/thumb/pic-5.jpg" alt=""></td>
-                                    <td data-title="Company" style="width:40%">Prduct Item 4</td>
-                                    <td data-title="Price" class="numeric">$36.00</td>
-                                    <td data-title="Change" class="numeric" style="width:8%">
-                                        <input id="demo_vertical2" type="text" value="1" name="demo_vertical2" />
-                                    </td>
-                                    <td data-title="Price" class="numeric">$35.00</td>
-                                    <td data-title="Open" class="numeric" style="width:7%"><a href="#"><i
-                                                class="fa fa-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td data-title="Code"><img src="/frontend/images/cart/thumb/pic-6.jpg" alt=""></td>
-                                    <td data-title="Company" style="width:40%">Prduct Item 5</td>
-                                    <td data-title="Price" class="numeric">$28.00</td>
-                                    <td data-title="Change" class="numeric" style="width:8%">
-                                        <input id="demo_vertical2" type="text" value="1" name="demo_vertical2" />
-                                    </td>
-                                    <td data-title="Price" class="numeric">$35.00</td>
-                                    <td data-title="Open" class="numeric" style="width:7%"><a href="#"><i
-                                                class="fa fa-times"></i></a>
-                                    </td>
-                                </tr>
-
+                                @foreach ($products as $product)
+                                    <tr>
+                                        <td data-title="Code"><img src="/frontend/images/cart/thumb/pic-2.jpg" alt=""></td>
+                                        <td data-title="Company" style="width:40%">{{ $product->name }}</td>
+                                        <td data-title="Price" class="numeric">{{ $product->price }}</td>
+                                        <td  class="numeric" style="width:8%">
+                                            <div class="input-group">
+                                                {{ $product->qty }}
+                                                <input  type="text" value="{{ $product->qty }}" name="demo_vertical2" class="form-control" style="display: block;">
+                                                    <span class="input-group-btn-vertical">
+                                                    <a class="btn btn-default" href="{{route('frontend.cart.increase', $product->rowId)}}" type="button"><i
+                                                            class="glyphicon glyphicon-plus"></i></a>
+                                                    <a class="btn btn-default " href="{{route('frontend.cart.decrease', $product->rowId)}}"
+                                                        type="button"><i class="glyphicon glyphicon-minus"></i></a>
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td data-title="Price" class="numeric">
+                                            {{ $product->price * $product->qty }}
+                                        </td>
+                                        <td data-title="Open" class="numeric" style="width:7%"><a href="#"><i
+                                                    class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -128,7 +92,12 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td data-title="Total">$300.00</td>
+                                    <td data-title="Total">{{ \Gloudemans\Shoppingcart\Facades\Cart::total() }}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button>Thanh toán</button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -14,9 +15,18 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('frontend.products.index');
+        $products = Product::get();
+        return view('frontend.products.index')->with([
+            'products' => $products,
+        ]);
     }
-
+    public function list()
+    {
+        $products = Product::get();
+        return view('frontend.products.list')->with([
+            'products' => $products,
+        ]);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -46,7 +56,10 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        return view('frontend.products.show');
+        $product = Product::find($id);
+        return view('frontend.products.show')->with([
+            'product' => $product
+        ]);
     }
 
     /**

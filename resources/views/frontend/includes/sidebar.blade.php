@@ -108,7 +108,7 @@
                     </li> --}}
 
                     <li>
-                        <a href="javascript:;">Pages<i class="fa fa-chevron-down"></i></a>
+                        <a href="javascript:;">Trang<i class="fa fa-chevron-down"></i></a>
                         <ul class="sub-menu">
                             <li>
                                 <a href="javascript:;">About us</a>

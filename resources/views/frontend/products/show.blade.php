@@ -149,14 +149,11 @@
 
                 <div class="col-md-8 col-sm-8">
                     <div class="wt-post-title ">
-                        <h3 class="post-title"><a href="javascript:void(0);">Title of item Image</a></h3>
+                        <h3 class="post-title"><a href="javascript:void(0);">{{ $product->name }}</a></h3>
                     </div>
-                    <h2 class="m-tb10">$2,140.00 </h2>
+                    <h2 class="m-tb10">{{ $product->sale_price_format }}</h2>
                     <div class="wt-post-text">
-                        <p class="m-b10">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy
-                            text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-                            make a type specimen book.</p>
+                        <p class="m-b10">{{ $product->content }}</p>
                     </div>
                     <table class="table table-bordered">
                         <tr>
@@ -186,8 +183,8 @@
                         </div>
                         <button class="btn btn-primary site-button-secondry pull-left m-r10"><i
                                 class="fa fa-shopping-bag"></i> BUY NOW</button>
-                        <button class="btn btn-primary site-button pull-left"><i class="fa fa-cart-plus"></i> ADD TO
-                            CART</button>
+                        <a class="btn btn-primary site-button pull-left" href="{{ route('frontend.cart.create', $product->id ) }}"><i
+                                class="fa fa-cart-plus"></i> Thêm vào giỏ hàng</a>
                     </form>
                 </div>
             </div>
@@ -247,8 +244,8 @@
                         </div>
                     </div>
                 </div>
-                  <!-- COLUMNS 1 -->
-                  <div class="col-md-3 col-sm-4 col-xs-6 col-xs-100pc m-b30">
+                <!-- COLUMNS 1 -->
+                <div class="col-md-3 col-sm-4 col-xs-6 col-xs-100pc m-b30">
                     <div class="wt-box wt-product-box">
                         <div class="wt-thum-bx wt-img-overlay1 wt-img-effect zoom">
                             <img src="/frontend/images/products/pic-5.jpg" alt="">
@@ -287,8 +284,8 @@
                         </div>
                     </div>
                 </div>
-                 <!-- COLUMNS 1 -->
-                 <div class="col-md-3 col-sm-4 col-xs-6 col-xs-100pc m-b30">
+                <!-- COLUMNS 1 -->
+                <div class="col-md-3 col-sm-4 col-xs-6 col-xs-100pc m-b30">
                     <div class="wt-box wt-product-box">
                         <div class="wt-thum-bx wt-img-overlay1 wt-img-effect zoom">
                             <img src="/frontend/images/products/pic-5.jpg" alt="">
@@ -327,8 +324,8 @@
                         </div>
                     </div>
                 </div>
-                   <!-- COLUMNS 1 -->
-                   <div class="col-md-3 col-sm-4 col-xs-6 col-xs-100pc m-b30">
+                <!-- COLUMNS 1 -->
+                <div class="col-md-3 col-sm-4 col-xs-6 col-xs-100pc m-b30">
                     <div class="wt-box wt-product-box">
                         <div class="wt-thum-bx wt-img-overlay1 wt-img-effect zoom">
                             <img src="/frontend/images/products/pic-5.jpg" alt="">
@@ -449,8 +446,8 @@
                                         <ol class="commentlist">
                                             <li class="comment">
                                                 <div class="comment_container">
-                                                    <img class="avatar avatar-60 photo" src="/frontend/images/testimonials/pic1.jpg"
-                                                        alt="">
+                                                    <img class="avatar avatar-60 photo"
+                                                        src="/frontend/images/testimonials/pic1.jpg" alt="">
                                                     <div class="comment-text">
                                                         <div class="star-rating">
                                                             <div data-rating='3'>
@@ -474,8 +471,8 @@
                                             </li>
                                             <li class="comment">
                                                 <div class="comment_container">
-                                                    <img class="avatar avatar-60 photo" src="/frontend/images/testimonials/pic2.jpg"
-                                                        alt="">
+                                                    <img class="avatar avatar-60 photo"
+                                                        src="/frontend/images/testimonials/pic2.jpg" alt="">
                                                     <div class="comment-text">
                                                         <div class="star-rating">
                                                             <div data-rating='3'>
@@ -499,8 +496,8 @@
                                             </li>
                                             <li class="comment">
                                                 <div class="comment_container">
-                                                    <img class="avatar avatar-60 photo" src="/frontend/images/testimonials/pic3.jpg"
-                                                        alt="">
+                                                    <img class="avatar avatar-60 photo"
+                                                        src="/frontend/images/testimonials/pic3.jpg" alt="">
                                                     <div class="comment-text">
                                                         <div class="star-rating">
                                                             <div data-rating='3'>

@@ -71,8 +71,7 @@
                                 @foreach ($categories as $category)
                                     <tr>
                                         <td>{{ $category->id }}</td>
-                                        <td> {{ $category->name }} <br>
-                                            Slug: {{ $category->slug }}</td>
+                                        <td> {{ $category->name }} <td>
                                         <td>{!! $category->status_text !!}</td>
                                         <td>{{ $category->created_at }}</td>
                                         <td>{{ $category->updated_at }}</td>

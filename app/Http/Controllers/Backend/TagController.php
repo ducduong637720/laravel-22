@@ -43,15 +43,12 @@ class TagController extends Controller
     {
         $data = $request->only('name');
 
-        Tag::insert([
-            'name' => $data['name'],
-            'slug' => Str::slug($data['name']),
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        $request->session()->flash('success', 'Tạo tag thành công!');
-        return redirect()->route('backend.tags.index');
+        $tag = new Tag();
+        $tag->name = $data['name'];
+        $tag->save();
 
+        $request->session()->flash('success', 'Thêm thành công một thẻ mới!');
+        return redirect()->route('backend.tags.index');
     }
 
     /**
@@ -73,7 +70,8 @@ class TagController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tag = Tag::find($id);
+        return view('backend.tags.edit')->with(['tag' => $tag]);
     }
 
     /**
@@ -85,7 +83,13 @@ class TagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->only('name');
+        $tag = Tag::find($id);
+        $tag->name = $data['name'];
+        $tag->save();
+
+        $request->session()->flash('success', 'Chỉnh sửa thành công!');
+        return redirect()->route('backend.tags.index');
     }
 
     /**
@@ -94,8 +98,10 @@ class TagController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        Tag::destroy($id);
+        $request->session()->flash('success', 'Xóa thẻ thành công!');
+        return redirect()->route('backend.tags.index');
     }
 }

@@ -1,11 +1,11 @@
 @extends('backend.layouts.master')
 
 @section('title')
-    Create Tags
+    Thêm mới thẻ
 @endsection
 
 @section('content-header')
-    <h1>Creat new Tags</h1>
+    <h1>Thêm mới thẻ</h1>
 @endsection
 
 @section('content')
@@ -20,7 +20,7 @@
                     <input type="text" class="form-control" name="name">
                 </div>
 
-                <button type="submit" class="btn btn-primary" style="float: right">Thêm Tag</button>
+                <button type="submit" class="btn btn-primary" style="float: right">Thêm thẻ</button>
 
             </form>
         </div>

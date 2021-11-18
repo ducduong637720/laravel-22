@@ -38,13 +38,11 @@
                 </a>
             </li>
             <li class="nav-header">Quản lý chung</li>
-            <li class="nav-item
-        @if (request()->routeIs('backend.posts.*')) menu-open @endif">
-                <a href="#2" class="nav-link
-          @if (request()->routeIs('backend.posts.*')) active @endif">
+            <li class="nav-item @if (request()->routeIs('backend.posts.*')) menu-open @endif">
+                <a href="#2" class="nav-link @if (request()->routeIs('backend.posts.*')) active @endif">
                     <i class="fas fa-book-open"></i>
                     <p>
-                        Quản lý Blog
+                        Quản lý bài viết
                         <i class="fas fa-angle-left right"></i>
 
                     </p>
@@ -55,7 +53,7 @@
                             class="nav-link 
               @if (request()->routeIs('backend.posts.create')) active @endif">
                             <i class="fas fa-plus-circle"></i>
-                            <p>Tạo mới Blog</p>
+                            <p>Tạo mới bài viết</p>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -63,12 +61,11 @@
                             class="nav-link
               @if (request()->routeIs('backend.posts.index')) active @endif">
                             <i class="far fa-list-alt"></i>
-                            <p>Danh sách Blog</p>
+                            <p>Danh sách bài viết</p>
                         </a>
                     </li>
                 </ul>
             </li>
-
             <li class="nav-item @if (request()->routeIs('backend.categories.*')) menu-open @endif">
                 <a href="#2" class="nav-link  @if (request()->routeIs('backend.categories.*')) active @endif">
                     <i class="fas fa-clipboard-list"></i>
@@ -95,6 +92,30 @@
                         <a href="{{ route('backend.categories.delete') }}" class="nav-link @if (request()->routeIs('backend.categories.delete')) active @endif">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Lịch sử xóa</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item @if (request()->routeIs('backend.tags.*')) menu-open @endif">
+                <a href="#2" class="nav-link  @if (request()->routeIs('backend.tags.*')) active @endif">
+                    <i class="fas fa-tag"></i>
+                    <p>
+                        Quản lý thẻ
+                        <i class="fas fa-angle-left right"></i>
+
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{ route('backend.tags.create') }}" class="nav-link  @if (request()->routeIs('backend.tags.create')) active @endif">
+                            <i class="fas fa-plus-circle"></i>
+                            <p>Tạo mới thẻ</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('backend.tags.index') }}" class="nav-link @if (request()->routeIs('backend.tags.index')) active @endif">
+                            <i class="fas fa-list"></i>
+                            <p>Danh sách thẻ</p>
                         </a>
                     </li>
                 </ul>
@@ -130,6 +151,34 @@
                         <a href="http://myweb.dev.com/log-viewer" class="nav-link">
                             <i class="fas fa-list"></i>
                             <p>Danh sách log</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item @if (request()->routeIs('backend.products.*')) menu-open @endif">
+                <a href="#2" class="nav-link @if (request()->routeIs('backend.products.*')) active @endif">
+                    <i class="fab fa-product-hunt"></i>
+                    <p>
+                        Quản lý sản phẩm
+                        <i class="fas fa-angle-left right"></i>
+
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{ route('backend.products.create') }}"
+                            class="nav-link 
+              @if (request()->routeIs('backend.products.create')) active @endif">
+                            <i class="fas fa-plus-circle"></i>
+                            <p>Tạo mới sản phẩm</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('backend.products.index') }}"
+                            class="nav-link
+              @if (request()->routeIs('backend.products.index')) active @endif">
+                            <i class="far fa-list-alt"></i>
+                            <p>Danh sách sản phẩm</p>
                         </a>
                     </li>
                 </ul>
@@ -200,7 +249,7 @@
                         <a href="{{ route('backend.permissions.create') }}"
                             class="nav-link  @if (request()->routeIs('backend.permissions.create')) active @endif">
                             <i class="far fa-circle nav-icon"></i>
-                            <i class="fas fa-plus-circle"></i>
+                            <p>Tạo mới permission</p>
                         </a>
                     </li>
                     <li class="nav-item">

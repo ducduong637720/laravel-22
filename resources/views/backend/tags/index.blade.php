@@ -9,12 +9,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Danh sách Tags</h1>
+                <h1 class="m-0">Danh sách thẻ</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Danh sách tag</li>
+                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Danh sách thẻ</li>
                 </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -38,7 +38,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        @include('backend.component.btn', [
+                        @include('backend.components.btn', [
                         'href' => route('backend.tags.create'),
                         'type' => 'primary',
                         'content' => 'Thêm mới'
@@ -63,11 +63,9 @@
                         <table class="table table-hover text-nowrap">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Slug</th>
-                                    <th>Created_at</th>
-                                    <th>Updated_at</th>
+                                    <th>STT</th>
+                                    <th>Tên thẻ</th>
+                                    <th>Ngày tạo</th>
                                     <th>Hành động</th>
                                 </tr>
                             </thead>
@@ -76,12 +74,10 @@
                                     <tr>
                                         <td>{{ $tag->id }}</td>
                                         <td>{{ $tag->name }}</td>
-                                        <td>{{ $tag->slug }}</td>
-                                        <td>{{ $tag->created_at }}</td>
-                                        <td>{{ $tag->updated_at }}</td>
+                                        <td>{{ $tag->created_at->format('d/m/Y') }}</td>
                                         <td style="display: flex">
-                                            <a href='{{ route('backend.tags.show', $tag->id) }}'>
-                                                <i class="far fa-eye btn btn-outline-success"></i>
+                                            <a href="{{ route('backend.tags.show', $tag->id) }}"
+                                                class="btn btn-outline-warning"><i class="fas fa-info-circle"></i>
                                             </a>
                                             <a href='{{ route('backend.tags.edit', $tag->id) }}'>
                                                 <i class="far fa-edit btn btn-outline-primary"></i>

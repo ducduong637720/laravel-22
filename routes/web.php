@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Frontend\CartController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\App;
@@ -55,8 +56,7 @@ Route::prefix('backend')
         //Product
         Route::resource('products', ProductController::class);
     });
-Route::prefix('frontend')
-    ->name('frontend.')
+Route::name('frontend.')
     ->namespace('Frontend')
     ->middleware(['auth'])
     ->group(function () {
@@ -72,10 +72,19 @@ Route::prefix('frontend')
             ->name('products.cart');
         Route::get('pay', 'ProductController@pay')
             ->name('products.pay');
-        Route::get('products/list', 'ProductController@list')
+        Route::get('list', 'ProductController@list')
             ->name('products.list');
-        Route::get('products/list/{id}', 'ProductController@category_products')
-            ->name('products.category_products');
+        // Route::get('products/list/{id}', 'ProductController@category_products')
+        //     ->name('products.category_products');
+        //Cart
+        Route::get('cart/index', 'CartController@index')
+            ->name('cart.index');
+        Route::get('cart/create/{id}', 'CartController@create')
+        ->name('cart.create');
+        Route::get('cart/increase/{rowId}', 'CartController@increase')
+        ->name('cart.increase');
+        Route::get('cart/decrease/{rowId}', 'CartController@decrease')
+        ->name('cart.decrease');
     });
 
 Route::prefix('/')->namespace('Auth')->name('auth.')->group(function () {

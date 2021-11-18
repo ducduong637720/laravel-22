@@ -105,13 +105,34 @@
                                                 </a>
                                             @endcan
                                             @can('delete-post', $post)
-                                                <form method="POST" action="{{ route('backend.posts.destroy', $post->id) }}">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button class="btn btn-outline-danger">
-                                                        <i class="far fa-trash-alt"></i>
-                                                    </button>
-                                                </form>
+                                                <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+                                                    <i class="far fa-trash-alt"></i>
+                                                  </button>
+                                                  
+                                                  <!-- Modal -->
+                                                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                      <div class="modal-content">
+                                                        <div class="modal-header">
+                                                          <h5 class="modal-title" id="exampleModalLabel">Xóa bài viết</h5>
+                                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                          </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                          Bạn có chắc muốn xóa bài viết này
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                                                          <form method="POST" action="{{ route('backend.posts.destroy', $post->id) }}">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="button" class="btn btn-primary">Xóa</button>
+                                                        </form>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
                                             @endcan
                                             <a href="{{ route('backend.posts.show', $post->id) }}"
                                                 class="btn btn-outline-warning"><i class="fas fa-info-circle"></i></a>

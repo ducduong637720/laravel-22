@@ -1,7 +1,7 @@
 @extends('frontend.layouts.master')
 @section('header')
     <!-- INNER PAGE BANNER -->
-    <div class="wt-bnr-inr overlay-wraper" style="background-image:url(images/banner/product-banner.jpg);">
+    <div class="wt-bnr-inr overlay-wraper" style="background-image:url(/frontend/images/banner/product-banner.jpg);">
         <div class="overlay-main bg-black opacity-07"></div>
         <div class="container">
             <div class="wt-bnr-inr-entry">
@@ -65,7 +65,7 @@
                                                 <div class="widget-post-bx">
                                                     <div class="widget-post clearfix bg-gray">
                                                         <div class="wt-post-media">
-                                                            <img src="images/blog/recent-blog/pic1.jpg" alt=""
+                                                            <img src="/frontend/images/blog/recent-blog/pic1.jpg" alt=""
                                                                 class="radius-bx">
                                                         </div>
                                                         <div class="wt-post-info">
@@ -83,7 +83,7 @@
                                                     </div>
                                                     <div class="widget-post clearfix bg-gray">
                                                         <div class="wt-post-media">
-                                                            <img src="images/blog/recent-blog/pic2.jpg" alt=""
+                                                            <img src="/frontend/images/blog/recent-blog/pic2.jpg" alt=""
                                                                 class="radius-bx">
                                                         </div>
                                                         <div class="wt-post-info">
@@ -102,7 +102,7 @@
                                                     </div>
                                                     <div class="widget-post clearfix bg-gray">
                                                         <div class="wt-post-media">
-                                                            <img src="images/blog/recent-blog/pic3.jpg" alt=""
+                                                            <img src="/frontend/images/blog/recent-blog/pic3.jpg" alt=""
                                                                 class="radius-bx">
                                                         </div>
                                                         <div class="wt-post-info">
@@ -125,7 +125,7 @@
                                                 <div class="widget-post-bx">
                                                     <div class="widget-post clearfix bg-gray">
                                                         <div class="wt-post-media">
-                                                            <img src="images/blog/recent-blog/pic3.jpg" alt=""
+                                                            <img src="/frontend/images/blog/recent-blog/pic3.jpg" alt=""
                                                                 class="radius-bx">
                                                         </div>
                                                         <div class="wt-post-info">
@@ -144,7 +144,7 @@
                                                     </div>
                                                     <div class="widget-post clearfix bg-gray">
                                                         <div class="wt-post-media">
-                                                            <img src="images/blog/recent-blog/pic1.jpg" alt=""
+                                                            <img src="/frontend/images/blog/recent-blog/pic1.jpg" alt=""
                                                                 class="radius-bx">
                                                         </div>
                                                         <div class="wt-post-info">
@@ -162,7 +162,7 @@
                                                     </div>
                                                     <div class="widget-post clearfix bg-gray">
                                                         <div class="wt-post-media">
-                                                            <img src="images/blog/recent-blog/pic2.jpg" alt=""
+                                                            <img src="/frontend/images/blog/recent-blog/pic2.jpg" alt=""
                                                                 class="radius-bx">
                                                         </div>
                                                         <div class="wt-post-info">
@@ -191,85 +191,85 @@
                                 <ul>
                                     <li>
                                         <div class="wt-post-thum">
-                                            <a href="images/gallery/pic1.jpg" class="mfp-link"><img
-                                                    src="images/gallery/thumb/pic1.jpg" alt=""></a>
+                                            <a href="/frontend/images/gallery/pic1.jpg" class="mfp-link"><img
+                                                    src="/frontend/images/gallery/thumb/pic1.jpg" alt=""></a>
                                         </div>
                                     </li>
 
                                     <li>
                                         <div class="wt-post-thum ">
-                                            <a href="images/gallery/pic2.jpg" class="mfp-link"><img
-                                                    src="images/gallery/thumb/pic2.jpg" alt=""></a>
+                                            <a href="/frontend/images/gallery/pic2.jpg" class="mfp-link"><img
+                                                    src="/frontend/images/gallery/thumb/pic2.jpg" alt=""></a>
                                         </div>
                                     </li>
 
                                     <li>
                                         <div class="wt-post-thum  ">
-                                            <a href="images/gallery/pic3.jpg" class="mfp-link"><img
-                                                    src="images/gallery/thumb/pic3.jpg" alt=""></a>
+                                            <a href="/frontend/images/gallery/pic3.jpg" class="mfp-link"><img
+                                                    src="/frontend/images/gallery/thumb/pic3.jpg" alt=""></a>
                                         </div>
                                     </li>
 
                                     <li>
                                         <div class="wt-post-thum ">
-                                            <a href="images/gallery/pic4.jpg" class="mfp-link"><img
-                                                    src="images/gallery/thumb/pic4.jpg" alt=""></a>
+                                            <a href="/frontend/images/gallery/pic4.jpg" class="mfp-link"><img
+                                                    src="/frontend/images/gallery/thumb/pic4.jpg" alt=""></a>
                                         </div>
                                     </li>
 
                                     <li>
                                         <div class="wt-post-thum ">
-                                            <a href="images/gallery/pic5.jpg" class="mfp-link"><img
-                                                    src="images/gallery/thumb/pic5.jpg" alt=""></a>
+                                            <a href="/frontend/images/gallery/pic5.jpg" class="mfp-link"><img
+                                                    src="/frontend/images/gallery/thumb/pic5.jpg" alt=""></a>
                                         </div>
                                     </li>
 
                                     <li>
                                         <div class="wt-post-thum ">
-                                            <a href="images/gallery/pic6.jpg" class="mfp-link"><img
-                                                    src="images/gallery/thumb/pic6.jpg" alt=""></a>
+                                            <a href="/frontend/images/gallery/pic6.jpg" class="mfp-link"><img
+                                                    src="/frontend/images/gallery/thumb/pic6.jpg" alt=""></a>
                                         </div>
                                     </li>
 
                                     <li>
                                         <div class="wt-post-thum">
-                                            <a href="images/gallery/pic7.jpg" class="mfp-link"><img
-                                                    src="images/gallery/thumb/pic7.jpg" alt=""></a>
+                                            <a href="/frontend/images/gallery/pic7.jpg" class="mfp-link"><img
+                                                    src="/frontend/images/gallery/thumb/pic7.jpg" alt=""></a>
                                         </div>
                                     </li>
 
                                     <li>
                                         <div class="wt-post-thum ">
-                                            <a href="images/gallery/pic8.jpg" class="mfp-link"><img
-                                                    src="images/gallery/thumb/pic8.jpg" alt=""></a>
+                                            <a href="/frontend/images/gallery/pic8.jpg" class="mfp-link"><img
+                                                    src="/frontend/images/gallery/thumb/pic8.jpg" alt=""></a>
                                         </div>
                                     </li>
 
                                     <li>
                                         <div class="wt-post-thum  ">
-                                            <a href="images/gallery/pic7.jpg" class="mfp-link"><img
-                                                    src="images/gallery/thumb/pic7.jpg" alt=""></a>
+                                            <a href="/frontend/images/gallery/pic7.jpg" class="mfp-link"><img
+                                                    src="/frontend/images/gallery/thumb/pic7.jpg" alt=""></a>
                                         </div>
                                     </li>
 
                                     <li>
                                         <div class="wt-post-thum ">
-                                            <a href="images/gallery/pic6.jpg" class="mfp-link"><img
-                                                    src="images/gallery/thumb/pic6.jpg" alt=""></a>
+                                            <a href="/frontend/images/gallery/pic6.jpg" class="mfp-link"><img
+                                                    src="/frontend/images/gallery/thumb/pic6.jpg" alt=""></a>
                                         </div>
                                     </li>
 
                                     <li>
                                         <div class="wt-post-thum ">
-                                            <a href="images/gallery/pic5.jpg" class="mfp-link"><img
-                                                    src="images/gallery/thumb/pic5.jpg" alt=""></a>
+                                            <a href="/frontend/images/gallery/pic5.jpg" class="mfp-link"><img
+                                                    src="/frontend/images/gallery/thumb/pic5.jpg" alt=""></a>
                                         </div>
                                     </li>
 
                                     <li>
                                         <div class="wt-post-thum ">
-                                            <a href="images/gallery/pic4.jpg" class="mfp-link"><img
-                                                    src="images/gallery/thumb/pic4.jpg" alt=""></a>
+                                            <a href="/frontend/images/gallery/pic4.jpg" class="mfp-link"><img
+                                                    src="/frontend/images/gallery/thumb/pic4.jpg" alt=""></a>
                                         </div>
                                     </li>
                                 </ul>
@@ -284,7 +284,7 @@
                                     <div class="item">
                                         <div class="ow-client-logo">
                                             <div class="client-logo wt-img-effect on-color">
-                                                <a href="#"><img src="images/client-logo/logo1.png" alt=""></a>
+                                                <a href="#"><img src="/frontend/images/client-logo/logo1.png" alt=""></a>
                                             </div>
                                         </div>
                                     </div>
@@ -292,7 +292,7 @@
                                     <div class="item">
                                         <div class="ow-client-logo">
                                             <div class="client-logo wt-img-effect on-color">
-                                                <a href="#"><img src="images/client-logo/logo2.png" alt=""></a>
+                                                <a href="#"><img src="/frontend/images/client-logo/logo2.png" alt=""></a>
                                             </div>
                                         </div>
                                     </div>
@@ -300,7 +300,7 @@
                                     <div class="item">
                                         <div class="ow-client-logo">
                                             <div class="client-logo wt-img-effect on-color">
-                                                <a href="#"><img src="images/client-logo/logo3.png" alt=""></a>
+                                                <a href="#"><img src="/frontend/images/client-logo/logo3.png" alt=""></a>
                                             </div>
                                         </div>
                                     </div>
@@ -372,325 +372,48 @@
 
                         <div class="row">
                             <!-- COLUMNS 1 -->
-                            <div class="col-md-3 col-sm-4 col-xs-6 col-xs-100pc m-b30">
-                                <div class="wt-box wt-product-box">
-                                    <div class="wt-thum-bx wt-img-overlay1 wt-img-effect zoom">
-                                        <img src="images/products/pic-1.jpg" alt="">
-                                        <div class="overlay-bx">
-                                            <div class="overlay-icon">
-                                                <a href="javascript:void(0);">
-                                                    <i class="fa fa-cart-plus wt-icon-box-xs"></i>
-                                                </a>
-                                                <a class="mfp-link" href="javascript:void(0);">
-                                                    <i class="fa fa-heart wt-icon-box-xs"></i>
-                                                </a>
+                            @foreach ($products as $product)
+                                <div class="col-md-3 col-sm-4 col-xs-6 col-xs-100pc m-b30">
+                                    <div class="wt-box wt-product-box">
+                                        <div class="wt-thum-bx wt-img-overlay1 wt-img-effect zoom">
+                                            <img src="/frontend/images/products/pic-1.jpg" alt="">
+                                            {{-- <a href="{{ route('frontend.products.show', $product->id )  }}"></a> --}}
+                                            <div class="overlay-bx">
+                                                <div class="overlay-icon">
+                                                    <a href="javascript:void(0);">
+                                                        <i class="fa fa-cart-plus wt-icon-box-xs"></i>
+                                                    </a>
+                                                    <a class="mfp-link" href="javascript:void(0);">
+                                                        <i class="fa fa-heart wt-icon-box-xs"></i>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="wt-info  text-center">
-                                        <div class="p-a10 bg-white">
-                                            <h4 class="wt-title">
-                                                <a href="javascript:;">One Martines</a>
-                                            </h4>
-                                            <span class="price">
-                                                <del>
-                                                    <span><span class="Price-currencySymbol">£</span>3.00</span>
-                                                </del>
-                                                <ins>
-                                                    <span><span class="Price-currencySymbol">£</span>2.00</span>
-                                                </ins>
-                                            </span>
-                                            <div class="rating-bx">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- COLUMNS 2 -->
-                            <div class="col-md-3 col-sm-4 col-xs-6 col-xs-100pc m-b30">
-                                <div class="wt-box wt-product-box">
-                                    <div class="wt-thum-bx wt-img-overlay1 wt-img-effect zoom">
-                                        <img src="images/products/pic-2.jpg" alt="">
-                                        <div class="overlay-bx">
-                                            <div class="overlay-icon">
-                                                <a href="javascript:void(0);">
-                                                    <i class="fa fa-cart-plus wt-icon-box-xs"></i>
-                                                </a>
-                                                <a class="mfp-link" href="javascript:void(0);">
-                                                    <i class="fa fa-heart wt-icon-box-xs"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="wt-info  text-center">
-                                        <div class="p-a10 bg-white">
-                                            <h4 class="wt-title">
-                                                <a href="javascript:;">Two Martines </a>
-                                            </h4>
-                                            <span class="price">
-                                                <del>
-                                                    <span><span class="Price-currencySymbol">£</span>3.00</span>
-                                                </del>
-                                                <ins>
-                                                    <span><span class="Price-currencySymbol">£</span>2.00</span>
-                                                </ins>
-                                            </span>
-                                            <div class="rating-bx">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
+                                        <div class="wt-info  text-center">
+                                            <div class="p-a10 bg-white">
+                                                <h4 class="wt-title">
+                                                    <a href="javascript:;">{{ $product->name }}</a>
+                                                </h4>
+                                                <span class="price">
+                                                    <del>
+                                                        <span class="Price-currencySymbol">{{ $product->orgin_price_format }}</span>
+                                                    </del>
+                                                    <ins>
+                                                       <span class="Price-currencySymbol">{{ $product->sale_price_format }}</span>
+                                                    </ins>
+                                                </span>
+                                                <div class="rating-bx">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- COLUMNS 3 -->
-                            <div class="col-md-3 col-sm-4 col-xs-6 col-xs-100pc m-b30">
-                                <div class="wt-box wt-product-box">
-                                    <div class="wt-thum-bx wt-img-overlay1 wt-img-effect zoom">
-                                        <img src="images/products/pic-3.jpg" alt="">
-                                        <div class="overlay-bx">
-                                            <div class="overlay-icon">
-                                                <a href="javascript:void(0);">
-                                                    <i class="fa fa-cart-plus wt-icon-box-xs"></i>
-                                                </a>
-                                                <a class="mfp-link" href="javascript:void(0);">
-                                                    <i class="fa fa-heart wt-icon-box-xs"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="wt-info  text-center">
-                                        <div class="p-a10 bg-white">
-                                            <h4 class="wt-title">
-                                                <a href="javascript:;">Three Martines</a>
-                                            </h4>
-                                            <span class="price">
-                                                <del>
-                                                    <span><span class="Price-currencySymbol">£</span>3.00</span>
-                                                </del>
-                                                <ins>
-                                                    <span><span class="Price-currencySymbol">£</span>2.00</span>
-                                                </ins>
-                                            </span>
-                                            <div class="rating-bx">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- COLUMNS 4 -->
-                            <div class="col-md-3 col-sm-4 col-xs-6 col-xs-100pc m-b30">
-                                <div class="wt-box wt-product-box">
-                                    <div class="wt-thum-bx wt-img-overlay1 wt-img-effect zoom">
-                                        <img src="images/products/pic-4.jpg" alt="">
-                                        <div class="overlay-bx">
-                                            <div class="overlay-icon">
-                                                <a href="javascript:void(0);">
-                                                    <i class="fa fa-cart-plus wt-icon-box-xs"></i>
-                                                </a>
-                                                <a class="mfp-link" href="javascript:void(0);">
-                                                    <i class="fa fa-heart wt-icon-box-xs"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="wt-info  text-center">
-                                        <div class="p-a10 bg-white">
-                                            <h4 class="wt-title">
-                                                <a href="javascript:;">Four Martines</a>
-                                            </h4>
-                                            <span class="price">
-                                                <del>
-                                                    <span><span class="Price-currencySymbol">£</span>3.00</span>
-                                                </del>
-                                                <ins>
-                                                    <span><span class="Price-currencySymbol">£</span>2.00</span>
-                                                </ins>
-                                            </span>
-                                            <div class="rating-bx">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- COLUMNS 5 -->
-                            <div class="col-md-3 col-sm-4 col-xs-6 col-xs-100pc m-b30">
-                                <div class="wt-box wt-product-box">
-                                    <div class="wt-thum-bx wt-img-overlay1 wt-img-effect zoom">
-                                        <img src="images/products/pic-5.jpg" alt="">
-                                        <div class="overlay-bx">
-                                            <div class="overlay-icon">
-                                                <a href="javascript:void(0);">
-                                                    <i class="fa fa-cart-plus wt-icon-box-xs"></i>
-                                                </a>
-                                                <a class="mfp-link" href="javascript:void(0);">
-                                                    <i class="fa fa-heart wt-icon-box-xs"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="wt-info  text-center">
-                                        <div class="p-a10 bg-white">
-                                            <h4 class="wt-title">
-                                                <a href="javascript:;">Five Martines</a>
-                                            </h4>
-                                            <span class="price">
-                                                <del>
-                                                    <span><span class="Price-currencySymbol">£</span>3.00</span>
-                                                </del>
-                                                <ins>
-                                                    <span><span class="Price-currencySymbol">£</span>2.00</span>
-                                                </ins>
-                                            </span>
-                                            <div class="rating-bx">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- COLUMNS 6 -->
-                            <div class="col-md-3 col-sm-4 col-xs-6 col-xs-100pc m-b30">
-                                <div class="wt-box wt-product-box">
-                                    <div class="wt-thum-bx wt-img-overlay1 wt-img-effect zoom">
-                                        <img src="images/products/pic-6.jpg" alt="">
-                                        <div class="overlay-bx">
-                                            <div class="overlay-icon">
-                                                <a href="javascript:void(0);">
-                                                    <i class="fa fa-cart-plus wt-icon-box-xs"></i>
-                                                </a>
-                                                <a class="mfp-link" href="javascript:void(0);">
-                                                    <i class="fa fa-heart wt-icon-box-xs"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="wt-info  text-center">
-                                        <div class="p-a10 bg-white">
-                                            <h4 class="wt-title">
-                                                <a href="javascript:;">Six Martines</a>
-                                            </h4>
-                                            <span class="price">
-                                                <del>
-                                                    <span><span class="Price-currencySymbol">£</span>3.00</span>
-                                                </del>
-                                                <ins>
-                                                    <span><span class="Price-currencySymbol">£</span>2.00</span>
-                                                </ins>
-                                            </span>
-                                            <div class="rating-bx">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- COLUMNS 7 -->
-                            <div class="col-md-3 col-sm-4 col-xs-6 col-xs-100pc m-b30">
-                                <div class="wt-box wt-product-box">
-                                    <div class="wt-thum-bx wt-img-overlay1 wt-img-effect zoom">
-                                        <img src="images/products/pic-7.jpg" alt="">
-                                        <div class="overlay-bx">
-                                            <div class="overlay-icon">
-                                                <a href="javascript:void(0);">
-                                                    <i class="fa fa-cart-plus wt-icon-box-xs"></i>
-                                                </a>
-                                                <a class="mfp-link" href="javascript:void(0);">
-                                                    <i class="fa fa-heart wt-icon-box-xs"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="wt-info  text-center">
-                                        <div class="p-a10 bg-white">
-                                            <h4 class="wt-title">
-                                                <a href="javascript:;">Seven Martines</a>
-                                            </h4>
-                                            <span class="price">
-                                                <del>
-                                                    <span><span class="Price-currencySymbol">£</span>3.00</span>
-                                                </del>
-                                                <ins>
-                                                    <span><span class="Price-currencySymbol">£</span>2.00</span>
-                                                </ins>
-                                            </span>
-                                            <div class="rating-bx">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- COLUMNS 8 -->
-                            <div class="col-md-3 col-sm-4 col-xs-6 col-xs-100pc m-b30">
-                                <div class="wt-box wt-product-box">
-                                    <div class="wt-thum-bx wt-img-overlay1 wt-img-effect zoom">
-                                        <img src="images/products/pic-7.jpg" alt="">
-                                        <div class="overlay-bx">
-                                            <div class="overlay-icon">
-                                                <a href="javascript:void(0);">
-                                                    <i class="fa fa-cart-plus wt-icon-box-xs"></i>
-                                                </a>
-                                                <a class="mfp-link" href="javascript:void(0);">
-                                                    <i class="fa fa-heart wt-icon-box-xs"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="wt-info  text-center">
-                                        <div class="p-a10 bg-white">
-                                            <h4 class="wt-title">
-                                                <a href="javascript:;">Seven Martines</a>
-                                            </h4>
-                                            <span class="price">
-                                                <del>
-                                                    <span><span class="Price-currencySymbol">£</span>3.00</span>
-                                                </del>
-                                                <ins>
-                                                    <span><span class="Price-currencySymbol">£</span>2.00</span>
-                                                </ins>
-                                            </span>
-                                            <div class="rating-bx">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
 
                         <!-- ADD BLOCK -->
@@ -698,7 +421,7 @@
                             <div class="row">
                                 <div class="col-md-6 col-sm-6">
                                     <div class="wt-box pro-banner">
-                                        <img src="images/add/pic1.jpg" alt="">
+                                        <img src="/frontend/images/add/pic1.jpg" alt="">
                                         <div class="pro-banner-disc p-a20 text-white">
                                             <h2 class="text-uppercase m-a0 m-b10">Best time to buy</h2>
                                             <h4 class="m-a0 m-b10">Our Product</h4>
@@ -709,7 +432,7 @@
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <div class="wt-box pro-banner">
-                                        <img src="images/add/pic2.jpg" alt="">
+                                        <img src="/frontend/images/add/pic2.jpg" alt="">
                                         <div class="pro-banner-disc p-a20 text-white">
                                             <h2 class="text-uppercase m-a0 m-b10">Best time to buy</h2>
                                             <h4 class="m-a0 m-b10">Our Product</h4>
@@ -741,7 +464,7 @@
                             <div class="col-md-3 col-sm-4 col-xs-6 col-xs-100pc m-b30">
                                 <div class="wt-box wt-product-box">
                                     <div class="wt-thum-bx wt-img-overlay1 wt-img-effect zoom">
-                                        <img src="images/products/pic-1.jpg" alt="">
+                                        <img src="/frontend/images/products/pic-1.jpg" alt="">
                                         <div class="overlay-bx">
                                             <div class="overlay-icon">
                                                 <a href="javascript:void(0);">
@@ -781,7 +504,7 @@
                             <div class="col-md-3 col-sm-4 col-xs-6 col-xs-100pc m-b30">
                                 <div class="wt-box wt-product-box">
                                     <div class="wt-thum-bx wt-img-overlay1 wt-img-effect zoom">
-                                        <img src="images/products/pic-2.jpg" alt="">
+                                        <img src="/frontend/images/products/pic-2.jpg" alt="">
                                         <div class="overlay-bx">
                                             <div class="overlay-icon">
                                                 <a href="javascript:void(0);">
@@ -821,7 +544,7 @@
                             <div class="col-md-3 col-sm-4 col-xs-6 col-xs-100pc m-b30">
                                 <div class="wt-box wt-product-box">
                                     <div class="wt-thum-bx wt-img-overlay1 wt-img-effect zoom">
-                                        <img src="images/products/pic-3.jpg" alt="">
+                                        <img src="/frontend/images/products/pic-3.jpg" alt="">
                                         <div class="overlay-bx">
                                             <div class="overlay-icon">
                                                 <a href="javascript:void(0);">
@@ -861,7 +584,7 @@
                             <div class="col-md-3 col-sm-4 col-xs-6 col-xs-100pc m-b30">
                                 <div class="wt-box wt-product-box">
                                     <div class="wt-thum-bx wt-img-overlay1 wt-img-effect zoom">
-                                        <img src="images/products/pic-4.jpg" alt="">
+                                        <img src="/frontend/images/products/pic-4.jpg" alt="">
                                         <div class="overlay-bx">
                                             <div class="overlay-icon">
                                                 <a href="javascript:void(0);">
@@ -901,7 +624,7 @@
                             <div class="col-md-3 col-sm-4 col-xs-6 col-xs-100pc m-b30">
                                 <div class="wt-box wt-product-box">
                                     <div class="wt-thum-bx wt-img-overlay1 wt-img-effect zoom">
-                                        <img src="images/products/pic-5.jpg" alt="">
+                                        <img src="/frontend/images/products/pic-5.jpg" alt="">
                                         <div class="overlay-bx">
                                             <div class="overlay-icon">
                                                 <a href="javascript:void(0);">
@@ -941,7 +664,7 @@
                             <div class="col-md-3 col-sm-4 col-xs-6 col-xs-100pc m-b30">
                                 <div class="wt-box wt-product-box">
                                     <div class="wt-thum-bx wt-img-overlay1 wt-img-effect zoom">
-                                        <img src="images/products/pic-6.jpg" alt="">
+                                        <img src="/frontend/images/products/pic-6.jpg" alt="">
                                         <div class="overlay-bx">
                                             <div class="overlay-icon">
                                                 <a href="javascript:void(0);">
@@ -981,7 +704,7 @@
                             <div class="col-md-3 col-sm-4 col-xs-6 col-xs-100pc m-b30">
                                 <div class="wt-box wt-product-box">
                                     <div class="wt-thum-bx wt-img-overlay1 wt-img-effect zoom">
-                                        <img src="images/products/pic-7.jpg" alt="">
+                                        <img src="/frontend/images/products/pic-7.jpg" alt="">
                                         <div class="overlay-bx">
                                             <div class="overlay-icon">
                                                 <a href="javascript:void(0);">
@@ -1021,7 +744,7 @@
                             <div class="col-md-3 col-sm-4 col-xs-6 col-xs-100pc m-b30">
                                 <div class="wt-box wt-product-box">
                                     <div class="wt-thum-bx wt-img-overlay1 wt-img-effect zoom">
-                                        <img src="images/products/pic-7.jpg" alt="">
+                                        <img src="/frontend/images/products/pic-7.jpg" alt="">
                                         <div class="overlay-bx">
                                             <div class="overlay-icon">
                                                 <a href="javascript:void(0);">
