@@ -1,11 +1,11 @@
 @extends('frontend.layouts.master')
 @section('header')
     <!-- INNER PAGE BANNER -->
-    <div class="wt-bnr-inr overlay-wraper" style="background-image:url(/frontend/images/banner/product-banner.jpg);">
+    <div class="wt-bnr-inr overlay-wraper" style="background-image:url(/frontend/images/banner/banner3.jpg);">
         <div class="overlay-main bg-black opacity-07"></div>
         <div class="container">
             <div class="wt-bnr-inr-entry">
-                <h1 class="text-white">Product Details</h1>
+                <h1 class="text-white">Chi tiết sản phẩm</h1>
             </div>
         </div>
     </div>
@@ -15,8 +15,8 @@
     <div class="bg-gray-light p-tb20">
         <div class="container">
             <ul class="wt-breadcrumb breadcrumb-style-2">
-                <li><a href="javascript:void(0);"><i class="fa fa-home"></i> Home</a></li>
-                <li>Product Details</li>
+                <li><a href="javascript:void(0);"><i class="fa fa-home"></i>Trang chủ</a></li>
+                <li>Chi tiết sản phẩm</li>
             </ul>
         </div>
     </div>
@@ -39,10 +39,10 @@
                                 <div class="mfp-gallery">
                                     <div class="wt-box">
                                         <div class="wt-thum-bx wt-img-overlay1 ">
-                                            <img src="/frontend/images/products/pic-1.jpg" alt="">
+                                            <img src="{{ $product->info_url_full }}" alt="">
                                             <div class="overlay-bx">
                                                 <div class="overlay-icon">
-                                                    <a class="mfp-link" href="/frontend/images/products/pic-1.jpg">
+                                                    <a class="mfp-link" href="{{ $product->info_url_full }}">
                                                         <i class="fa fa-arrows-alt wt-icon-box-xs"></i>
                                                     </a>
                                                 </div>
@@ -157,15 +157,15 @@
                     </div>
                     <table class="table table-bordered">
                         <tr>
-                            <td>Pricing</td>
-                            <td>$52.00</td>
+                            <td>Đơn giá</td>
+                            <td>{{ $product->orgin_price_format }}</td>
                         </tr>
                         <tr>
                             <td>Stock Availability</td>
                             <td>AVAILABLE</td>
                         </tr>
                         <tr>
-                            <td>Rating</td>
+                            <td>Đánh giá</td>
                             <td>
                                 <span class="rating-bx">
                                     <i class="fa fa-star"></i>
@@ -182,9 +182,10 @@
                             <input id="demo_vertical2" type="text" value="1" name="demo_vertical2" />
                         </div>
                         <button class="btn btn-primary site-button-secondry pull-left m-r10"><i
-                                class="fa fa-shopping-bag"></i> BUY NOW</button>
-                        <a class="btn btn-primary site-button pull-left" href="{{ route('frontend.cart.create', $product->id ) }}"><i
-                                class="fa fa-cart-plus"></i> Thêm vào giỏ hàng</a>
+                                class="fa fa-shopping-bag"></i>Mua ngay</button>
+                        <a class="btn btn-primary site-button pull-left"
+                            href="{{ route('frontend.cart.create', $product->id) }}"><i class="fa fa-cart-plus"></i> Thêm
+                            vào giỏ hàng</a>
                     </form>
                 </div>
             </div>

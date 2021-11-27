@@ -32,7 +32,8 @@
                                     <!-- text input -->
                                     <div class="form-group">
                                         <label>Tiêu đề</label>
-                                        <input type="text" name="title" value="{{ $post->title }}" class="form-control @error('title') is-invalid @enderror"
+                                        <input type="text" name="title" value="{{ $post->title }}"
+                                            class="form-control @error('title') is-invalid @enderror"
                                             placeholder="Enter ...">
                                         @error('title')
                                             <div class="alert alert-danger">{{ $message }}</div>
@@ -40,37 +41,33 @@
                                     </div>
                                 </div>
                             </div>
-                                <div class="col-sm-12">
-                                    <!-- textarea -->
-                                    <label>Nội dung</label>
-                                    @include('backend.components.summernote',
-                                    ['content' => $post->content]
-                                    )
-                                </div>
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <label for="exampleInputFile">Ảnh bài viết</label>
-                                        <div class="input-group">
-                                            <div class="custom-file">
-                                                <input type="file" name="img_url"  value="{{ $post->image_url_full }}" class="custom-file-input"
-                                                    id="exampleInputFile">
-                                                <label class="custom-file-label" for="exampleInputFile">Đăng ảnh</label>
-
-                                            </div>
-                                            <div class="input-group-append">
-                                                <span class="input-group-text">Upload</span>
-                                            </div>
+                            <div class="col-sm-12">
+                                <!-- textarea -->
+                                <label>Nội dung</label>
+                                @include('backend.components.summernote',
+                                ['content' => $post->content])
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="exampleInputFile">Ảnh bài viết</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" name="img_url" value="{{ $post->image_url_full }}"
+                                                class="custom-file-input" id="exampleInputFile">
+                                            <label class="custom-file-label" for="exampleInputFile">Đăng ảnh</label>
                                         </div>
-                                        @error('img_url')
-                                            <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
                                     </div>
+                                    @error('img_url')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
+                            </div>
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label>Thẻ</label>
-                                        <select multiple="multiple" class="select2" name="tags[]" style="width: 100%;">
+                                        <select multiple="multiple" class="select2" name="tags[]"
+                                            style="width: 100%;">
                                             @foreach ($tags as $item)
                                                 @foreach ($post->tags as $post_tag)
                                                     @php
@@ -95,7 +92,7 @@
                                         <label>Danh mục</label>
                                         <select class="form-control" name="category">
                                             @foreach ($categories as $category)
-                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>

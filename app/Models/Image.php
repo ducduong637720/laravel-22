@@ -12,15 +12,20 @@ class Image extends Model
     public function products(){
         return $this->belongsTo(Product::class,'product_id');
     }
-    public function getInfoFullAttribute(){
+    public function getImageUrlFullAttribute(){
         if (!empty($this->path)) {
-            if (Storage::disk('products')->exists($this->info)) {
-                return Storage::disk('products')->url($this->info);
+            if (Storage::disk('product')->exists($this->path)) {
+                return Storage::disk('product')->url($this->path);
             } else {
-                return Storage::disk('products')->url('default.png');
+                return Storage::disk('product')->url('default.jpg');
             }
         } else {
-            return Storage::disk('products')->url('default.png');
+            return Storage::disk('product')->url('default.jpg');
         }
+    }
+
+    public function getProductImageAttribute(){
+        return Image::where('product_id', $this->product_id)->get();
+        
     }
 }

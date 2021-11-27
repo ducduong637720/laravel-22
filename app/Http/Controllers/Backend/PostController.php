@@ -58,7 +58,7 @@ class PostController extends Controller
         $categories = Category::all();
         $tags = Tag::get();
         return view('backend.posts.create')->with([
-            'tags' => $tags, 
+            'tags' => $tags,
             'categories' => $categories
         ]);
     }
@@ -109,7 +109,7 @@ class PostController extends Controller
             $path = $request->file('img_url')->store('blogs', $disk);
             $post->disk = $disk;
             $post->img_url = $path;
-        } 
+        }
         $post->save();
         $post->tags()->attach($tags);
         $request->session()->flash('success', 'Tạo bài viết thành công!');
@@ -159,7 +159,6 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, $id)
     {
-        // dd($request->all());
         $post = Post::find($id);
         $data = $request->all();
         $tags = $request->get('tags');
@@ -174,7 +173,7 @@ class PostController extends Controller
             $path = $request->file('img_url')->store('blogs', $disk);
             $post->disk = $disk;
             $post->img_url = $path;
-        } 
+        }
         $post->save();
         $post->tags()->sync($tags);
         $request->session()->flash('success', 'Chỉnh sửa bài viết thành công!');
@@ -189,10 +188,6 @@ class PostController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        // if (Auth::user()->cannot('delete-post')) {
-        //     return abort(403);
-        // }
-        $post = Post::find($id);
         Post::destroy($id);
         $request->session()->flash('success', 'Xóa bài viết thành công!');
         return redirect()->route('backend.posts.index');

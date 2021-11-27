@@ -39,6 +39,18 @@
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="col-sm-3">
+                                    <!-- text input -->
+                                    <div class="form-group">
+                                        <label>Số lượng</label>
+                                        <input type="text" name="quatity"
+                                            class="form-control @error('quatity') is-invalid @enderror"
+                                            value="{{ old('quatity') }}" placeholder="Nhập số lượng ...">
+                                        @error('quatity')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label>Nội dung</label>
@@ -77,9 +89,9 @@
                                     <!-- select -->
                                     <div class="form-group">
                                         <label>Danh mục</label>
-                                        <select class="form-control" name="category_id">
-                                            @foreach ($prodCategories as $cate)
-                                                <option value="{{ $cate->id }}">{{ $cate->name }}</option>
+                                        <select class="form-control" name="prodcategory">
+                                            @foreach ($prodCategories as $prodcategory)
+                                                <option value="{{ $prodcategory->id }}">{{ $prodcategory->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>

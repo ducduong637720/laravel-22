@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-               <h1>Danh sách bài viết</h1>
+                <h1>Danh sách bài viết</h1>
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -40,20 +40,20 @@
                         <div class="card-tools">
                             <form method="GET" action="{{ route('backend.posts.index') }}">
                                 <div class="input-group input-group-sm">
-                                <input type="text" name="title" value="{{ request()->get('title') }}" class="form-control float-right"
-                                    placeholder="Tìm kiếm">
+                                    <input type="text" name="title" value="{{ request()->get('title') }}"
+                                        class="form-control float-right" placeholder="Tìm kiếm">
                                     {{-- <select type="text" value="{{ request()->get('status') }}" class="form-control"
                                         name="status">
                                         <option value="1">Public</option>
                                         <option value="0">Draft</option>
                                         <option value="2">Done</option>
                                     </select> --}}
-                                <div class="input-group-append">
-                                    <button type="submit" class="btn btn-default">
-                                        <i class="fas fa-search"></i>
-                                    </button>
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-default">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
                             </form>
                         </div>
                     </div>
@@ -105,38 +105,44 @@
                                                 </a>
                                             @endcan
                                             @can('delete-post', $post)
-                                                <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+                                                <button type="button" class="btn btn-outline-danger" data-toggle="modal"
+                                                    data-target="#exampleModal">
                                                     <i class="far fa-trash-alt"></i>
-                                                  </button>
-                                                  
-                                                  <!-- Modal -->
-                                                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                </button>
+
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
-                                                      <div class="modal-content">
-                                                        <div class="modal-header">
-                                                          <h5 class="modal-title" id="exampleModalLabel">Xóa bài viết</h5>
-                                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                          </button>
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">Xóa bài viết
+                                                                </h5>
+                                                                <button type="button" class="close"
+                                                                    data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                Bạn có chắc muốn xóa bài viết này
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">Hủy</button>
+                                                                <form method="POST"
+                                                                    action="{{ route('backend.posts.destroy', $post->id) }}">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="button" class="btn btn-primary">Xóa</button>
+                                                                </form>
+                                                            </div>
                                                         </div>
-                                                        <div class="modal-body">
-                                                          Bạn có chắc muốn xóa bài viết này
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-                                                          <form method="POST" action="{{ route('backend.posts.destroy', $post->id) }}">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="button" class="btn btn-primary">Xóa</button>
-                                                        </form>
-                                                        </div>
-                                                      </div>
                                                     </div>
-                                                  </div>
+                                                </div>
                                             @endcan
                                             <a href="{{ route('backend.posts.show', $post->id) }}"
                                                 class="btn btn-outline-warning"><i class="fas fa-info-circle"></i></a>
-                                                
+
                                         </td>
                                     </tr>
                                 @endforeach

@@ -53,10 +53,6 @@
                                                 <input type="file" name="img_url" class="custom-file-input"
                                                     id="exampleInputFile">
                                                 <label class="custom-file-label" for="exampleInputFile">Đăng ảnh</label>
-
-                                            </div>
-                                            <div class="input-group-append">
-                                                <span class="input-group-text">Đăng tải</span>
                                             </div>
                                         </div>
                                         @error('img_url')
@@ -87,9 +83,9 @@
                                     <div class="form-group">
                                         <label>Danh mục</label>
                                         <select class="form-control" name="category">
-                                           @foreach ($categories as $category)
-                                           <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                           @endforeach
+                                            @foreach ($categories as $category)
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

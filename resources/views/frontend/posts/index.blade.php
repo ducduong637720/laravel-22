@@ -2,11 +2,6 @@
 @section('header')
     <div class="wt-bnr-inr overlay-wraper" style="background-image:url(/frontend/images/banner/blog-banner1.jpg);">
         <div class="overlay-main bg-black opacity-07"></div>
-        <div class="container">
-            <div class="wt-bnr-inr-entry">
-                <h1 class="text-white">Blog half image with sidebar</h1>
-            </div>
-        </div>
     </div>
 @endsection
 @section('main')
@@ -49,7 +44,7 @@
                                         <a href="{{ route('frontend.posts.show', $post->id) }}" title="READ MORE"
                                             rel="bookmark" class="">Xem chi tiết</a>
                                     </div>
-                                    <div class="widget_social_inks pull-right">
+                                    {{-- <div class="widget_social_inks pull-right">
                                         <ul class="social-icons social-radius social-dark m-b0">
                                             <li><a href="javascript:void(0);" class="fa fa-facebook"></a></li>
                                             <li><a href="javascript:void(0);" class="fa fa-twitter"></a></li>
@@ -57,17 +52,17 @@
                                             <li><a href="javascript:void(0);" class="fa fa-youtube"></a></li>
                                             <li><a href="javascript:void(0);" class="fa fa-instagram"></a></li>
                                         </ul>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
                     @endforeach
-                    {{  $posts->links() }}
+                    {{ $posts->links() }}
                 </div>
                 <div class="col-md-3">
                     <aside class="side-bar">
                         <!-- 13. SEARCH -->
-                        <div class="widget bg-white ">
+                        {{-- <div class="widget bg-white ">
                             <h4 class="widget-title">Search</h4>
                             <div class="search-bx">
                                 <form role="search" method="post">
@@ -81,19 +76,10 @@
                                     </div>
                                 </form>
                             </div>
-                        </div>
-
-                        {{-- <div class="widget bg-white  widget_tag_cloud">
-                            <h4 class="widget-title">Categories</h4>
-                            <div class="tagcloud">
-                                @foreach ($categories as $category)
-                                    <a href="{{ route('frontend.posts.list', $category->id) }}">{{ $category->name }}</a>
-                                @endforeach
-                            </div>
                         </div> --}}
                         <!-- 2. RECENT POSTS -->
                         <div class="widget bg-white  widget_tag_cloud">
-                            <h4 class="widget-title">Categories</h4>
+                            <h4 class="widget-title">Danh mục bài viết</h4>
                             <div class="tagcloud">
                                 @foreach ($categories as $category)
                                     <a
@@ -101,7 +87,7 @@
                                 @endforeach
                             </div>
                         </div>
-                        <div class="widget bg-white  recent-posts-entry">
+                        {{-- <div class="widget bg-white  recent-posts-entry">
                             <h4 class="widget-title">Posts</h4>
                             <div class="section-content">
                                 <div class="wt-tabs tabs-default border">
@@ -235,9 +221,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- 4. OUR GALLERY  -->
-                        <div class="widget widget_gallery mfp-gallery">
+                        {{-- <div class="widget widget_gallery mfp-gallery">
                             <h4 class="widget-title">Our Gallery</h4>
                             <ul>
                                 <li>
@@ -325,19 +311,11 @@
                                 </li>
                             </ul>
 
-                        </div>
+                        </div> --}}
                         <!-- 7. OUR CLIENT -->
-                        <div class="widget">
+                        {{-- <div class="widget">
                             <h4 class="widget-title">Our Client</h4>
                             <div class="owl-carousel widget-client p-t10 owl-loaded owl-drag">
-
-                                <!-- COLUMNS 1 -->
-
-                                <!-- COLUMNS 2 -->
-
-                                <!-- COLUMNS 3 -->
-
-
                                 <div class="owl-stage-outer">
                                     <div class="owl-stage"
                                         style="transform: translate3d(-526px, 0px, 0px); transition: all 0s ease 0s; width: 1841px;">
@@ -423,9 +401,9 @@
                                     <div class="owl-dot"><span></span></div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- 6. NEWSLETTER -->
-                        <div class="widget widget_newsletter-2 bg-white  ">
+                        {{-- <div class="widget widget_newsletter-2 bg-white  ">
                             <h4 class="widget-title">Newsletter</h4>
                             <div class="newsletter-bx p-a30">
                                 <div class="newsletter-icon">
@@ -450,20 +428,17 @@
                                     </form>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- 12. TAGS -->
                         <div class="widget bg-white  widget_tag_cloud">
-                            <h4 class="widget-title">Tags</h4>
+                            <h4 class="widget-title">Thẻ</h4>
                             <div class="tagcloud">
                                 @foreach ($tags as $tag)
                                     <a href="">{{ $tag->name }}</a>
                                 @endforeach
-
                             </div>
                         </div>
-
                     </aside>
-
                 </div>
             </div>
             <!-- SIDE BAR END -->

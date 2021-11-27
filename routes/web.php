@@ -19,16 +19,6 @@ use \App\Http\Controllers\HomeController;
 */
 
 Route::get('/', 'HomeController@index')->middleware(['auth']);
-
-// Route::get('/posts/show', function () {
-//     return view('frontend.posts.show');
-// })->name('frontend.posts.show');
-
-Route::get('backend/users/delete', 'Backend\UserController@delete')->name('backend.users.delete');
-Route::get('backend/users/restore/{id}', 'Backend\UserController@restore')->name('backend.users.restore');
-Route::get('backend/categories/delete', 'Backend\CategoryController@delete')->name('backend.categories.delete');
-Route::get('backend/categories/restore/{id}', 'Backend\CategoryController@restore')->name('backend.categories.restore');
-
 Route::prefix('backend')
     ->name('backend.')
     ->namespace('Backend')
@@ -40,8 +30,16 @@ Route::prefix('backend')
         Route::resource('posts', PostController::class);
         //User
         Route::resource('users', UserController::class);
+        Route::get('/users/delete', 'UserController@delete')
+            ->name('users.delete');
+        Route::get('/users/restore/{id}', 'UserController@restore')
+            ->name('users.restore');
         //Category
         Route::resource('categories', CategoryController::class);
+        Route::get('/categories/delete', 'CategoryController@delete')
+            ->name('categories.delete');
+        Route::get('/categories/restore/{id}', 'CategoryController@restore')
+            ->name('categories.restore');
         //Tag
         Route::resource('tags', TagController::class);
         // Permission
@@ -55,6 +53,14 @@ Route::prefix('backend')
         Route::get('storages/download/{id}', 'StorageController@download')->name('storages.download');
         //Product
         Route::resource('products', ProductController::class);
+        //Order
+        Route::resource('orders', OrderController::class);
+        //Image
+        Route::resource('images', ImageController::class);
+         //Brand
+         Route::resource('brands', BrandController::class);
+         //ProdCategory
+         Route::resource('prodcategories', ProdCategoryController::class);
     });
 Route::name('frontend.')
     ->namespace('Frontend')
@@ -68,42 +74,38 @@ Route::name('frontend.')
             ->name('posts.category_posts');
         //Product
         Route::resource('products', ProductController::class);
-        Route::get('cart', 'ProductController@cart')
-            ->name('products.cart');
-        Route::get('pay', 'ProductController@pay')
-            ->name('products.pay');
         Route::get('list', 'ProductController@list')
             ->name('products.list');
-        // Route::get('products/list/{id}', 'ProductController@category_products')
-        //     ->name('products.category_products');
+        Route::get('list/{id}', 'ProductController@prods_category')
+            ->name('products.prods_category');
         //Cart
-        Route::get('cart/index', 'CartController@index')
+        Route::get('cart', 'CartController@index')
             ->name('cart.index');
         Route::get('cart/create/{id}', 'CartController@create')
-        ->name('cart.create');
+            ->name('cart.create');
+        Route::get('cart/remove/{rowId}', 'CartController@remove')
+            ->name('cart.remove');
         Route::get('cart/increase/{rowId}', 'CartController@increase')
-        ->name('cart.increase');
+            ->name('cart.increase');
         Route::get('cart/decrease/{rowId}', 'CartController@decrease')
-        ->name('cart.decrease');
+            ->name('cart.decrease');
+        Route::get('pay', 'CartController@pay')
+            ->name('cart.pay');
     });
 
 Route::prefix('/')->namespace('Auth')->name('auth.')->group(function () {
     Route::get('/login', 'LoginController@create')
         ->middleware('guest')
         ->name('login');
-
     Route::post('/login', 'LoginController@authenticate')
         ->middleware('guest')
         ->name('login');
-
     Route::get('/register', 'RegisteredUserController@create')
         ->middleware('guest')
         ->name('register');
-
     Route::post('/register', 'RegisteredUserController@store')
         ->middleware('guest')
         ->name('register');
-
     Route::post('/logout', 'LoginController@logout')
         ->name('logout');
 });

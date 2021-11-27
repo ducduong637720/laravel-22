@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Tag;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -15,8 +16,9 @@ class TagsTableSeeder extends Seeder
      */
     public function run()
     {
+        Tag::truncate();
         $tags = [
-            'Iphone','IOS','Androi','Samsung',
+            'Dầu gội','Sữa tắm','Nước hoa','Sữa dưỡng','Xịt thơm',
         ];
         DB::table('tags')->truncate();
         foreach($tags as $tag){

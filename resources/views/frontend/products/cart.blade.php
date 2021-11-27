@@ -54,26 +54,40 @@
                             <tbody>
                                 @foreach ($products as $product)
                                     <tr>
-                                        <td data-title="Code"><img src="/frontend/images/cart/thumb/pic-2.jpg" alt=""></td>
+                                        <td data-title="Code"><img src="{{$product->info_url_full}}" alt=""></td>
                                         <td data-title="Company" style="width:40%">{{ $product->name }}</td>
                                         <td data-title="Price" class="numeric">{{ $product->price }}</td>
-                                        <td  class="numeric" style="width:8%">
+
+                                        <td class="numeric" style="width:8%">
                                             <div class="input-group">
-                                                {{ $product->qty }}
-                                                <input  type="text" value="{{ $product->qty }}" name="demo_vertical2" class="form-control" style="display: block;">
-                                                    <span class="input-group-btn-vertical">
-                                                    <a class="btn btn-default" href="{{route('frontend.cart.increase', $product->rowId)}}" type="button"><i
-                                                            class="glyphicon glyphicon-plus"></i></a>
-                                                    <a class="btn btn-default " href="{{route('frontend.cart.decrease', $product->rowId)}}"
+                                                <input type="text" value="{{ $product->qty }}" name="demo_vertical2"
+                                                    class="form-control" style="display: block; text-align:center">
+                                                <span class="input-group-btn-vertical" style="">
+                                                    <a class="btn btn-default"
+                                                        href="{{ route('frontend.cart.increase', $product->rowId) }}"
+                                                        type="button">
+                                                        <i class="glyphicon glyphicon-plus"></i></a>
+                                                    <a class="btn btn-default "
+                                                        href="{{ route('frontend.cart.decrease', $product->rowId) }}"
                                                         type="button"><i class="glyphicon glyphicon-minus"></i></a>
                                                 </span>
                                             </div>
                                         </td>
+                                        <style>
+                                            .bootstrap-touchspin-down{
+                                                display: none;
+                                            }
+                                            .bootstrap-touchspin-up{
+                                                display: none;
+                                            }
+                                        </style>
                                         <td data-title="Price" class="numeric">
                                             {{ $product->price * $product->qty }}
                                         </td>
-                                        <td data-title="Open" class="numeric" style="width:7%"><a href="#"><i
-                                                    class="fa fa-times"></i></a>
+                                        <td data-title="Open" class="numeric" style="width:7%">
+                                            <a href="{{ route('frontend.cart.remove', ['rowId'=>$product->rowId]) }}">
+                                                <i class="fa fa-times"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -83,7 +97,7 @@
 
                     <div class="cart-buttons text-right">
                         <a href="#" class="m-b15 site-button m-r15 text-uppercase">Cập nhật giỏ hàng</a>
-                        <a href="#" class="m-b15 site-button text-uppercase">Mua tiếp</a>
+                        <a href="{{route('frontend.products.index')}}" class="m-b15 site-button text-uppercase">Mua tiếp</a>
                         <table class="table-bordered  table-condensed cf wt-responsive-table">
                             <thead class="cf text-center bg-primary">
                                 <tr>
@@ -96,7 +110,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <button>Thanh toán</button>
+                                        <a href="{{route('frontend.cart.pay',$product->id)}}">Thanh toán</a>
                                     </td>
                                 </tr>
                             </tbody>

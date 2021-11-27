@@ -25,7 +25,6 @@ class PostController extends Controller
             'tags' =>$tags,
             'categories' =>$categories
         ]);
-        
     }
 
     /**

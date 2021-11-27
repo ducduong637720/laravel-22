@@ -5,8 +5,8 @@
             <div class="row">
                 <div class="wt-topbar-left clearfix">
                     <ul class="list-unstyled e-p-bx pull-right">
-                        <li><i class="fa fa-envelope"></i>mail@startuprr.com</li>
-                        <li><i class="fa fa-phone"></i>(888) 123-4567</li>
+                        <li><i class="fa fa-envelope"></i>ducxauzaifa2k@gmail.com</li>
+                        <li><i class="fa fa-phone"></i>0971438184</li>
                     </ul>
                 </div>
                 <div class="wt-topbar-right clearfix " style="color:white; display:flex">

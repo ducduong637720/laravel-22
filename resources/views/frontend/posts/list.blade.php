@@ -1,12 +1,7 @@
 @extends('frontend.layouts.master')
 @section('header')
-    <div class="wt-bnr-inr overlay-wraper" style="background-image:url(/frontend/images/banner/blog-banner.jpg);">
+    <div class="wt-bnr-inr overlay-wraper" style="background-image:url(/frontend/images/banner/banner1.png);">
         <div class="overlay-main bg-black opacity-07"></div>
-        <div class="container">
-            <div class="wt-bnr-inr-entry">
-                <h1 class="text-white">Blog grid 2 with sidebar</h1>
-            </div>
-        </div>
     </div>
 @endsection
 @section('main')
@@ -40,19 +35,19 @@
                                                     <li class="post-author"><i class="fa fa-user"></i><a
                                                             href="javascript:void(0);">By
                                                             <span>{{ $post->user->name }}</span></a> </li>
-                                                    <li class="post-comment"><i class="fa fa-comments"></i> <a
-                                                            href="javascript:void(0);">0 Comments</a> </li>
+                                                    {{-- <li class="post-comment"><i class="fa fa-comments"></i> <a
+                                                            href="javascript:void(0);">0 Comments</a> </li> --}}
                                                 </ul>
                                             </div>
                                             <div class="wt-post-text" style="height: 55px">
                                                 <p style="   
-                                                 display: -webkit-box;
-                                                -webkit-line-clamp: 3;
-                                                -webkit-box-orient: vertical;
-                                                overflow: hidden;
-                                                text-overflow: ellipsis;
-                                                word-break: break-word;
-                                                ">{!! $post->content !!}</p>
+                                                                     display: -webkit-box;
+                                                                    -webkit-line-clamp: 3;
+                                                                    -webkit-box-orient: vertical;
+                                                                    overflow: hidden;
+                                                                    text-overflow: ellipsis;
+                                                                    word-break: break-word;
+                                                                    ">{!! $post->content !!}</p>
                                             </div><br>
                                             <div class="clearfix">
                                                 <div class="wt-post-readmore pull-left">
@@ -60,7 +55,7 @@
                                                         title="READ MORE" rel="bookmark" class="site-button-link">Xem chi
                                                         tiết</a>
                                                 </div>
-                                                <div class="widget_social_inks pull-right">
+                                                {{-- <div class="widget_social_inks pull-right">
                                                     <ul class="social-icons social-radius social-dark m-b0">
                                                         <li><a href="javascript:void(0);" class="fa fa-facebook"></a></li>
                                                         <li><a href="javascript:void(0);" class="fa fa-twitter"></a></li>
@@ -68,7 +63,7 @@
                                                         <li><a href="javascript:void(0);" class="fa fa-youtube"></a></li>
                                                         <li><a href="javascript:void(0);" class="fa fa-instagram"></a></li>
                                                     </ul>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </div>
                                     </div>
@@ -88,7 +83,7 @@
                     <aside class="side-bar">
 
                         <!-- 13. SEARCH -->
-                        <div class="widget bg-white ">
+                        {{-- <div class="widget bg-white ">
                             <h4 class="widget-title">Search</h4>
                             <div class="search-bx">
                                 <form role="search" method="post">
@@ -102,9 +97,9 @@
                                     </div>
                                 </form>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="widget bg-white  widget_tag_cloud">
-                            <h4 class="widget-title">Categories</h4>
+                            <h4 class="widget-title">Danh mục bài viết</h4>
                             <div class="tagcloud">
                                 @foreach ($categories as $category)
                                     <a
@@ -113,7 +108,7 @@
                             </div>
                         </div>
                         <!-- 2. RECENT POSTS -->
-                        <div class="widget bg-white  recent-posts-entry">
+                        {{-- <div class="widget bg-white  recent-posts-entry">
                             <h4 class="widget-title">Posts</h4>
                             <div class="section-content">
                                 <div class="wt-tabs tabs-default border">
@@ -246,9 +241,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- 4. OUR GALLERY  -->
-                        <div class="widget widget_gallery mfp-gallery">
+                        {{-- <div class="widget widget_gallery mfp-gallery">
                             <h4 class="widget-title">Our Gallery</h4>
                             <ul>
                                 <li>
@@ -335,15 +330,15 @@
                                     </div>
                                 </li>
                             </ul>
-                        </div>
+                        </div> --}}
                         <!-- 7. OUR CLIENT -->
-                        <div class="widget">
+                        {{-- <div class="widget">
                             <h4 class="widget-title">Our Client</h4>
                             <div class="owl-carousel widget-client p-t10 owl-loaded owl-drag">
                                 <div class="owl-stage-outer">
                                     <div class="owl-stage"
                                         style="transform: translate3d(-526px, 0px, 0px); transition: all 0.25s ease 0s; width: 1841px;">
-                                        {{-- <div class="owl-item cloned" style="width: 263px;">
+                                        <div class="owl-item cloned" style="width: 263px;">
                                             <div class="item">
                                                 <div class="ow-client-logo">
                                                     <div class="client-logo wt-img-effect on-color">
@@ -362,7 +357,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div> --}}
+                                        </div>
                                         <div class="owl-item active" style="width: 263px;">
                                             <div class="item">
                                                 <div class="ow-client-logo">
@@ -405,9 +400,9 @@
                                     <div class="owl-dot"><span></span></div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- 6. NEWSLETTER -->
-                        <div class="widget widget_newsletter-2 bg-white  ">
+                        {{-- <div class="widget widget_newsletter-2 bg-white  ">
                             <h4 class="widget-title">Newsletter</h4>
                             <div class="newsletter-bx p-a30">
                                 <div class="newsletter-icon">
@@ -431,26 +426,16 @@
                                     </form>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- 12. TAGS -->
                         <div class="widget bg-white  widget_tag_cloud">
-                            <h4 class="widget-title">Tags</h4>
+                            <h4 class="widget-title">Thẻ</h4>
                             <div class="tagcloud">
-                                <a href="javascript:void(0);">Trouble </a>
-                                <a href="javascript:void(0);">Programmers</a>
-                                <a href="javascript:void(0);">Never</a>
-                                <a href="javascript:void(0);">Tell</a>
-                                <a href="javascript:void(0);">Doing</a>
-                                <a href="javascript:void(0);">Person</a>
-                                <a href="javascript:void(0);">Inventors Tag</a>
-                                <a href="javascript:void(0);">Between </a>
-                                <a href="javascript:void(0);">Abilities</a>
-                                <a href="javascript:void(0);">Fault </a>
-                                <a href="javascript:void(0);">Gets </a>
-                                <a href="javascript:void(0);">Macho</a>
+                                @foreach ($tags as $tag)
+                                    <a href="">{{ $tag->name }}</a>
+                                @endforeach
                             </div>
                         </div>
-
                     </aside>
 
                 </div>

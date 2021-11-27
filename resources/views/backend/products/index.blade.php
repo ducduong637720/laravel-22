@@ -60,8 +60,9 @@
                             <thead>
                                 <tr>
                                     <th>Mã sản phẩm</th>
-                                    <th>Tên sản phẩm</th>
                                     <th>Ảnh sản phẩm</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Số lượng</th>
                                     <th>Đơn giá</th>
                                     <th>Thành tiền</th>
                                     <th>Danh mục</th>
@@ -79,22 +80,21 @@
                                 @foreach ($products as $product)
                                     <tr>
                                         <td>{{ $product->id }}</td>
-                                        <td>{{ $product->name }} </td>
                                         <td>
-                                            @if (!empty($product->info))
-                                                <img src="{{ $product->info_url_full ??''}}" width="100px" ; height="60px">
-                                            @endif
+                                            <img src="{{ $product->info_url_full }}" width="100px" ; height="60px">
                                         </td>
+                                        <td>{{ $product->name }}</td>
+                                        <td>{{ $product->quatity }}</td>
                                         <td>{{ $product->orgin_price_format }}</td>
                                         <td>{{ $product->sale_price_format }}</td>
-                                        <td>{{ $product->prodCategories->name ??''}}</td>
+                                        <td>{{ $product->prodcategory->name }}</td>
                                         <td>{{ $product->brand_id }}</td>
                                         <td>{!! $product->status_text !!}</td>
                                         <td>{{ $product->view_count }}</td>
                                         <td>{{ $product->sale_count }}</td>
                                         <td>{{ $product->review_count }}</td>
                                         <td>{{ $product->user->name }}</td>
-                                        <td>{{ $product->created_at }}</td>
+                                        <td>{{ $product->created_at->format('d/m/Y') }}</td>
                                         <td style="display: flex">
                                             <a href="{{ route('backend.products.edit', $product->id) }}"
                                                 class="btn btn-outline-info"><i class="far fa-edit"></i></a>

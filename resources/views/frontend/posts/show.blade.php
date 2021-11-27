@@ -1,12 +1,7 @@
 @extends('frontend.layouts.master')
 @section('header')
-    <div class="wt-bnr-inr overlay-wraper" style="background-image:url(/frontend/images/banner/blog-banner.jpg);">
+    <div class="wt-bnr-inr overlay-wraper" style="background-image:url(/frontend/images/banner/banner1.jpg);">
         <div class="overlay-main bg-black opacity-07"></div>
-        <div class="container">
-            <div class="wt-bnr-inr-entry">
-                <h1 class="text-white">Blog grid 3 with sidebar</h1>
-            </div>
-        </div>
     </div>
 @endsection
 @section('main')
@@ -36,18 +31,9 @@
                         </div>
                         <div class="wt-post-text">
                             <p>{{ $post->content }}</p>
-                            <blockquote>
-                                The trouble with programmers is that you can never tell what a programmer is doing until
-                                it's too late. The future belongs to a different kind of person with a different kind of
-                                mind: artists, inventors, storytellers-creative and holistic ‘right-brain’ thinkers whose
-                                abilities mark the fault line between who gets ahead and who doesn’t.
-                                <div class="p-t15">
-                                    <p> – Daniel Pink</p>
-                                </div>
-                            </blockquote>
                         </div>
                         <div class="widget bg-white  widget_tag_cloud">
-                            <h4 class="tagcloud">Tags</h4>
+                            <h4 class="tagcloud">Thẻ</h4>
                             <div class="tagcloud">
                                 @foreach ($post->tags as $tag)
                                     @if (isset($tag->name))
@@ -56,7 +42,7 @@
                                 @endforeach
                             </div>
                         </div>
-                        <div class="wt-box">
+                        {{-- <div class="wt-box">
                             <div class="wt-divider bg-gray-dark"><i class="icon-dot c-square"></i></div>
                             <div class="row  p-lr15">
                                 <h4 class="tagcloud pull-left m-t5 m-b0">Share this Post:</h4>
@@ -71,10 +57,10 @@
                                 </div>
                             </div>
                             <div class="wt-divider bg-gray-dark"><i class="icon-dot c-square"></i></div>
-                        </div>
+                        </div> --}}
                     </div>
 
-                    <div class="section-content p-t50">
+                    {{-- <div class="section-content p-t50">
                         <!-- TITLE START -->
                         <div class="section-head">
                             <h3 class="text-uppercase">Related Blog Post</h3>
@@ -321,9 +307,9 @@
 
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <div class="clear" id="comment-list">
+                    {{-- <div class="clear" id="comment-list">
                         <div class="comments-area" id="comments">
                             <h2 class="comments-title">8 Comments</h2>
                             <div class="p-tb30">
@@ -531,7 +517,7 @@
 
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <!-- BLOG END -->
 
                 </div>
@@ -541,11 +527,9 @@
 
                 <!-- SIDE BAR START -->
                 <div class="col-md-3">
-
                     <aside class="side-bar">
-
                         <!-- 13. SEARCH -->
-                        <div class="widget bg-white ">
+                        {{-- <div class="widget bg-white ">
                             <h4 class="widget-title">Search</h4>
                             <div class="search-bx">
                                 <form role="search" method="post">
@@ -559,9 +543,9 @@
                                     </div>
                                 </form>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- 2. RECENT POSTS -->
-                        <div class="widget bg-white  recent-posts-entry">
+                        {{-- <div class="widget bg-white  recent-posts-entry">
                             <h4 class="widget-title">Posts</h4>
                             <div class="section-content">
                                 <div class="wt-tabs tabs-default border">
@@ -694,9 +678,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- 4. OUR GALLERY  -->
-                        <div class="widget widget_gallery mfp-gallery">
+                        {{-- <div class="widget widget_gallery mfp-gallery">
                             <h4 class="widget-title">Our Gallery</h4>
                             <ul>
                                 <li>
@@ -784,19 +768,11 @@
                                 </li>
                             </ul>
 
-                        </div>
+                        </div> --}}
                         <!-- 7. OUR CLIENT -->
-                        <div class="widget">
+                        {{-- <div class="widget">
                             <h4 class="widget-title">Our Client</h4>
                             <div class="owl-carousel widget-client p-t10 owl-loaded owl-drag">
-
-                                <!-- COLUMNS 1 -->
-
-                                <!-- COLUMNS 2 -->
-
-                                <!-- COLUMNS 3 -->
-
-
                                 <div class="owl-stage-outer">
                                     <div class="owl-stage"
                                         style="transform: translate3d(-526px, 0px, 0px); transition: all 0.25s ease 0s; width: 1841px;">
@@ -882,9 +858,9 @@
                                     <div class="owl-dot"><span></span></div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- 6. NEWSLETTER -->
-                        <div class="widget widget_newsletter-2 bg-white  ">
+                        {{-- <div class="widget widget_newsletter-2 bg-white  ">
                             <h4 class="widget-title">Newsletter</h4>
                             <div class="newsletter-bx p-a30">
                                 <div class="newsletter-icon">
@@ -908,10 +884,19 @@
                                     </form>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- 12. TAGS -->
                         <div class="widget bg-white  widget_tag_cloud">
-                            <h4 class="widget-title">Tags</h4>
+                            <h4 class="widget-title">Danh mục bài viết</h4>
+                            <div class="tagcloud">
+                                @foreach ($categories as $category)
+                                    <a
+                                        href="{{ route('frontend.posts.category_posts', $category->id) }}">{{ $category->name }}</a>
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="widget bg-white  widget_tag_cloud">
+                            <h4 class="widget-title">Thẻ</h4>
                             <div class="tagcloud">
                                 @foreach ($tags as $tag)
                                     <a href="">{{ $tag->name }}</a>

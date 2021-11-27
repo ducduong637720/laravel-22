@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Image;
+use App\Models\Order;
 use App\Models\ProdCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +21,7 @@ class ProductController extends Controller
     {
         $products = Product::Paginate(6);
         return view('backend.products.index')->with([
-            'products' => $products
+            'products' => $products,
         ]);
     }
 
@@ -48,42 +49,24 @@ class ProductController extends Controller
         $data = $request->all();
         $product = new Product();
         $product->name = $data['name'];
+        $product->quatity = $data['quatity'];
         $product->content = $data['content'];
         $product->orgin_price = $data['orgin_price'];
         $product->sale_price = $data['sale_price'];
-        $product->category_id = $data['category_id'];
+        $product->category_id = $data['prodcategory'];
         $product->brand_id = 1;
         $product->status = $data['status'];
-        $product->option = $data['option'];
         $product->view_count = 200;
         $product->sale_count = 3000;
         $product->review_count = 120;
         $product->user_id = auth()->user()->id;
-        $product->user_updated_id = Auth::user()->id;
-        if ($request->hasFile('images')) {
-            foreach ($request->file('images') as $key => $file) {
-                $fileName = $file->getClientOriginalName();
-                $disk = 'products';
-                $path = $request->file('images')[$key]->storeAs('prods', $fileName, $disk);
-
-                $imagesArr[] = $path;
-
-            }
-
-            $product->info = json_encode($imagesArr);
-
+        if ($request->hasFile('info')) {
+            $disk = 'product';
+            $path = $request->file('info')->store('prods', $disk);
+            $product->disk = $disk;
+            $product->path = $path;
         }
         $product->save();
-        $insertedId = $product->id;
-
-        for ($i = 0; $i < count($imagesArr); $i++) {
-            $images = new Image();
-            $images->name = $imagesArr[$i];
-            $images->path = $imagesArr[$i];
-            $images->product_id = $insertedId;
-            $images->created_at = now();
-            $images->save();
-        }
         $request->session()->flash('success', 'Tạo sản phẩm thành công!');
         return redirect('backend/products');
     }
@@ -107,7 +90,12 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $prodCategories = ProdCategory::all();
+        $product = Product::find($id);
+        return view('backend.products.edit')->with([
+            'prodCategories' => $prodCategories,
+            'product' => $product,
+        ]);
     }
 
     /**
@@ -119,7 +107,29 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+        $data = $request->all();
+        $product->name = $data['name'];
+        $product->quatity = $data['quatity'];
+        $product->content = $data['content'];
+        $product->orgin_price = $data['orgin_price'];
+        $product->sale_price = $data['sale_price'];
+        $product->category_id = $data['prodcategory'];
+        $product->brand_id = 1;
+        $product->status = $data['status'];
+        $product->view_count = 200;
+        $product->sale_count = 3000;
+        $product->review_count = 120;
+        $product->user_id = auth()->user()->id;
+        if ($request->hasFile('info')) {
+            $disk = 'product';
+            $path = $request->file('info')->store('prods', $disk);
+            $product->disk = $disk;
+            $product->path = $path;
+        }
+        $product->save();
+        $request->session()->flash('success', 'Chỉnh phẩm thành công!');
+        return redirect('backend/products');
     }
 
     /**
@@ -128,8 +138,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        Product::destroy($id);
+        $request->session()->flash('success', 'Xóa sản phẩm thành công!');
+        return redirect()->route('backend.products.index');
     }
 }

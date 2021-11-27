@@ -1,7 +1,7 @@
 @extends('frontend.layouts.master')
 @section('header')
     <!-- INNER PAGE BANNER -->
-    <div class="wt-bnr-inr overlay-wraper" style="background-image:url(/frontend/images/banner/product-banner.jpg);">
+    <div class="wt-bnr-inr overlay-wraper" style="background-image:url(/frontend/images/banner/banner2.png);">
         <div class="overlay-main bg-black opacity-07"></div>
         <div class="container">
             <div class="wt-bnr-inr-entry">
@@ -34,7 +34,7 @@
                         <aside class="side-bar">
 
                             <!-- 13. SEARCH -->
-                            <div class="widget bg-white ">
+                            {{-- <div class="widget bg-white ">
                                 <h4 class="widget-title">Tìm kiếm</h4>
                                 <div class="search-bx">
                                     <form role="search" method="post">
@@ -48,9 +48,9 @@
                                         </div>
                                     </form>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- 2. RECENT POSTS -->
-                            <div class="widget bg-white  recent-posts-entry">
+                            {{-- <div class="widget bg-white  recent-posts-entry">
                                 <h4 class="widget-title">Bài viết</h4>
                                 <div class="section-content">
                                     <div class="wt-tabs tabs-default border">
@@ -184,9 +184,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- 4. OUR GALLERY  -->
-                            <div class="widget widget_gallery mfp-gallery">
+                            {{-- <div class="widget widget_gallery mfp-gallery">
                                 <h4 class="widget-title">Bộ sưu tập</h4>
                                 <ul>
                                     <li>
@@ -274,9 +274,9 @@
                                     </li>
                                 </ul>
 
-                            </div>
+                            </div> --}}
                             <!-- 7. OUR CLIENT -->
-                            <div class="widget">
+                            {{-- <div class="widget">
                                 <h4 class="widget-title">Thương hiệu</h4>
                                 <div class="owl-carousel widget-client p-t10">
 
@@ -306,9 +306,9 @@
                                     </div>
 
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- 6. NEWSLETTER -->
-                            <div class="widget widget_newsletter-2 bg-white  ">
+                            {{-- <div class="widget widget_newsletter-2 bg-white  ">
                                 <h4 class="widget-title">Tin tức mới</h4>
                                 <div class="newsletter-bx p-a30">
                                     <div class="newsletter-icon">
@@ -332,9 +332,9 @@
                                         </form>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- 12. TAGS -->
-                            <div class="widget bg-white  widget_tag_cloud">
+                            {{-- <div class="widget bg-white  widget_tag_cloud">
                                 <h4 class="widget-title">Thẻ</h4>
                                 <div class="tagcloud">
                                     <a href="javascript:void(0);">Trouble </a>
@@ -349,6 +349,16 @@
                                     <a href="javascript:void(0);">Fault </a>
                                     <a href="javascript:void(0);">Gets </a>
                                     <a href="javascript:void(0);">Macho</a>
+                                </div>
+                            </div> --}}
+                              <!-- 13. CATEGORIES -->
+                            <div class="widget bg-white  widget_tag_cloud">
+                                <h4 class="widget-title">Danh mục sản phẩm</h4>
+                                <div class="tagcloud">
+                                    @foreach ($prodcategories as $prodcategory)
+                                        <a
+                                            href="{{ route('frontend.products.prods_category', $prodcategory->id) }}">{{ $prodcategory->name }}</a>
+                                    @endforeach
                                 </div>
                             </div>
 
@@ -376,10 +386,10 @@
                                 <div class="col-md-3 col-sm-4 col-xs-6 col-xs-100pc m-b30">
                                     <div class="wt-box wt-product-box">
                                         <div class="wt-thum-bx wt-img-overlay1 wt-img-effect zoom">
-                                            <img src="/frontend/images/products/pic-1.jpg" alt="">
+                                            <img src="{{$product->info_url_full}}" alt="">
                                             <div class="overlay-bx">
                                                 <div class="overlay-icon">
-                                                    <a href="javascript:void(0);">
+                                                    <a href="{{ route('frontend.cart.create', $product->id) }}">
                                                         <i class="fa fa-cart-plus wt-icon-box-xs"></i>
                                                     </a>
                                                     <a class="mfp-link" href="javascript:void(0);">

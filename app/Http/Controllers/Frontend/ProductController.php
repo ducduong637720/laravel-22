@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\ProdCategory;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -15,39 +16,31 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $prodcategories = ProdCategory::all();
         $products = Product::get();
         return view('frontend.products.index')->with([
             'products' => $products,
+            'prodcategories' => $prodcategories,
         ]);
     }
     public function list()
     {
         $products = Product::get();
+        $prodcategories = ProdCategory::get();
         return view('frontend.products.list')->with([
             'products' => $products,
+            'prodcategories' => $prodcategories
         ]);
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    public function prods_category($id){
+        $prodcategories = ProdCategory::get();
+        $products = Product::where('category_id', $id)->get();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        return view('frontend.products.list')->with([
+            'products' => $products,
+            'prodcategories' => $prodcategories,
+        ]);
     }
-
     /**
      * Display the specified resource.
      *
@@ -62,45 +55,4 @@ class ProductController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-    public function cart()
-    {
-        return view('frontend.products.cart');
-    }
-    public function pay()
-    {
-        return view('frontend.products.pay');
-    }
 }

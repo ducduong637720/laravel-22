@@ -39,7 +39,13 @@ class CartController extends Controller
         return redirect()->route('frontend.cart.index');
     }
 
-    // public function remove($rowId)){
-    //     Cart::remove($rowId);
-    // }
+    public function remove($rowId){
+        Cart::remove($rowId);
+
+        return redirect()->route('frontend.cart.index');
+    }
+
+    public function pay($id){
+        return view('frontend.products.pay');
+    }
 }

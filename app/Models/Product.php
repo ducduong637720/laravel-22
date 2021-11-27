@@ -46,25 +46,25 @@ class Product extends Model
     }
     public function getInfoUrlFullAttribute()
     {
-        if (!empty($this->info)) {
-            if (Storage::disk($this->disk)->url($this->info)) {
-                return Storage::disk($this->disk)->url($this->info);
+        if (!empty($this->path)) {
+            if (Storage::disk($this->disk)->url($this->path)) {
+                return Storage::disk($this->disk)->url($this->path);
             } else {
-                return Storage::disk('public')->url('default.png');
+                return Storage::disk('product')->url('sp1.jpg');
             }
         } else {
-            return Storage::disk('public')->url('default.png');
+            return Storage::disk('product')->url('sp1.jpg');
         }
-        return Storage::disk($this->disk)->url($this->info);
+        return Storage::disk($this->disk)->url($this->path);
     }
 
     public function brand()
     {
         return $this->belongsTo(Brand::class);
     }
-    public function category()
+    public function prodcategory()
     {
-        return $this->belongsToMany(Category::class,'category_id');
+        return $this->belongsTo(ProdCategory::class, 'category_id','id');
     }
     public function reviews()
     {
@@ -81,7 +81,7 @@ class Product extends Model
     }
     public function images()
     {
-        return $this->hasMany(Image::class);
+        return $this->hasMany(Image::class, 'product_id');
     }
     public function user()
     {
@@ -91,5 +91,9 @@ class Product extends Model
     public function userUpdate()
     {
         return $this->belongsTo(User::class, 'user_updated_id');
+    }
+    public function getProductImageAttribute(){
+        return Image::where('product_id', $this->id)->get();
+        
     }
 }
