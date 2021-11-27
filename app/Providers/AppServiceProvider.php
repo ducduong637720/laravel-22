@@ -28,8 +28,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $menus = Menu::get();
-        View::share('menus', $menus);
-        Paginator::useBootstrap();
+        // $menus = Menu::get();
+        // View::share('menus', $menus);
+        // Paginator::useBootstrap();
     }
 }
