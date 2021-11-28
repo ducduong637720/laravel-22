@@ -30,6 +30,6 @@ class AppServiceProvider extends ServiceProvider
     {
         // $menus = Menu::get();
         // View::share('menus', $menus);
-        // Paginator::useBootstrap();
+        Paginator::useBootstrap();
     }
 }

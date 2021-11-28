@@ -18,7 +18,7 @@ use \App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', 'HomeController@index')->middleware(['auth']);
+Route::get('/', 'HomeController@index')->middleware(['auth'])->name('home');
 Route::prefix('backend')
     ->name('backend.')
     ->namespace('Backend')
@@ -49,14 +49,14 @@ Route::prefix('backend')
         Route::post('/login/user/{id}', 'UserController@loginWithUser')
             ->name('users.login');
         //Storage
-        Route::resource('storages', StorageController::class)->parameters(['storages' => 'id']);
-        Route::get('storages/download/{id}', 'StorageController@download')->name('storages.download');
+        // Route::resource('storages', StorageController::class)->parameters(['storages' => 'id']);
+        // Route::get('storages/download/{id}', 'StorageController@download')->name('storages.download');
         //Product
         Route::resource('products', ProductController::class);
         //Order
         Route::resource('orders', OrderController::class);
         //Image
-        Route::resource('images', ImageController::class);
+        // Route::resource('images', ImageController::class);
          //Brand
          Route::resource('brands', BrandController::class);
          //ProdCategory

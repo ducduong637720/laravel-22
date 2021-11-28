@@ -70,7 +70,6 @@
                                 <option value="{{ $role->id }}" @if (isset($selected)) {{ $selected }} @endif>{{ $role->name }}
                                 </option>
                             @endforeach
-
                         </select>
                     </div>
                     <div class="form-group">
@@ -80,9 +79,6 @@
                                 <input type="file" name="avatar" value="{{ $user->avatar }}" class="custom-file-input"
                                     id="exampleInputFile">
                                 <label class="custom-file-label" for="exampleInputFile">Đăng ảnh</label>
-                            </div>
-                            <div class="input-group-append">
-                                <span class="input-group-text">Upload</span>
                             </div>
                         </div>
                     </div>

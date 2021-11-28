@@ -73,8 +73,8 @@
                                         <td>{{ $category->id }}</td>
                                         <td> {{ $category->name }} </td>
                                         <td>{!! $category->status_text !!}</td>
-                                        <td>{{ $category->created_at }}</td>
-                                        <td>{{ $category->updated_at }}</td>
+                                        <td>{{ $category->created_at->format('d/m/Y') }}</td>
+                                        <td>{{ $category->updated_at->format('d/m/Y') }}</td>
                                         <td style="display: flex">
                                             <a href="{{ route('backend.categories.edit', $category->id) }}"
                                                 class="btn btn-outline-info"><i class="far fa-edit"></i></a>

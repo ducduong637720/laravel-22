@@ -57,7 +57,7 @@
                 <a href="#2" class="nav-link  @if (request()->routeIs('backend.categories.*')) active @endif">
                     <i class="fas fa-clipboard-list"></i>
                     <p>
-                      Danh mục bài viết
+                        Danh mục bài viết
                         <i class="fas fa-angle-left right"></i>
 
                     </p>
@@ -107,48 +107,6 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item @if (request()->routeIs('backend.images.*')) menu-open @endif">
-                <a href="#2" class="nav-link  @if (request()->routeIs('backend.images.*')) active @endif">
-                    <i class="fas fa-image"></i>
-                    <p>
-                        Ảnh
-                        <i class="fas fa-angle-left right"></i>
-                    </p>
-                </a>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="{{ route('backend.images.create') }}" class="nav-link  @if (request()->routeIs('backend.images.create')) active @endif">
-                            <i class="fas fa-plus-circle"></i>
-                            <p>Tạo mới ảnh</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('backend.images.index') }}" class="nav-link @if (request()->routeIs('backend.images.index')) active @endif">
-                            <i class="fas fa-list"></i>
-                            <p>Danh sách ảnh</p>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item @if (request()->routeIs('backend.storages.*')) menu-open @endif">
-                <a href="#2" class="nav-link  @if (request()->routeIs('backend.storages.*')) active @endif">
-                    <i class="fas fa-image"></i>
-                    <p>
-                        Storage
-                        <i class="fas fa-angle-left right"></i>
-
-                    </p>
-                </a>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="{{ route('backend.storages.index') }}" class="nav-link @if (request()->routeIs('backend.storages.index')) active @endif">
-                            <i class="far fa-list-alt"></i>
-                            <p>Danh sách storage</p>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
             <li class="nav-item @if (request()->routeIs('backend.products.*')) menu-open @endif">
                 <a href="#2" class="nav-link @if (request()->routeIs('backend.products.*')) active @endif">
                     <i class="fab fa-product-hunt"></i>
@@ -181,7 +139,7 @@
                 <a href="#2" class="nav-link @if (request()->routeIs('backend.prodcategories.*')) active @endif">
                     <i class="fab fa-product-hunt"></i>
                     <p>
-                       Danh mục sản phẩm
+                        Danh mục sản phẩm
                         <i class="fas fa-angle-left right"></i>
 
                     </p>
@@ -201,6 +159,26 @@
               @if (request()->routeIs('backend.prodcategories.index')) active @endif">
                             <i class="far fa-list-alt"></i>
                             <p>Danh mục sản phẩm</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item @if (request()->routeIs('backend.orders.*')) menu-open @endif">
+                <a href="#2" class="nav-link @if (request()->routeIs('backend.orders.*')) active @endif">
+                    <i class="fab fa-product-hunt"></i>
+                    <p>
+                        Đơn hàng
+                        <i class="fas fa-angle-left right"></i>
+
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="{{ route('backend.orders.index') }}"
+                            class="nav-link
+              @if (request()->routeIs('backend.orders.index')) active @endif">
+                            <i class="far fa-list-alt"></i>
+                            <p>Danh sách đơn hàng</p>
                         </a>
                     </li>
                 </ul>
@@ -260,9 +238,9 @@
             </li>
             <li class="nav-item @if (request()->routeIs('backend.roles.*')) menu-open @endif">
                 <a href="#2" class="nav-link  @if (request()->routeIs('backend.roles.*')) active @endif">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <i class="fas fa-user"></i>
                     <p>
-                        Quản lý Roles
+                        Quản lý chức vụ
                         <i class="fas fa-angle-left right"></i>
                     </p>
                 </a>
@@ -283,7 +261,7 @@
             </li>
             <li class="nav-item @if (request()->routeIs('backend.permissions.*')) menu-open @endif">
                 <a href="#2" class="nav-link  @if (request()->routeIs('backend.permissions.*')) active @endif">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <i class="fas fa-user"></i>
                     <p>
                         Quản lý Permissions
                         <i class="fas fa-angle-left right"></i>
@@ -306,7 +284,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item @if (request()->routeIs('backend.storages.*')) menu-open @endif">
+            {{-- <li class="nav-item @if (request()->routeIs('backend.storages.*')) menu-open @endif">
                 <a href="#2" class="nav-link  @if (request()->routeIs('backend.storages.*')) active @endif">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
@@ -322,7 +300,7 @@
                         </a>
                     </li>
                 </ul>
-            </li>
+            </li> --}}
         </ul>
     </nav>
     <!-- /.sidebar-menu -->

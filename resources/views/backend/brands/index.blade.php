@@ -76,7 +76,7 @@
                                                 <img src="{{ $brand->image_url_full }}" width="100px" ; height="60px">
                                             @endif
                                         </td>
-                                        <td>{{ $brand->created_at }}</td>
+                                        <td>{{ $brand->created_at->format('d/m/Y') }}</td>
                                         <td style="display: flex">
                                             <a href="{{ route('backend.brands.edit', $brand->id) }}"
                                                 class="btn btn-outline-info"><i class="far fa-edit"></i></a>

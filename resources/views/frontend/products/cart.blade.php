@@ -54,10 +54,9 @@
                             <tbody>
                                 @foreach ($products as $product)
                                     <tr>
-                                        <td data-title="Code"><img src="{{$product->info_url_full}}" alt=""></td>
+                                        <td data-title="Code"><img src="{{Storage::disk('product')->url($product->options->image)}}" style="width:40%; height:80px" alt=""></td>
                                         <td data-title="Company" style="width:40%">{{ $product->name }}</td>
                                         <td data-title="Price" class="numeric">{{ $product->price }}</td>
-
                                         <td class="numeric" style="width:8%">
                                             <div class="input-group">
                                                 <input type="text" value="{{ $product->qty }}" name="demo_vertical2"

@@ -18,7 +18,7 @@ class CartController extends Controller
 
     public function create($id){
         $product = Product::find($id);
-        Cart::add($product->id , $product->name, 1, $product->orgin_price, 0);
+        Cart::add($product->id , $product->name, 1, $product->orgin_price, 0, ['image'=> $product->path]);
 
         return redirect()->route('frontend.cart.index');
     }
@@ -45,7 +45,10 @@ class CartController extends Controller
         return redirect()->route('frontend.cart.index');
     }
 
-    public function pay($id){
-        return view('frontend.products.pay');
+    public function pay(){
+        $order = Cart::content();
+        return view('frontend.products.pay')->with([
+            'order' => $order
+        ]);
     }
 }

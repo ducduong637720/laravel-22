@@ -66,9 +66,6 @@
                                 <input type="file" name="avatar" class="custom-file-input" id="exampleInputFile">
                                 <label class="custom-file-label" for="exampleInputFile">Đăng ảnh</label>
                             </div>
-                            <div class="input-group-append">
-                                <span class="input-group-text">Upload</span>
-                            </div>
                         </div>
                     </div>
                     <div class="form-group">

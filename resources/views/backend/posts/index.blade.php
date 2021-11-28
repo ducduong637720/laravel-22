@@ -42,12 +42,6 @@
                                 <div class="input-group input-group-sm">
                                     <input type="text" name="title" value="{{ request()->get('title') }}"
                                         class="form-control float-right" placeholder="Tìm kiếm">
-                                    {{-- <select type="text" value="{{ request()->get('status') }}" class="form-control"
-                                        name="status">
-                                        <option value="1">Public</option>
-                                        <option value="0">Draft</option>
-                                        <option value="2">Done</option>
-                                    </select> --}}
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-default">
                                             <i class="fas fa-search"></i>
@@ -94,10 +88,8 @@
                                         <td>
                                             {{ $post->user->name }}
                                         </td>
-                                        {{-- <td>{{ $post->userUpdate->name }}</td> --}}
                                         <td>{!! $post->status_text !!}</td>
                                         <td>{{ $post->created_at->format('d/m/Y') }}</td>
-                                        {{-- <td>{{ $post->updated_at }}</td> --}}
                                         <td style="display: flex; margin-right: 10px">
                                             @can('update-post', $post)
                                                 <a href="{{ route('backend.posts.edit', $post->id) }}"
@@ -133,7 +125,7 @@
                                                                     action="{{ route('backend.posts.destroy', $post->id) }}">
                                                                     @csrf
                                                                     @method('DELETE')
-                                                                    <button type="button" class="btn btn-primary">Xóa</button>
+                                                                    <button type="submit" class="btn btn-primary">Xóa</button>
                                                                 </form>
                                                             </div>
                                                         </div>

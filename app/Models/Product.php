@@ -47,7 +47,7 @@ class Product extends Model
     public function getInfoUrlFullAttribute()
     {
         if (!empty($this->path)) {
-            if (Storage::disk($this->disk)->url($this->path)) {
+            if (Storage::disk($this->disk)->exists($this->path)) {
                 return Storage::disk($this->disk)->url($this->path);
             } else {
                 return Storage::disk('product')->url('sp1.jpg');

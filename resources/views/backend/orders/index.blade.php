@@ -58,20 +58,18 @@
                                     <th>Trạng thái</th>
                                     <th>Tổng tiền</th>
                                     <th>Ngày tạo</th>
-                                    <th>Ngày xóa</th>
-                                    <th>Phương thức thanh toán</th>
                                     <th>Hành động</th>
-                                    
+
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($orders as $order)
                                     <tr>
                                         <td>{{ $order->id }}</td>
-                                        <td> {{ $order->user->name }} <td>
+                                        <td>{{ $order->user->name ??'' }}</td>
                                         <td>{!! $order->status_text !!}</td>
-                                        <td>{{ $order->money_total }}</td>
-                                        <td>{{ $order->created_at }}</td>
+                                        <td>{{$order->money_total}}</td>
+                                        <td>{{ $order->created_at->format('d/m/Y') }}</td>
                                         <td style="display: flex">
                                             <a href="{{ route('backend.orders.edit', $order->id) }}"
                                                 class="btn btn-outline-info"><i class="far fa-edit"></i></a>

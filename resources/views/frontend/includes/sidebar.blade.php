@@ -206,7 +206,7 @@
                     </li>
 
                     <li class="has-mega-menu ">
-                        <a href="">Sản phẩm<i class="fa fa-chevron-down"></i></a>
+                        <a href="{{ route('frontend.products.index') }}">Sản phẩm<i class="fa fa-chevron-down"></i></a>
                         <ul class="mega-menu">
                             <li>
                                 <ul>

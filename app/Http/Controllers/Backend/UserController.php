@@ -20,15 +20,16 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
+        $users = User::simplePaginate(5);
         $name = $request->get('name');
         if (!empty($name)) {
-            $user = User::where('name', 'like', "%" . $name . "%")->get();
+            $users = User::where('name', 'like', "%" . $name . "%")->Paginate(6);
         }
-        $email = $request->get('email');
-        if ($email !== null) {
-            $user = User::where('email', $email)->get();
-        }
-        $users = User::simplePaginate(5);
+        // $email = $request->get('email');
+        // if ($email !== null) {
+        //     $user = User::where('email', $email)->get();
+        // }
+
         return view('backend.users.index')->with(['users' => $users]);
     }
 
@@ -40,7 +41,8 @@ class UserController extends Controller
     public function create()
     {
         $roles = Role::get();
-        return view('backend.users.create')->with(['roles' => $roles]);
+        return view('backend.users.create')
+            ->with(['roles' => $roles]);
     }
 
     /**
@@ -51,28 +53,28 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make(
-            $request->all(),
-            [
-                'avatar' => 'required|file|mimes:jpg,png|max:24|min:20'
-            ],
-            [
-                'required' => 'Trường :attribute phải nhập',
-                'content.required' => 'Nội dung không được trống',
+        // $validator = Validator::make(
+        //     $request->all(),
+        //     [
+        //         'avatar' => 'required|file|mimes:jpg,png|max:24|min:20'
+        //     ],
+        //     [
+        //         'required' => 'Trường :attribute phải nhập',
+        //         'content.required' => 'Nội dung không được trống',
 
-            ],
-            [
-                'title' => 'Tiêu đề',
-                'content' => 'Nội dung'
-            ]
-        );
+        //     ],
+        //     [
+        //         'title' => 'Tiêu đề',
+        //         'content' => 'Nội dung'
+        //     ]
+        // );
 
-        if ($validator->fails()) {
-            return redirect('backend/users/create')
-                ->withErrors($validator)
-                ->withInput();
-        }
-        $data = $request->only(['name', 'email', 'phone', 'address', 'password', 'status']);
+        // if ($validator->fails()) {
+        //     return redirect('backend/users/create')
+        //         ->withErrors($validator)
+        //         ->withInput();
+        // }
+        $data = $request->all();
         $roles = $request->get('roles');
         $user = new User();
         $user->name = $data['name'];
@@ -84,7 +86,7 @@ class UserController extends Controller
             $path = $request->file('avatar')->store('blogs', $disk);
             $user->disk = $disk;
             $user->avatar = $path;
-        } 
+        }
         $user->save();
 
         DB::table('user_infos')->insert([
@@ -139,7 +141,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->only(['name', 'email', 'phone', 'address']);
+        $data = $request->all();
         $roles = $request->get('roles');
         $user = User::find($id);
         $user->name = $data['name'];
@@ -148,8 +150,8 @@ class UserController extends Controller
             $disk = 'public';
             $path = $request->file('avatar')->store('blogs', $disk);
             $user->disk = $disk;
-            $user->img_url = $path;
-        } 
+            $user->avatar = $path;
+        }
         $user->save();
         DB::table('user_infos')->where('user_id', $id)->update([
             'address' => $data['address'],

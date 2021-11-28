@@ -1,4 +1,4 @@
-@extends('backend.layouts.master')
+{{-- @extends('backend.layouts.master')
 @section('title')
     Show Post
 @endsection
@@ -40,4 +40,4 @@
             </a>
         </div>
     </div>
-@endsection
+@endsection --}}
